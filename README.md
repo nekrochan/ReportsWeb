@@ -1,5 +1,7 @@
-# Reports_WebStudying
+# Reports Web
 *Repository for Web App Development discipline*
+
+> ***ToDo:*** *set connection with postgresql*
 
 **Subject area:** Reports
 ## Explanation of Reports subject area
