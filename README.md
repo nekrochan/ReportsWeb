@@ -1,4 +1,4 @@
-# Reports_WebStudying
+# Reports Web
 *Repository for Web App Development discipline*
 
 **Subject area:** Reports
