@@ -9,7 +9,7 @@ public class ReporterDto {
     private String competence;
     private String organization;
 
-    private ReporterDto() {
+    public ReporterDto() {
     }
 
     public String getId() {

@@ -8,9 +8,13 @@ import org.example.service.dto.ReporterDto;
 import org.example.service.interfaces.ReportService;
 import org.example.service.interfaces.ReporterService;
 import org.example.utils.ValidationUtil;
+import org.example.views.ReportViewModel;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ReporterServiceImpl implements ReporterService {
@@ -45,4 +49,16 @@ public class ReporterServiceImpl implements ReporterService {
     public Reporter findReporterByName(String name) {
         return this.reporterRepository.findReporterByName(name);
     }
+
+    @Override
+    public List<ReportViewModel> findAllReports(String name) {
+        return this.reporterRepository
+                .findReporterByName(name)
+                .getReports()
+                .stream()
+                .map(product -> this.modelMapper.map(product, ReportViewModel.class))
+                .collect(Collectors.toList());
+    }
+
+
 }

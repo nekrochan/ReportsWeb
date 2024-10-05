@@ -31,7 +31,7 @@ public class Report extends BaseEntity{
         this.volume = volume;
     }
 
-    @OneToMany(mappedBy = "conference")
+    @ManyToOne
     public Conference getConference() {
         return conference;
     }

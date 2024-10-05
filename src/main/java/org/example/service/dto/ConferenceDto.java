@@ -11,7 +11,7 @@ public class ConferenceDto {
     private String hostName;
     private String founderName;
 
-    private ConferenceDto() {
+    public ConferenceDto() {
     }
 
     public String getId() {

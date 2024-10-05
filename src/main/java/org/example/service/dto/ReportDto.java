@@ -12,7 +12,7 @@ public class ReportDto {
     //private String confID;
     private String confName;
 
-    private ReportDto() {
+    public ReportDto() {
     }
 
     public String getId() {
