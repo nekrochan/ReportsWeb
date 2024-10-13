@@ -10,10 +10,13 @@ import org.example.service.interfaces.HostService;
 import org.example.utils.ValidationUtil;
 import org.example.views.ReportViewModel;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
 public class ConferenceServiceImpl implements ConferenceService {
 
     private final ConferenceRepository conferenceRepository;
@@ -22,7 +25,13 @@ public class ConferenceServiceImpl implements ConferenceService {
     private final FounderService founderService;
     private final HostService hostService;
 
-    public ConferenceServiceImpl(ConferenceRepository conferenceRepository, ModelMapper modelMapper, ValidationUtil validationUtil, FounderService founderService, HostService hostService) {
+    @Autowired
+    public ConferenceServiceImpl(
+            ConferenceRepository conferenceRepository,
+            ModelMapper modelMapper,
+            ValidationUtil validationUtil,
+            FounderService founderService,
+            HostService hostService) {
         this.conferenceRepository = conferenceRepository;
         this.modelMapper = modelMapper;
         this.validationUtil = validationUtil;

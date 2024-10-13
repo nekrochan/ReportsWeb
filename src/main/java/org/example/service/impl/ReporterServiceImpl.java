@@ -24,7 +24,10 @@ public class ReporterServiceImpl implements ReporterService {
     private final ValidationUtil validationUtil;
 
     @Autowired
-    public ReporterServiceImpl(ReporterRepository reporterRepository, ModelMapper modelMapper, ValidationUtil validationUtil) {
+    public ReporterServiceImpl(
+            ReporterRepository reporterRepository,
+            ModelMapper modelMapper,
+            ValidationUtil validationUtil) {
         this.reporterRepository = reporterRepository;
         this.modelMapper = modelMapper;
         this.validationUtil = validationUtil;

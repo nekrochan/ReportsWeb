@@ -21,7 +21,13 @@ public class ReportServiceImpl implements ReportService {
     private final ConferenceService conferenceService;
 
     @Autowired
-    public ReportServiceImpl(ReportRepository reportRepository, ModelMapper modelMapper, ValidationUtil validationUtil, ReporterService reporterService, ConferenceService conferenceService) {
+    public ReportServiceImpl(
+            ReportRepository reportRepository,
+            ModelMapper modelMapper,
+            ValidationUtil validationUtil,
+            ReporterService reporterService,
+            ConferenceService conferenceService
+    ) {
         this.reportRepository = reportRepository;
         this.modelMapper = modelMapper;
         this.validationUtil = validationUtil;
