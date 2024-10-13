@@ -13,7 +13,7 @@ public class Host extends BaseEntity{
     private String hostName;
     private Set<Conference> conferences;
 
-    private Host() {
+    public Host() {
     }
 
     @Column(name = "hostName")

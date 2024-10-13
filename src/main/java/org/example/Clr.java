@@ -26,7 +26,7 @@ public class Clr implements CommandLineRunner {
     private final FounderService founderService;
     private final HostService hostService;
 
-    @Autowired
+    //@Autowired
     public Clr(ReportService reportService, ReporterService reporterService, ConferenceService conferenceService, FounderService founderService, HostService hostService) {
         this.reportService = reportService;
         this.reporterService = reporterService;

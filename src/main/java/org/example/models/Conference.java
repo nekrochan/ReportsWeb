@@ -13,7 +13,7 @@ public class Conference extends BaseEntity{
     private Host host;
     private Founder founder;
 
-    private Conference() {
+    public Conference() {
     }
 
     @Column(name = "confName")

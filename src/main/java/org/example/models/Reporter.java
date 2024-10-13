@@ -12,7 +12,7 @@ public class Reporter extends BaseEntity{
     private String organization;
     private Set<Report> reports;
 
-    private Reporter() {
+    public Reporter() {
     }
 
     @Column(name = "reporterName")

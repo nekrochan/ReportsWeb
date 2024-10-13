@@ -9,15 +9,15 @@
 	- id - not null, unique, string;
 	- theme - not null, string;
 	- value - string;
-	- reporterName - string;;
-	- conferenceName - string;;
+	- reporterName - string;
+	- conferenceName - string.
 
 
 - Reporter:
 	- id - not null, unique, string;
 	- reporterName - not null, string;
-	- competence - string;;
-	- organization - string;;
+	- competence - string;
+	- organization - string.
 
 
 - Conference:
@@ -25,17 +25,17 @@
 	- confName - not null, string;
 	- year - number;
 	- hostName - string;
-	- founderName - string;
+	- founderName - string.
 
 
 - Host:
 	- id - not null, unique, string;
-	- hostName - not null, string;
+	- hostName - not null, string.
 
 
 - Founder:
 	- id - not null, unique, string;
-	- founderName - not null, string;
+	- founderName - not null, string.
 
 ## ERD for Reports subject area
 ![ReportsERDfromSQL.png](ReportsERDfromSQL.png)

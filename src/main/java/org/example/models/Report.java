@@ -10,7 +10,7 @@ public class Report extends BaseEntity{
     private Conference conference;
     private Reporter reporter;
 
-    private Report() {
+    public Report() {
     }
 
     @Column(name = "theme")

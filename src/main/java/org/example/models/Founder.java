@@ -12,7 +12,7 @@ public class Founder extends BaseEntity{
     private String founderName;
     private Set<Conference> conferences;
 
-    private Founder() {
+    public Founder() {
     }
 
     public String getFounderName() {
