@@ -1,9 +1,6 @@
 package org.example.models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.util.Set;
 
@@ -12,8 +9,19 @@ import java.util.Set;
 public class Host extends BaseEntity{
     private String hostName;
     private Set<Conference> conferences;
+    private String id;
 
     public Host() {
+    }
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     @Column(name = "hostName")

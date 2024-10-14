@@ -37,11 +37,9 @@ public class Clr implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        System.out.println("\n\nREPORTS WEB SERVICE\n-------------------\n");
 
         while (true){
-            System.out.println("-------MENU--------");
-            System.out.println("Choose option from:" +
+            System.out.println("CHOOSE AN OPTION:" +
                     "\n1 - for Add Report" +
                     "\n2 - for Add Reporter" +
                     "\n3 - for Add Conference" +
@@ -108,10 +106,9 @@ public class Clr implements CommandLineRunner {
     private void addHost() throws IOException {
         System.out.println("Enter name of host organization:");
         String hostName = this.bufferedReader.readLine();
-        this.hostService.addHost(hostName);
 
         try {
-            this.founderService.addFounder(hostName);
+            this.hostService.addHost(hostName);
             System.out.println("Host organization added successfully!");
         } catch (Exception e) {
             System.out.println("Error! Unable to add the host organization!");
@@ -134,7 +131,7 @@ public class Clr implements CommandLineRunner {
     private void addConference() throws IOException {
         System.out.println("Enter conference details: " +
                 "conference name, year, host organization name, founder name. " +
-                "Enter it separated by spaces, without commas.");
+                "Enter it separated by ;");
         String[] confParams = this.bufferedReader.readLine()
                 .split(";");
 
@@ -156,7 +153,7 @@ public class Clr implements CommandLineRunner {
     private void addReporter() throws IOException {
         System.out.println("Enter reporter details: " +
                 "reporter name, competence, submitting organization. " +
-                "Enter it separated by spaces, without commas.");
+                "Enter it separated by ;");
         String[] reporterParams = this.bufferedReader.readLine()
                 .split(";");
 
@@ -177,7 +174,7 @@ public class Clr implements CommandLineRunner {
     private void addReport() throws IOException {
         System.out.println("Enter report details: " +
                 "theme, reporter name, conference name, volume. " +
-                "Enter it separated by spaces, without commas.");
+                "Enter it separated by ;");
         String[] reportParams = this.bufferedReader.readLine()
                 .split(";");
 

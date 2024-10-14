@@ -7,6 +7,7 @@ import java.util.Set;
 @Entity
 @Table(name = "conferences")
 public class Conference extends BaseEntity{
+    private String id;
     private String confName;
     private int year;
     private Set<Report> reports;
@@ -14,6 +15,16 @@ public class Conference extends BaseEntity{
     private Founder founder;
 
     public Conference() {
+    }
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     @Column(name = "confName")
