@@ -37,18 +37,18 @@ public class Clr implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        System.out.println("\n\nMENU\n\n");
+        System.out.println("\n\nREPORTS WEB SERVICE\n-------------------\n");
 
         while (true){
+            System.out.println("-------MENU--------");
             System.out.println("Choose option from:" +
                     "\n1 - for Add Report" +
                     "\n2 - for Add Reporter" +
                     "\n3 - for Add Conference" +
                     "\n4 - for Add Founder" +
                     "\n5 - for Add Host" +
-                    "\n6 - for Showing all conferences" +
-                    "\n7 - for Showing all reports from conference" +
-                    "\n8 - for Showing all reports of reporter"
+                    "\n6 - for Showing all reports from conference" +
+                    "\n7 - for Showing all reports of reporter"
             );
 
 
@@ -75,6 +75,9 @@ public class Clr implements CommandLineRunner {
                     break;
                 case "7":
                     this.ShowAllReportsOfReporter();
+                    break;
+                default:
+                    System.out.println("Unknown input");
                     break;
             }
         }
@@ -133,7 +136,7 @@ public class Clr implements CommandLineRunner {
                 "conference name, year, host organization name, founder name. " +
                 "Enter it separated by spaces, without commas.");
         String[] confParams = this.bufferedReader.readLine()
-                .split("\\s+");
+                .split(";");
 
         ConferenceDto conferenceDto = new ConferenceDto();
 
@@ -155,7 +158,7 @@ public class Clr implements CommandLineRunner {
                 "reporter name, competence, submitting organization. " +
                 "Enter it separated by spaces, without commas.");
         String[] reporterParams = this.bufferedReader.readLine()
-                .split("\\s+");
+                .split(";");
 
         ReporterDto reporterDto = new ReporterDto();
 
@@ -176,7 +179,7 @@ public class Clr implements CommandLineRunner {
                 "theme, reporter name, conference name, volume. " +
                 "Enter it separated by spaces, without commas.");
         String[] reportParams = this.bufferedReader.readLine()
-                .split("\\s+");
+                .split(";");
 
         ReportDto reportDto = new ReportDto();
 

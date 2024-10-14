@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface FounderRepository extends JpaRepository<Founder, String> {
-    Founder findFounderByName(String name);
+    Founder findFounderByFounderName(String name);
 }

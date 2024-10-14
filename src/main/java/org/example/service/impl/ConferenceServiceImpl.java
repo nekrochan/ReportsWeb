@@ -52,22 +52,22 @@ public class ConferenceServiceImpl implements ConferenceService {
         }
 
         Conference conference = this.modelMapper.map(conferenceDto, Conference.class);
-        conference.setFounder(this.founderService.findFounderByName(conferenceDto.getFounderName()));
-        conference.setHost(this.hostService.findHostByName(conferenceDto.getHostName()));
+        conference.setFounder(this.founderService.findFounderByFounderName(conferenceDto.getFounderName()));
+        conference.setHost(this.hostService.findHostByHostName(conferenceDto.getHostName()));
 
         this.conferenceRepository
                 .saveAndFlush(conference);
     }
 
     @Override
-    public Conference findConferenceByName(String name) {
-        return this.conferenceRepository.findConferenceByName(name);
+    public Conference findConferenceByConfName(String name) {
+        return this.conferenceRepository.findConferenceByConfName(name);
     }
 
     @Override
     public List<ReportViewModel> findAllReportsFromConference(String conferenceName) {
         return this.conferenceRepository
-                .findConferenceByName(conferenceName)
+                .findConferenceByConfName(conferenceName)
                 .getReports()
                 .stream()
                 .map(report -> this.modelMapper.map(report, ReportViewModel.class))

@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ConferenceRepository extends JpaRepository<Conference, String> {
-    Conference findConferenceByName(String name);
+    Conference findConferenceByConfName(String name);
 }

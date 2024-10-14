@@ -9,7 +9,7 @@ import java.util.List;
 public interface ConferenceService {
     void addConference(ConferenceDto conferenceDto);
 
-    Conference findConferenceByName(String name);
+    Conference findConferenceByConfName(String name);
 
     List<ReportViewModel> findAllReportsFromConference(String conferenceName);
 }

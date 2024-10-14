@@ -49,14 +49,14 @@ public class ReporterServiceImpl implements ReporterService {
     }
 
     @Override
-    public Reporter findReporterByName(String name) {
-        return this.reporterRepository.findReporterByName(name);
+    public Reporter findReporterByReporterName(String name) {
+        return this.reporterRepository.findReporterByReporterName(name);
     }
 
     @Override
     public List<ReportViewModel> findAllReports(String name) {
         return this.reporterRepository
-                .findReporterByName(name)
+                .findReporterByReporterName(name)
                 .getReports()
                 .stream()
                 .map(product -> this.modelMapper.map(product, ReportViewModel.class))

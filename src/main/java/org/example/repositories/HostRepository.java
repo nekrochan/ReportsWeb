@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface HostRepository extends JpaRepository<Host, String> {
-    Host findHostByName(String name);
+    Host findHostByHostName(String name);
 }

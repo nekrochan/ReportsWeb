@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ReporterRepository extends JpaRepository<Reporter, String> {
-    Reporter findReporterByName(String name);
+    Reporter findReporterByReporterName(String reporterName);
 }

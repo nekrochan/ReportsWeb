@@ -4,5 +4,5 @@ import org.example.models.Founder;
 
 public interface FounderService {
     void addFounder(String founderName);
-    Founder findFounderByName(String founderName);
+    Founder findFounderByFounderName(String founderName);
 }

@@ -46,7 +46,7 @@ public class FounderServiceImpl implements FounderService{
     }
 
     @Override
-    public Founder findFounderByName(String founderName) {
-        return this.founderRepository.findFounderByName(founderName);
+    public Founder findFounderByFounderName(String founderName) {
+        return this.founderRepository.findFounderByFounderName(founderName);
     }
 }

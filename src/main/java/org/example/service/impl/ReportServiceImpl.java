@@ -50,8 +50,8 @@ public class ReportServiceImpl implements ReportService {
         }
 
         Report report = this.modelMapper.map(reportDto, Report.class);
-        report.setReporter(reporterService.findReporterByName(reportDto.getReporterName()));
-        report.setConference(conferenceService.findConferenceByName(reportDto.getConfName()));
+        report.setReporter(reporterService.findReporterByReporterName(reportDto.getReporterName()));
+        report.setConference(conferenceService.findConferenceByConfName(reportDto.getConfName()));
 
         this.reportRepository.saveAndFlush(report);
     }

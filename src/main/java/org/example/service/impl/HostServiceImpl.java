@@ -46,7 +46,7 @@ public class HostServiceImpl implements HostService {
     }
 
     @Override
-    public Host findHostByName(String hostName) {
-        return this.hostRepository.findHostByName(hostName);
+    public Host findHostByHostName(String hostName) {
+        return this.hostRepository.findHostByHostName(hostName);
     }
 }

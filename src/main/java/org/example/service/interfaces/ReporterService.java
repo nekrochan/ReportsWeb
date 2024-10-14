@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface ReporterService {
     void addReporter(ReporterDto reporterDto);
-    Reporter findReporterByName(String name);
+    Reporter findReporterByReporterName(String name);
 
     List<ReportViewModel> findAllReports(String name);
 }
