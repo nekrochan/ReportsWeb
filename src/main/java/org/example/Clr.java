@@ -1,9 +1,12 @@
 package org.example;
 
+import org.example.models.Host;
 import org.example.service.dto.ConferenceDto;
 import org.example.service.dto.ReportDto;
 import org.example.service.dto.ReporterDto;
+import org.example.service.impl.HostServiceImpl;
 import org.example.service.interfaces.*;
+import org.example.views.ConferenceViewModel;
 import org.example.views.ReportViewModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -24,15 +27,15 @@ public class Clr implements CommandLineRunner {
     private final ReporterService reporterService;
     private final ConferenceService conferenceService;
     private final FounderService founderService;
-    private final HostService hostService;
+    private final HostServiceImpl hostServiceImpl;
 
     @Autowired
-    public Clr(ReportService reportService, ReporterService reporterService, ConferenceService conferenceService, FounderService founderService, HostService hostService) {
+    public Clr(ReportService reportService, ReporterService reporterService, ConferenceService conferenceService, FounderService founderService, HostServiceImpl hostServiceImpl) {
         this.reportService = reportService;
         this.reporterService = reporterService;
         this.conferenceService = conferenceService;
         this.founderService = founderService;
-        this.hostService = hostService;
+        this.hostServiceImpl = hostServiceImpl;
     }
 
     @Override
@@ -46,7 +49,8 @@ public class Clr implements CommandLineRunner {
                     "\n4 - for Add Founder" +
                     "\n5 - for Add Host" +
                     "\n6 - for Showing all reports from conference" +
-                    "\n7 - for Showing all reports of reporter"
+                    "\n7 - for Showing all reports of reporter" +
+                    "\n8 - for Showing all conferences"
             );
 
 
@@ -74,6 +78,9 @@ public class Clr implements CommandLineRunner {
                 case "7":
                     this.ShowAllReportsOfReporter();
                     break;
+                case "8":
+                    this.ShowAllConferences();
+                    break;
                 default:
                     System.out.println("Unknown input");
                     break;
@@ -81,15 +88,28 @@ public class Clr implements CommandLineRunner {
         }
     }
 
+    private void ShowAllConferences() {
+        List<ConferenceViewModel> conferenceViewModels = this.conferenceService.findAllConferences();
+
+        conferenceViewModels.forEach(conferenceViewModel -> {
+            System.out.printf("%s, year: %d\n",
+                    conferenceViewModel.getName(), conferenceViewModel.getYear());
+        });
+    }
+
     private void ShowAllReportsOfReporter() throws IOException {
         System.out.println("Enter a reporter name:");
         String reporterName = this.bufferedReader.readLine();
-        List<ReportViewModel> reportViewModels = this.reporterService
-                .findAllReports(reporterName);
+        try{
+            List<ReportViewModel> reportViewModels = this.reporterService
+                    .findAllReports(reporterName);
 
-        reportViewModels.forEach(reportViewModel -> {
-            System.out.printf("%s - %n pages\n", reportViewModel.getTheme(), reportViewModel.getValue());
-        });
+            reportViewModels.forEach(reportViewModel -> {
+                System.out.printf("%s - %n pages\n", reportViewModel.getTheme(), reportViewModel.getValue());
+            });
+        } catch (Exception e) {
+            System.out.println("Unable to find reports from conference");
+        }
     }
 
     private void ShowAllReportsFromConference() throws IOException {
@@ -108,7 +128,7 @@ public class Clr implements CommandLineRunner {
         String hostName = this.bufferedReader.readLine();
 
         try {
-            this.hostService.addHost(hostName);
+            this.hostServiceImpl.addHost(hostName);
             System.out.println("Host organization added successfully!");
         } catch (Exception e) {
             System.out.println("Error! Unable to add the host organization!");
@@ -192,4 +212,5 @@ public class Clr implements CommandLineRunner {
             System.out.println("Error! Unable to add the report!");
         }
     }
+
 }

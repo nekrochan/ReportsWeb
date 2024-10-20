@@ -10,6 +10,8 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class HostServiceImpl implements HostService {
     private final HostRepository hostRepository;
@@ -49,4 +51,5 @@ public class HostServiceImpl implements HostService {
     public Host findHostByHostName(String hostName) {
         return this.hostRepository.findHostByHostName(hostName);
     }
+
 }

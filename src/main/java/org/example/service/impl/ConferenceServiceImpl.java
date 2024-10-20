@@ -8,6 +8,7 @@ import org.example.service.interfaces.ConferenceService;
 import org.example.service.interfaces.FounderService;
 import org.example.service.interfaces.HostService;
 import org.example.utils.ValidationUtil;
+import org.example.views.ConferenceViewModel;
 import org.example.views.ReportViewModel;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -71,6 +72,15 @@ public class ConferenceServiceImpl implements ConferenceService {
                 .getReports()
                 .stream()
                 .map(report -> this.modelMapper.map(report, ReportViewModel.class))
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<ConferenceViewModel> findAllConferences() {
+        return this.conferenceRepository.
+                findAll().
+                stream().
+                map(conference -> this.modelMapper.map(conference, ConferenceViewModel.class))
                 .collect(Collectors.toList());
     }
 

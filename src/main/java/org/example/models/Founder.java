@@ -14,6 +14,7 @@ public class Founder extends BaseEntity{
     public Founder() {
     }
 
+    /*
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     public String getId() {
@@ -23,6 +24,8 @@ public class Founder extends BaseEntity{
     public void setId(String id) {
         this.id = id;
     }
+
+     */
 
     public String getFounderName() {
         return founderName;

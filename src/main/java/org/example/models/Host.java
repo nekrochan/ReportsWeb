@@ -14,6 +14,7 @@ public class Host extends BaseEntity{
     public Host() {
     }
 
+    /*
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     public String getId() {
@@ -23,6 +24,8 @@ public class Host extends BaseEntity{
     public void setId(String id) {
         this.id = id;
     }
+
+     */
 
     @Column(name = "hostName")
     public String getHostName() {

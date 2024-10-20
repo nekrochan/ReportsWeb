@@ -16,6 +16,7 @@ public class Reporter extends BaseEntity{
     public Reporter() {
     }
 
+    /*
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     public String getId() {
@@ -25,6 +26,8 @@ public class Reporter extends BaseEntity{
     public void setId(String id) {
         this.id = id;
     }
+
+     */
 
     @Column(name = "reporterName")
     public String getReporterName() {

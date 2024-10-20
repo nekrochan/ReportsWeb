@@ -14,6 +14,7 @@ public class Report extends BaseEntity{
     public Report() {
     }
 
+    /*
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     public String getId() {
@@ -23,6 +24,8 @@ public class Report extends BaseEntity{
     public void setId(String id) {
         this.id = id;
     }
+
+     */
 
     @Column(name = "theme")
     public String getTheme() {
