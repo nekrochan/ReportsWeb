@@ -12,6 +12,6 @@ public interface ConferenceService {
     Conference findConferenceByConfName(String name);
     List<ReportViewModel> findAllReportsFromConference(String conferenceName);
     List<ConferenceViewModel> findAllConferences();
-    Conference updateConference(ConferenceDto conferenceDto);
+    Conference updateConference(String name, ConferenceDto conferenceDto);
     void deleteConference(String confName);
 }

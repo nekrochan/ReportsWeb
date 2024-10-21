@@ -85,7 +85,7 @@ public class ConferenceServiceImpl implements ConferenceService {
     }
 
     @Override
-    public Conference updateConference(ConferenceDto conferenceDto) {
+    public Conference updateConference(String name, ConferenceDto conferenceDto) {
         if (!this.validationUtil.isValid(conferenceDto)) {
 
             this.validationUtil
