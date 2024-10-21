@@ -9,23 +9,9 @@ import java.util.Set;
 public class Founder extends BaseEntity{
     private String founderName;
     private Set<Conference> conferences;
-    private String id;
 
     public Founder() {
     }
-
-    /*
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-     */
 
     public String getFounderName() {
         return founderName;

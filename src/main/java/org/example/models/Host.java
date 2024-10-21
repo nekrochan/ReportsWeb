@@ -9,23 +9,9 @@ import java.util.Set;
 public class Host extends BaseEntity{
     private String hostName;
     private Set<Conference> conferences;
-    private String id;
 
     public Host() {
     }
-
-    /*
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-     */
 
     @Column(name = "hostName")
     public String getHostName() {

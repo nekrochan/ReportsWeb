@@ -11,23 +11,9 @@ public class Reporter extends BaseEntity{
     private String competence;
     private String organization;
     private Set<Report> reports;
-    private String id;
 
     public Reporter() {
     }
-
-    /*
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-     */
 
     @Column(name = "reporterName")
     public String getReporterName() {

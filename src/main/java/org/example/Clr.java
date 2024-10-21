@@ -41,7 +41,7 @@ public class Clr implements CommandLineRunner {
     public void run(String... args) throws Exception {
 
         while (true){
-            System.out.println("\n----------------" +
+            System.out.println("\n----------------\n" +
                     "CHOOSE AN OPTION:" +
                     "\n----------------" +
                     "\n1 - for Add Report" +
