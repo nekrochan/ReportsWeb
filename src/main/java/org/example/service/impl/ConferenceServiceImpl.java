@@ -84,4 +84,29 @@ public class ConferenceServiceImpl implements ConferenceService {
                 .collect(Collectors.toList());
     }
 
+    @Override
+    public Conference updateConference(ConferenceDto conferenceDto) {
+        if (!this.validationUtil.isValid(conferenceDto)) {
+
+            this.validationUtil
+                    .violations(conferenceDto)
+                    .stream()
+                    .map(ConstraintViolation::getMessage)
+                    .forEach(System.out::println);
+        }
+
+        Conference conference = this.modelMapper.map(conferenceDto, Conference.class);
+        conference.setFounder(this.founderService.findFounderByFounderName(conferenceDto.getFounderName()));
+        conference.setHost(this.hostService.findHostByHostName(conferenceDto.getHostName()));
+
+        return this.conferenceRepository.saveAndFlush(conference);
+    }
+
+    @Override
+    public void deleteConference(String confName) {
+        this.conferenceRepository.delete(
+                this.conferenceRepository.findConferenceByConfName(confName)
+        );
+    }
+
 }

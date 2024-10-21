@@ -9,9 +9,9 @@ import java.util.List;
 
 public interface ConferenceService {
     void addConference(ConferenceDto conferenceDto);
-
     Conference findConferenceByConfName(String name);
-
     List<ReportViewModel> findAllReportsFromConference(String conferenceName);
     List<ConferenceViewModel> findAllConferences();
+    Conference updateConference(ConferenceDto conferenceDto);
+    void deleteConference(String confName);
 }

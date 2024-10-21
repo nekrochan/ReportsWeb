@@ -73,4 +73,29 @@ public class ReportServiceImpl implements ReportService {
                 .map(report -> modelMapper.map(report, ReportViewModel.class))
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public Report updateReport(ReportDto reportDto) {
+        if (!this.validationUtil.isValid(reportDto)) {
+
+            this.validationUtil
+                    .violations(reportDto)
+                    .stream()
+                    .map(ConstraintViolation::getMessage)
+                    .forEach(System.out::println);
+
+            throw new IllegalArgumentException("Illegal arguments!");
+        }
+
+        Report report = this.modelMapper.map(reportDto, Report.class);
+        report.setReporter(reporterService.findReporterByReporterName(reportDto.getReporterName()));
+        report.setConference(conferenceService.findConferenceByConfName(reportDto.getConfName()));
+
+        return this.reportRepository.saveAndFlush(report);
+    }
+
+    @Override
+    public void deleteReport(String theme) {
+
+    }
 }

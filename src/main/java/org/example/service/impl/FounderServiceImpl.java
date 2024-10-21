@@ -61,4 +61,37 @@ public class FounderServiceImpl implements FounderService{
                 map(founder -> this.modelMapper.map(founder, FounderDto.class))
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public Founder updateFounder(String founderName) {
+        FounderDto founderDto = new FounderDto();
+        founderDto.setFounderName(founderName);
+
+        if (!this.validationUtil.isValid(founderDto)) {
+            this.validationUtil
+                    .violations(founderDto)
+                    .stream()
+                    .map(ConstraintViolation::getMessage)
+                    .forEach(System.out::println);
+
+        }
+        else {
+            try {
+                return
+                        this.founderRepository.saveAndFlush(
+                                this.modelMapper.map(founderDto, Founder.class)
+                        );
+            } catch (Exception e) {
+                System.out.println("Something went wrong!");
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public void deleteFounder(String founderName) {
+        this.founderRepository.delete(
+                this.founderRepository.findFounderByFounderName(founderName)
+        );
+    }
 }

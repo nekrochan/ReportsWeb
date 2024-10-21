@@ -9,4 +9,6 @@ public interface FounderService {
     void addFounder(String founderName);
     Founder findFounderByFounderName(String founderName);
     List<FounderDto> findAllFounders();
+    Founder updateFounder(String founderName);
+    void deleteFounder(String founderName);
 }

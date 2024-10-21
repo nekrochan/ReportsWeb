@@ -13,4 +13,6 @@ public interface ReporterService {
 
     List<ReportViewModel> findAllReports(String name);
     List<ReporterViewModel> findAllReporters();
+    Reporter updateReporter(ReporterDto reporterDto);
+    void deleteReporter(String reporterName);
 }

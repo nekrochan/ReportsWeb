@@ -1,6 +1,7 @@
 package org.example.service.impl;
 
 import jakarta.validation.ConstraintViolation;
+import org.example.models.Founder;
 import org.example.models.Host;
 import org.example.repositories.HostRepository;
 import org.example.service.dto.HostDto;
@@ -60,6 +61,38 @@ public class HostServiceImpl implements HostService {
                 stream().
                 map(host -> this.modelMapper.map(host, HostDto.class))
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public Host updateHost(String hostName) {
+        HostDto hostDto = new HostDto();
+        hostDto.setHostName(hostName);
+
+        if (!this.validationUtil.isValid(hostDto)) {
+            this.validationUtil
+                    .violations(hostDto)
+                    .stream()
+                    .map(ConstraintViolation::getMessage)
+                    .forEach(System.out::println);
+
+        } else {
+            try {
+                return
+                        this.hostRepository.saveAndFlush(
+                                this.modelMapper.map(hostDto, Host.class)
+                        );
+            } catch (Exception e) {
+                System.out.println("Some thing went wrong!");
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public void deleteHost(String hostName) {
+        this.hostRepository.delete(
+                this.hostRepository.findHostByHostName(hostName)
+        );
     }
 
 }

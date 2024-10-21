@@ -8,8 +8,8 @@ import java.util.List;
 
 public interface ReportService {
     void addReport(ReportDto reportDto);
-
-    Report findReportByTheme(String name);
-
+    Report findReportByTheme(String theme);
     List<ReportViewModel> findAllReports();
+    Report updateReport(ReportDto reportDto);
+    void deleteReport(String theme);
 }

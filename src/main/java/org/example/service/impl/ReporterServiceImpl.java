@@ -71,5 +71,26 @@ public class ReporterServiceImpl implements ReporterService {
                 .collect(Collectors.toList());
     }
 
+    @Override
+    public Reporter updateReporter(ReporterDto reporterDto) {
+        if (!this.validationUtil.isValid(reporterDto)) {
+            this.validationUtil
+                    .violations(reporterDto)
+                    .stream()
+                    .map(ConstraintViolation::getMessage)
+                    .forEach(System.out::println);
+
+        }
+        Reporter reporter = this.modelMapper.map(reporterDto, Reporter.class);
+        return this.reporterRepository.saveAndFlush(reporter);
+    }
+
+    @Override
+    public void deleteReporter(String reporterName) {
+        this.reporterRepository.delete(
+                this.reporterRepository.findReporterByReporterName(reporterName)
+        );
+    }
+
 
 }
