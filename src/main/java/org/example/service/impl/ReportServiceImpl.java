@@ -8,9 +8,13 @@ import org.example.service.interfaces.ConferenceService;
 import org.example.service.interfaces.ReportService;
 import org.example.service.interfaces.ReporterService;
 import org.example.utils.ValidationUtil;
+import org.example.views.ReportViewModel;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ReportServiceImpl implements ReportService {
@@ -59,5 +63,14 @@ public class ReportServiceImpl implements ReportService {
     @Override
     public Report findReportByTheme(String theme) {
         return this.reportRepository.findByTheme(theme);
+    }
+
+    @Override
+    public List<ReportViewModel> findAllReports() {
+        return this.reportRepository
+                .findAll()
+                .stream()
+                .map(report -> modelMapper.map(report, ReportViewModel.class))
+                .collect(Collectors.toList());
     }
 }

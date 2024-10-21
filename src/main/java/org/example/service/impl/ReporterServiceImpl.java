@@ -1,14 +1,13 @@
 package org.example.service.impl;
 
 import jakarta.validation.ConstraintViolation;
-import org.example.models.Report;
 import org.example.models.Reporter;
 import org.example.repositories.ReporterRepository;
 import org.example.service.dto.ReporterDto;
-import org.example.service.interfaces.ReportService;
 import org.example.service.interfaces.ReporterService;
 import org.example.utils.ValidationUtil;
 import org.example.views.ReportViewModel;
+import org.example.views.ReporterViewModel;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -59,7 +58,16 @@ public class ReporterServiceImpl implements ReporterService {
                 .findReporterByReporterName(name)
                 .getReports()
                 .stream()
-                .map(product -> this.modelMapper.map(product, ReportViewModel.class))
+                .map(report -> this.modelMapper.map(report, ReportViewModel.class))
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<ReporterViewModel> findAllReporters() {
+        return this.reporterRepository
+                .findAll()
+                .stream()
+                .map(reporter -> this.modelMapper.map(reporter, ReporterViewModel.class))
                 .collect(Collectors.toList());
     }
 

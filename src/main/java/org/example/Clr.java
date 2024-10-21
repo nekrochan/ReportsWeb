@@ -1,13 +1,12 @@
 package org.example;
 
 import org.example.models.Host;
-import org.example.service.dto.ConferenceDto;
-import org.example.service.dto.ReportDto;
-import org.example.service.dto.ReporterDto;
+import org.example.service.dto.*;
 import org.example.service.impl.HostServiceImpl;
 import org.example.service.interfaces.*;
 import org.example.views.ConferenceViewModel;
 import org.example.views.ReportViewModel;
+import org.example.views.ReporterViewModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -27,7 +26,7 @@ public class Clr implements CommandLineRunner {
     private final ReporterService reporterService;
     private final ConferenceService conferenceService;
     private final FounderService founderService;
-    private final HostServiceImpl hostServiceImpl;
+    private final HostService hostService;
 
     @Autowired
     public Clr(ReportService reportService, ReporterService reporterService, ConferenceService conferenceService, FounderService founderService, HostServiceImpl hostServiceImpl) {
@@ -35,22 +34,30 @@ public class Clr implements CommandLineRunner {
         this.reporterService = reporterService;
         this.conferenceService = conferenceService;
         this.founderService = founderService;
-        this.hostServiceImpl = hostServiceImpl;
+        this.hostService = hostServiceImpl;
     }
 
     @Override
     public void run(String... args) throws Exception {
 
         while (true){
-            System.out.println("CHOOSE AN OPTION:" +
+            System.out.println("\n----------------" +
+                    "CHOOSE AN OPTION:" +
+                    "\n----------------" +
                     "\n1 - for Add Report" +
                     "\n2 - for Add Reporter" +
                     "\n3 - for Add Conference" +
                     "\n4 - for Add Founder" +
                     "\n5 - for Add Host" +
+                    "\n----------------" +
                     "\n6 - for Showing all reports from conference" +
                     "\n7 - for Showing all reports of reporter" +
-                    "\n8 - for Showing all conferences"
+                    "\n----------------" +
+                    "\n8 - for Showing all conferences" +
+                    "\n9 - for Showing all founders" +
+                    "\n10 - for Showing all hosts" +
+                    "\n11 - for Showing all reporters" +
+                    "\n12 - for Showing all reports"
             );
 
 
@@ -81,6 +88,18 @@ public class Clr implements CommandLineRunner {
                 case "8":
                     this.ShowAllConferences();
                     break;
+                case "9":
+                    this.ShowAllFounders();
+                    break;
+                case "10":
+                    this.ShowAllHosts();
+                    break;
+                case "11":
+                    this.ShowAllReporters();
+                    break;
+                case "12":
+                    this.ShowAllReports();
+                    break;
                 default:
                     System.out.println("Unknown input");
                     break;
@@ -88,12 +107,51 @@ public class Clr implements CommandLineRunner {
         }
     }
 
+    private void ShowAllReports() {
+        List<ReporterViewModel> reporterViewModels = this.reporterService.findAllReporters();
+        System.out.println("----------------\nALL REPORTS:\n----------------");
+        if (reporterViewModels.isEmpty()) {
+            System.out.println("Can't find any report. List<ReporterViewModel> reporterViewModels is empty.");
+        }
+        else {
+            reporterViewModels
+                    .forEach(reporterViewModel ->
+                            System.out.println(reporterViewModel.getReporterName()));
+        }
+
+    }
+
+    private void ShowAllReporters() {
+        List<ReporterViewModel> reporterViewModels = this.reporterService.findAllReporters();
+        System.out.println("----------------\nALL REPORTERS:\n----------------");
+        reporterViewModels
+                .forEach(reporterViewModel ->
+                        System.out.println(reporterViewModel.getReporterName()));
+    }
+
+    private void ShowAllHosts() {
+        List<HostDto> hosts = this.hostService.findAllHosts();
+        System.out.println("----------------\nALL HOSTS:\n----------------");
+        hosts
+                .forEach(hostDto ->
+                        System.out.println(hostDto.getHostName()));
+    }
+
+    private void ShowAllFounders() {
+        List<FounderDto> founders = this.founderService.findAllFounders();
+        System.out.println("----------------\nALL FOUNDERS:\n----------------");
+        founders
+                .forEach(founderDto ->
+                        System.out.println(founderDto.getFounderName()));
+    }
+
     private void ShowAllConferences() {
         List<ConferenceViewModel> conferenceViewModels = this.conferenceService.findAllConferences();
 
-        conferenceViewModels.forEach(conferenceViewModel -> {
-            System.out.printf("%s, year: %d\n",
-                    conferenceViewModel.getName(), conferenceViewModel.getYear());
+        System.out.println("----------------\nALL CONFERENCES:\n----------------");
+        conferenceViewModels
+                .forEach(conferenceViewModel -> {
+                    System.out.printf("%s, year: %n", conferenceViewModel.getName(), conferenceViewModel.getYear());
         });
     }
 
@@ -104,23 +162,30 @@ public class Clr implements CommandLineRunner {
             List<ReportViewModel> reportViewModels = this.reporterService
                     .findAllReports(reporterName);
 
-            reportViewModels.forEach(reportViewModel -> {
-                System.out.printf("%s - %n pages\n", reportViewModel.getTheme(), reportViewModel.getValue());
+            reportViewModels
+                    .forEach(reportViewModel ->
+                    {System.out.printf("%s - %n pages\n", reportViewModel.getTheme(), reportViewModel.getValue());
             });
         } catch (Exception e) {
-            System.out.println("Unable to find reports from conference");
+            System.out.println("Error! Unable to find reports of reporter!");
         }
     }
 
     private void ShowAllReportsFromConference() throws IOException {
         System.out.println("Enter a conference name:");
         String conferenceName = this.bufferedReader.readLine();
-        List<ReportViewModel> reportViewModels = this.conferenceService
-                .findAllReportsFromConference(conferenceName);
+        try {
+            List<ReportViewModel> reportViewModels = this.conferenceService
+                    .findAllReportsFromConference(conferenceName);
 
-        reportViewModels.forEach(reportViewModel -> {
-            System.out.printf("%s - %n pages\n", reportViewModel.getTheme(), reportViewModel.getValue());
-        });
+            reportViewModels.
+                    forEach(reportViewModel -> {
+                        //System.out.printf("%s - %d pages\n", reportViewModel.getTheme(), reportViewModel.getValue());
+                        System.out.println(reportViewModel.getTheme() + " - " + reportViewModel.getValue() + " pages");
+            });
+        } catch (Exception e) {
+            System.out.println("Error! Unable to find reports from conference!");
+        }
     }
 
     private void addHost() throws IOException {
@@ -128,7 +193,7 @@ public class Clr implements CommandLineRunner {
         String hostName = this.bufferedReader.readLine();
 
         try {
-            this.hostServiceImpl.addHost(hostName);
+            this.hostService.addHost(hostName);
             System.out.println("Host organization added successfully!");
         } catch (Exception e) {
             System.out.println("Error! Unable to add the host organization!");

@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class HostServiceImpl implements HostService {
@@ -50,6 +51,15 @@ public class HostServiceImpl implements HostService {
     @Override
     public Host findHostByHostName(String hostName) {
         return this.hostRepository.findHostByHostName(hostName);
+    }
+
+    @Override
+    public List<HostDto> findAllHosts() {
+        return this.hostRepository.
+                findAll().
+                stream().
+                map(host -> this.modelMapper.map(host, HostDto.class))
+                .collect(Collectors.toList());
     }
 
 }

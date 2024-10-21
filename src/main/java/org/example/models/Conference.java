@@ -48,7 +48,7 @@ public class Conference extends BaseEntity{
         this.year = year;
     }
 
-    @OneToMany(mappedBy = "conference")
+    @OneToMany(mappedBy = "conference", fetch = FetchType.EAGER)
     public Set<Report> getReports() {
         return reports;
     }

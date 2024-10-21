@@ -10,6 +10,9 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class FounderServiceImpl implements FounderService{
     private final FounderRepository founderRepository;
@@ -40,7 +43,7 @@ public class FounderServiceImpl implements FounderService{
                 this.founderRepository
                         .saveAndFlush(this.modelMapper.map(founderDto, Founder.class));
             } catch (Exception e) {
-                System.out.println("Some thing went wrong!");
+                System.out.println("Something went wrong!");
             }
         }
     }
@@ -48,5 +51,14 @@ public class FounderServiceImpl implements FounderService{
     @Override
     public Founder findFounderByFounderName(String founderName) {
         return this.founderRepository.findFounderByFounderName(founderName);
+    }
+
+    @Override
+    public List<FounderDto> findAllFounders() {
+        return this.founderRepository.
+                findAll().
+                stream().
+                map(founder -> this.modelMapper.map(founder, FounderDto.class))
+                .collect(Collectors.toList());
     }
 }

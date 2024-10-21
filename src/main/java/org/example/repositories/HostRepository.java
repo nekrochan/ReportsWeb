@@ -11,4 +11,5 @@ import java.util.List;
 public interface HostRepository extends JpaRepository<Host, String> {
     Host findHostByHostName(String name);
 
+    List<Host> findAll();
 }
