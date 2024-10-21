@@ -39,8 +39,7 @@ public class Clr implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-
-        while (true){
+		while (true){
             System.out.println("\n----------------\n" +
                     "CHOOSE AN OPTION:" +
                     "\n----------------" +
@@ -105,6 +104,26 @@ public class Clr implements CommandLineRunner {
                     break;
             }
         }
+
+    }
+
+    private void DeleteHost() {
+    }
+
+    private void DeleteFounder() {
+        
+    }
+
+    private void DeleteConference() {
+        
+    }
+
+    private void DeleteReporter() {
+        
+    }
+
+    private void DeleteReport() {
+        
     }
 
     private void ShowAllReports() {
