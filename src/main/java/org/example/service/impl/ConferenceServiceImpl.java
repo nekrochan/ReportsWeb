@@ -4,6 +4,7 @@ import jakarta.validation.ConstraintViolation;
 import org.example.models.Conference;
 import org.example.repositories.ConferenceRepository;
 import org.example.service.dto.ConferenceDto;
+import org.example.service.dto.ReportDto;
 import org.example.service.interfaces.ConferenceService;
 import org.example.service.interfaces.FounderService;
 import org.example.service.interfaces.HostService;
@@ -72,6 +73,16 @@ public class ConferenceServiceImpl implements ConferenceService {
                 .getReports()
                 .stream()
                 .map(report -> this.modelMapper.map(report, ReportViewModel.class))
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<ReportDto> findAllReportsFromConfDto(String conferenceName) {
+        return this.conferenceRepository
+                .findConferenceByConfName(conferenceName)
+                .getReports()
+                .stream()
+                .map(report -> this.modelMapper.map(report, ReportDto.class))
                 .collect(Collectors.toList());
     }
 

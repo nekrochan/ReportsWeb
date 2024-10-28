@@ -53,7 +53,7 @@ public class ConferenceDto {
         return founderName;
     }
 
-    public void setFounder(String founderName) {
+    public void setFounderName(String founderName) {
         this.founderName = founderName;
     }
 }

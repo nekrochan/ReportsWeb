@@ -39,7 +39,8 @@ public class Clr implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-		while (true){
+
+        while (true){
             System.out.println("\n----------------\n" +
                     "CHOOSE AN OPTION:" +
                     "\n----------------" +
@@ -57,6 +58,7 @@ public class Clr implements CommandLineRunner {
                     "\n10 - for Showing all hosts" +
                     "\n11 - for Showing all reporters" +
                     "\n12 - for Showing all reports"
+
             );
 
 
@@ -105,25 +107,7 @@ public class Clr implements CommandLineRunner {
             }
         }
 
-    }
 
-    private void DeleteHost() {
-    }
-
-    private void DeleteFounder() {
-        
-    }
-
-    private void DeleteConference() {
-        
-    }
-
-    private void DeleteReporter() {
-        
-    }
-
-    private void DeleteReport() {
-        
     }
 
     private void ShowAllReports() {
@@ -170,7 +154,7 @@ public class Clr implements CommandLineRunner {
         System.out.println("----------------\nALL CONFERENCES:\n----------------");
         conferenceViewModels
                 .forEach(conferenceViewModel -> {
-                    System.out.printf("%s, year: %n", conferenceViewModel.getName(), conferenceViewModel.getYear());
+                    System.out.printf("%s, year: %d\n", conferenceViewModel.getName(), conferenceViewModel.getYear());
         });
     }
 
@@ -183,13 +167,14 @@ public class Clr implements CommandLineRunner {
 
             reportViewModels
                     .forEach(reportViewModel ->
-                    {System.out.printf("%s - %n pages\n", reportViewModel.getTheme(), reportViewModel.getValue());
+                    {System.out.printf("%s - %d pages\n", reportViewModel.getTheme(), reportViewModel.getValue());
             });
         } catch (Exception e) {
             System.out.println("Error! Unable to find reports of reporter!");
         }
     }
 
+    /*
     private void ShowAllReportsFromConference() throws IOException {
         System.out.println("Enter a conference name:");
         String conferenceName = this.bufferedReader.readLine();
@@ -199,8 +184,25 @@ public class Clr implements CommandLineRunner {
 
             reportViewModels.
                     forEach(reportViewModel -> {
-                        //System.out.printf("%s - %d pages\n", reportViewModel.getTheme(), reportViewModel.getValue());
-                        System.out.println(reportViewModel.getTheme() + " - " + reportViewModel.getValue() + " pages");
+                        System.out.printf("%s - %d pages\n", reportViewModel.getTheme(), reportViewModel.getValue());
+                        //System.out.println(reportViewModel.getTheme() + " - " + reportViewModel.getValue() + " pages");
+            });
+        } catch (Exception e) {
+            System.out.println("Error! Unable to find reports from conference!");
+        }
+    }
+
+     */
+
+    private void ShowAllReportsFromConference() throws IOException {
+        System.out.println("Enter a conference name:");
+        String conferenceName = this.bufferedReader.readLine();
+        try{
+            List<ReportDto> reportDtos = this.conferenceService
+                    .findAllReportsFromConfDto(conferenceName);
+
+            reportDtos.forEach(reportDto -> {
+                System.out.printf("%s - %d pages\n", reportDto.getTheme(), reportDto.getVolume());
             });
         } catch (Exception e) {
             System.out.println("Error! Unable to find reports from conference!");
@@ -244,7 +246,7 @@ public class Clr implements CommandLineRunner {
         conferenceDto.setConfName(confParams[0]);
         conferenceDto.setYear(Integer.valueOf(confParams[1]));
         conferenceDto.setHostName(confParams[2]);
-        conferenceDto.setHostName(confParams[3]);
+        conferenceDto.setFounderName(confParams[3]);
 
         try {
             this.conferenceService.addConference(conferenceDto);
