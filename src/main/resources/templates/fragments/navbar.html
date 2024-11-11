@@ -1,10 +1,61 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<nav class="navbar navbar-expand-lg bg-light"
+     xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+     xmlns:th="http://www.thymeleaf.org">
+  <div class="navbar" id="navbarNavAltMarkup">
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item">
+        <a class="nav-item nav-link text-dark" href="/">Home</a>
+      </li>
 
-</body>
-</html>
+      <li class="nav-item" sec:authorize="hasRole('ADMIN')">
+        <a class="nav-item nav-link text-dark" href="/conferences/add">Add Conference</a>
+      </li>
+      <li class="nav-item" sec:authorize="hasRole('ADMIN')">
+        <a class="nav-item nav-link text-dark" href="/hosts/add">Add Host</a>
+      </li>
+      <li class="nav-item" sec:authorize="hasRole('ADMIN')">
+        <a class="nav-item nav-link text-dark" href="/founders/add">Add Founder</a>
+      </li>
+
+      <li class="nav-item" sec:authorize="hasAnyRole('ADMIN', 'MODERATOR')">
+        <a class="nav-item nav-link text-dark" href="/reports/add">Add Report</a>
+      </li>
+      <li class="nav-item" sec:authorize="hasAnyRole('ADMIN', 'MODERATOR')">
+        <a class="nav-item nav-link text-dark" href="/reporters/add">Add Reporter</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-item nav-link text-dark" href="/conferences/all">All Conferences</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-item nav-link text-dark" href="/reports/all">All Reports</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-item nav-link text-dark" href="/reporters/all">All Reporters</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-item nav-link text-dark" href="/hosts/all">All Hosts</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-item nav-link text-dark" href="/founders/all">All Founders</a>
+      </li>
+
+      <li class="nav-item" sec:authorize="isAuthenticated()">
+        <a class="nav-item nav-link text-dark text-info" href="/users/profile"><th:block sec:authentication="name"></th:block></a>
+      </li>
+      <li class="nav-item" sec:authorize="isAuthenticated()">
+        <form
+                th:method="post"
+                th:action="@{/users/logout}">
+          <input class="btn btn-link nav-link" type="submit" value="Logout">
+        </form>
+      </li>
+      <li class="nav-item" sec:authorize="!isAuthenticated()">
+        <a class="nav-item nav-link text-dark" th:href="@{/users/register}">Register</a>
+      </li>
+      <li class="nav-item" sec:authorize="!isAuthenticated()">
+        <a class="nav-item nav-link text-dark" th:href="@{/users/login}">Login</a>
+      </li>
+    </ul>
+  </div>
+</nav>
