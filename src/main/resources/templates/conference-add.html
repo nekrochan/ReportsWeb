@@ -1,48 +1,55 @@
 <!DOCTYPE html>
 <html lang="en" class="h-100" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/head"/>
-
 <body class="d-flex flex-column h-100">
 <div th:replace="fragments/navbar">Navbar</div>
-<main class="flex-shrink-0">
+<div class="flex-shrink-0">
     <div class="container">
         <div class="row">
             <div class="col-md-2"></div>
-            <div class="jumbotron text-center rounded col-md-8 align-self-center pt-5">
+            <div class="jumbotron text-center rounded col-md-12 align-self-center pt-5">
                 <div class="justify-content-center">
-                    <h1>Add Company</h1>
+                    <h1>Add Conference</h1>
                 </div>
                 <form th:action="@{/conferences/add}"
                       th:method="post"
                       th:object="${conferenceModel}"
                       class="m-md-auto w-50 pb-3">
-                    <div class="mb-3">
-                        <label class="form-label" for="name">Name</label>
-                        <input th:field="*{name}"
-                               th:errorclass="is-invalid"
-                               type="text" class="form-control text-center" id="name" aria-describedby="nameHelp"
-                               name="name"/>
-                        <small th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="text-danger">Error
-                            message</small>
-                    </div>
 
                     <div class="mb-3">
-                        <label class="form-label" for="town">Town</label>
-                        <input th:field="*{town}"
-                               th:errorclass="is-invalid"
-                               type="text" class="form-control text-center" id="town" aria-describedby="town"
-                               name="town"/>
-                        <small th:if="${#fields.hasErrors('town')}" th:errors="*{town}" class="text-danger">Error
-                            message</small>
-                    </div>
-
-                    <div class="mb-3">
-                        <label class="form-label" for="description">Description</label>
-                        <input th:field="*{description}"
+                        <label class="form-label" for="confName">Conference Name</label>
+                        <input th:field="*{confName}"
                                th:errorclass="is-invalid"
                                type="text" class="form-control text-center"
-                               id="description" aria-describedby="description" name="description"/>
-                        <small th:if="${#fields.hasErrors('description')}" th:errors="*{description}"
+                               id="confName" aria-describedby="confName" name="confName"/>
+                        <small th:if="${#fields.hasErrors('confName')}" th:errors="*{confName}" class="text-danger">Error
+                            message</small>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="host"><h5>All available Hosts</h5></label>
+                        <select multiple="false" class="form-control text-center"
+                                id="host" name="name" th:field="*{hostName}">
+                            <option th:each="c : ${hosts}"
+                                    th:value="${c.name}"
+                                    th:text="${c.name}">Host name
+                            </option>
+                        </select>
+                        <small th:if="${#fields.hasErrors('hostName')}" th:errors="*{hostName}"
+                               class="text-danger">Error
+                            message</small>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="host"><h5>All available Founders</h5></label>
+                        <select multiple="false" class="form-control text-center"
+                                id="founder" name="name" th:field="*{founderName}">
+                            <option th:each="c : ${founders}"
+                                    th:value="${c.name}"
+                                    th:text="${c.name}">Founder name
+                            </option>
+                        </select>
+                        <small th:if="${#fields.hasErrors('founderName')}" th:errors="*{founderName}"
                                class="text-danger">Error
                             message</small>
                     </div>
@@ -51,17 +58,20 @@
                         <label class="form-label" for="year">Year</label>
                         <input th:field="*{year}"
                                th:errorclass="is-invalid"
-                               type="number" min="0" class="form-control text-center"
-                               id="year" aria-describedby="year" name="year"/>
-                        <small th:if="${#fields.hasErrors('budget')}" th:errors="*{year}"
-                               class="text-danger">Year</small>
+                               type="number" min="0"
+                               class="form-control text-center"
+                               id="year"
+                               aria-describedby="year" name="year"/>
+                        <small th:if="${#fields.hasErrors('year')}" th:errors="*{year}" class="text-danger">Error
+                            message</small>
                     </div>
-                    <button type="submit" class="btn btn-secondary">Add Company</button>
+
+                    <button type="submit" class="btn btn-secondary">Add Conference</button>
                 </form>
             </div>
         </div>
     </div>
-</main>
-<footer th:replace="fragments/footer"/>
+</div>
 </body>
+<footer th:replace="fragments/footer"/>
 </html>

@@ -1,10 +1,81 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<html lang="en" class="h-100" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head"/>
+<body class="d-flex flex-column h-100">
+<div th:replace="fragments/navbar">Navbar</div>
+<div class="flex-shrink-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="jumbotron text-center rounded col-md-12 align-self-center pt-5">
+                <div class="justify-content-center">
+                    <h1>Add Report</h1>
+                </div>
+                <form th:action="@{/reports/add}"
+                      th:method="post"
+                      th:object="${reportModel}"
+                      class="m-md-auto w-50 pb-3">
 
+                    <div class="mb-3">
+                        <label class="form-label" for="theme">Theme</label>
+                        <input th:field="*{theme}"
+                               th:errorclass="is-invalid"
+                               type="text" class="form-control text-center"
+                               id="theme" aria-describedby="theme" name="theme"/>
+                        <small th:if="${#fields.hasErrors('theme')}" th:errors="*{theme}" class="text-danger">Error
+                            message</small>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="volume">Volume</label>
+                        <input th:field="*{volume}"
+                               th:errorclass="is-invalid"
+                               type="number"
+                               class="form-control text-center"
+                               id="volume"
+                               aria-describedby="volume" name="volume"/>
+                        <small th:if="${#fields.hasErrors('volume')}" th:errors="*{volume}" class="text-danger">Error
+                            message</small>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="conference"><h5>All available conferences</h5></label>
+                        <select multiple="false" class="form-control text-center"
+                                id="conference" name="name" th:field="*{confName}">
+                            <option th:each="c : ${conferences}"
+                                    th:value="${c.name}"
+                                    th:text="${c.name}">Conference name
+                            </option>
+                        </select>
+                        <small th:if="${#fields.hasErrors('confName')}" th:errors="*{confName}"
+                               class="text-danger">Error
+                            message</small>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="reporter"><h5>All available reporters</h5></label>
+                        <select multiple="false" class="form-control text-center"
+                                id="reporter" name="name" th:field="*{reporterName}">
+                            <option th:each="c : ${reporters}"
+                                    th:value="${c.name}"
+                                    th:text="${c.name}">Reporter name
+                            </option>
+                            <!---
+                            th:each="c : ${reporters} - перебор циклом всех докладчиков
+                            th:value="${c.name}" - Значение, которое будет отправлено на сервер
+                            --->
+                        </select>
+                        <small th:if="${#fields.hasErrors('reporterName')}" th:errors="*{reporterName}"
+                               class="text-danger">Error
+                            message</small>
+                    </div>
+
+                    <button type="submit" class="btn btn-secondary">Add Report</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
+<footer th:replace="fragments/footer"/>
 </html>
