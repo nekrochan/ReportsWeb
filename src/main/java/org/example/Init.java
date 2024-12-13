@@ -20,7 +20,7 @@ public class Init implements CommandLineRunner {
     private final PasswordEncoder passwordEncoder;
     private final String defaultPassword;
 
-    public Init(UserRepository userRepository, UserRoleRepository userRoleRepository, PasswordEncoder passwordEncoder, @Value("${app.default.password}") String defaultPassword) {
+    public Init(UserRepository userRepository, UserRoleRepository userRoleRepository, PasswordEncoder passwordEncoder, @Value("${app.default.password:password}") String defaultPassword) {
         this.userRepository = userRepository;
         this.userRoleRepository = userRoleRepository;
         this.passwordEncoder = passwordEncoder;
@@ -56,7 +56,13 @@ public class Init implements CommandLineRunner {
         var adminRole = userRoleRepository.
                 findRoleByName(UserRoles.ADMIN).orElseThrow();
 
-        var adminUser = new User("admin", passwordEncoder.encode(defaultPassword), "admin@example.com", "AdminName AdminSurname", 30);
+        var adminUser = new User(
+                "admin",
+                passwordEncoder.encode(defaultPassword),
+                "admin@example.com",
+                "AdminName AdminSurname",
+                30
+        );
         adminUser.setRoles(List.of(adminRole));
 
         userRepository.save(adminUser);
@@ -67,7 +73,13 @@ public class Init implements CommandLineRunner {
         var moderatorRole = userRoleRepository.
                 findRoleByName(UserRoles.MODERATOR).orElseThrow();
 
-        var moderatorUser = new User("moderator", passwordEncoder.encode(defaultPassword), "moderator@example.com", "ModerName ModerSurname", 24);
+        var moderatorUser = new User(
+                "moderator",
+                passwordEncoder.encode(defaultPassword),
+                "moderator@example.com",
+                "ModerName ModerSurname",
+                24
+        );
         moderatorUser.setRoles(List.of(moderatorRole));
 
         userRepository.save(moderatorUser);
@@ -77,7 +89,13 @@ public class Init implements CommandLineRunner {
         var userRole = userRoleRepository.
                 findRoleByName(UserRoles.USER).orElseThrow();
 
-        var normalUser = new User("user", passwordEncoder.encode(defaultPassword), "user@example.com", "UserName UserSurname", 22);
+        var normalUser = new User(
+                "user",
+                passwordEncoder.encode(defaultPassword),
+                "user@example.com",
+                "UserName UserSurname",
+                22
+        );
         normalUser.setRoles(List.of(userRole));
 
         userRepository.save(normalUser);
