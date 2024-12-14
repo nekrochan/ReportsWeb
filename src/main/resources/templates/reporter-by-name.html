@@ -1,10 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
+
     <meta charset="UTF-8">
-    <title>Title</title>
+
+    <title>Reporter Details</title>
+
 </head>
+
 <body>
 
+<h1>Reporter Details</h1>
+
+<p>Name: <span th:text="${reporterByName.reporterName}"></span></p>
+
+<p>Competence: <span th:text="${reporterByName.competence}"></span></p>
+
+<p>Organization: <span th:text="${reporterByName.organization}"></span></p>
+
 </body>
+
 </html>

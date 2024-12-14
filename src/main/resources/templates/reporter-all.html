@@ -12,11 +12,9 @@
                 <div class='row mb-4 d-flex justify-content-around'>
                     <div th:if="${allReporters != null && !#lists.isEmpty(allReporters)}">
                         <div th:each="e : ${allReporters}" class="col-md-4 d-flex flex-column bg-text mb-3 rounded">
-                            <h2 th:text="'Conference name: ' + *{e.name}"></h2>
-                            <h4 th:value="'Year: ' + *{e.year}"></h4>
+                            <h2 th:text="'Reporter name: ' + *{e.reporterName}"></h2>
                             <h4><a class="btn-block"
-                                   th:href="@{/reporters/conference-by-name{conference-name}(conference-name=*{e.name})}">Detail
-                                info</a></h4>
+                                   th:href="@{/reporters/reporter-by-name/{reporter-name}(reporter-name=${e.reporterName})}">Detail info</a></h4>
                         </div>
                     </div>
                     <div th:if="${allReporters == null || #lists.isEmpty(allReporters)}">
