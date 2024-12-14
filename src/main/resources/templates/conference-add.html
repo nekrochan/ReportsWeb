@@ -28,12 +28,8 @@
 
                     <div class="mb-3">
                         <label class="form-label" for="host"><h5>All available Hosts</h5></label>
-                        <select multiple="false" class="form-control text-center"
-                                id="host" name="name" th:field="*{hostName}">
-                            <option th:each="c : ${hosts}"
-                                    th:value="${c.name}"
-                                    th:text="${c.name}">Host name
-                            </option>
+                        <select multiple="false" class="form-control text-center" id="host" name="hostName" th:field="*{hostName}">
+                            <option th:each="host : ${hosts}" th:value="${host.hostName}" th:text="${host.hostName}">Host name</option>
                         </select>
                         <small th:if="${#fields.hasErrors('hostName')}" th:errors="*{hostName}"
                                class="text-danger">Error
@@ -42,12 +38,8 @@
 
                     <div class="mb-3">
                         <label class="form-label" for="host"><h5>All available Founders</h5></label>
-                        <select multiple="false" class="form-control text-center"
-                                id="founder" name="name" th:field="*{founderName}">
-                            <option th:each="c : ${founders}"
-                                    th:value="${c.name}"
-                                    th:text="${c.name}">Founder name
-                            </option>
+                        <select multiple="false" class="form-control text-center" id="founder" name="founderName" th:field="*{founderName}">
+                            <option th:each="founder : ${founders}" th:value="${founder.founderName}" th:text="${founder.founderName}">Founder name</option>
                         </select>
                         <small th:if="${#fields.hasErrors('founderName')}" th:errors="*{founderName}"
                                class="text-danger">Error
