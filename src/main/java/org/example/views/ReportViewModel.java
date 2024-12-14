@@ -2,7 +2,7 @@ package org.example.views;
 
 public class ReportViewModel {
     private String theme;
-    private int value;
+    private int volume;
 
     public String getTheme() {
         return theme;
@@ -12,11 +12,11 @@ public class ReportViewModel {
         this.theme = theme;
     }
 
-    public int getValue() {
-        return value;
+    public int getVolume() {
+        return volume;
     }
 
-    public void setValue(int value) {
-        this.value = value;
+    public void setVolume(int volume) {
+        this.volume = volume;
     }
 }
