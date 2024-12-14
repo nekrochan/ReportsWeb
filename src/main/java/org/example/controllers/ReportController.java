@@ -21,6 +21,7 @@ public class ReportController {
     @Autowired
     private final ConferenceService conferenceService;
 
+    @Autowired
     private final ReporterService reporterService;
 
     public ReportController(ReportService reportService,
