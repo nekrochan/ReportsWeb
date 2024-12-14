@@ -1,7 +1,9 @@
 package org.example.controllers;
 
 import org.example.service.dto.ReportDto;
+import org.example.service.interfaces.ConferenceService;
 import org.example.service.interfaces.ReportService;
+import org.example.service.interfaces.ReporterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
@@ -16,14 +18,31 @@ public class ReportController {
 
     @Autowired
     private final ReportService reportService;
+    @Autowired
+    private final ConferenceService conferenceService;
 
-    public ReportController(ReportService reportService) {
+    private final ReporterService reporterService;
+
+    public ReportController(ReportService reportService,
+                            ConferenceService conferenceService,
+                            ReporterService reporterService) {
         this.reportService = reportService;
+        this.conferenceService = conferenceService;
+        this.reporterService = reporterService;
     }
 
     @GetMapping("/add")
-    public String addReport() {
+
+    public String addReport(Model model) {
+
+        model.addAttribute("reportModel", new ReportDto());
+
+        model.addAttribute("conferences", conferenceService.findAllConferences());
+
+        model.addAttribute("reporters", reporterService.findAllReporters());
+
         return "report-add";
+
     }
 
     @ModelAttribute("reportModel")

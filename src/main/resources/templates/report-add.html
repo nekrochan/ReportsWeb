@@ -56,10 +56,7 @@
                         <label class="form-label" for="reporter"><h5>All available reporters</h5></label>
                         <select multiple="false" class="form-control text-center"
                                 id="reporter" name="name" th:field="*{reporterName}">
-                            <option th:each="c : ${reporters}"
-                                    th:value="${c.name}"
-                                    th:text="${c.name}">Reporter name
-                            </option>
+                            <option th:each="r : ${reporters}" th:value="${r.reporterName}" th:text="${r.reporterName}">Reporter name</option>
                             <!---
                             th:each="c : ${reporters} - перебор циклом всех докладчиков
                             th:value="${c.name}" - Значение, которое будет отправлено на сервер
