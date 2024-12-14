@@ -1,10 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<html lang="en" class="h-100" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head"/>
+<body class="d-flex flex-column h-100">
+<div th:replace="fragments/navbar">Navbar</div>
+<div class="flex-shrink-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="jumbotron text-center rounded col-md-8 align-self-center pt-5">
+                <div class="justify-content-center">
+                    <h1>Add Reporter</h1>
+                </div>
+                <form th:action="@{/reporters/add}" th:method="post" th:object="${reporterModel}" class="m-md-auto w-50 pb-3">
+                    <div class="mb-3">
+                        <label class="form-label" for="reporterName">Reporter Name</label>
+                        <input th:field="*{reporterName}"
+                               th:errorclass="is-invalid"
+                               type="text" class="form-control text-center"
+                               id="reporterName" aria-describedby="reporterName" name="reporterName"/>
+                        <small th:if="${#fields.hasErrors('reporterName')}" th:errors="*{reporterName}" class="text-danger">Error message</small>
+                    </div>
 
+                    <div class="mb-3">
+                        <label class="form-label" for="competence">Competence</label>
+                        <input th:field="*{competence}"
+                               type="text" class="form-control text-center"
+                               id="competence" aria-describedby="competence" name="competence"/>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="organization">Organization</label>
+                        <input th:field="*{organization}"
+                               type="text" class="form-control text-center"
+                               id="organization" aria-describedby="organization" name="organization"/>
+                    </div>
+
+                    <button type="submit" class="btn btn-secondary">Add Reporter</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<footer th:replace="fragments/footer"/>
 </body>
 </html>

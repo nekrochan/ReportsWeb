@@ -47,7 +47,7 @@ public class HostController {
 
     @GetMapping("/all")
     public String showAllCompanies(Model model) {
-        model.addAttribute("hostInfos", hostService.findAllHosts());
+        model.addAttribute("allHosts", hostService.findAllHosts());
 
         return "host-all";
     }

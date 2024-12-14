@@ -47,7 +47,7 @@ public class ReportController {
 
     @GetMapping("/all")
     public String showAllReports(Model model) {
-        model.addAttribute("reportInfos", reportService.findAllReports());
+        model.addAttribute("allReports", reportService.findAllReports());
 
         return "report-all";
     }

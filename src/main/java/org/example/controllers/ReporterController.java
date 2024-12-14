@@ -47,7 +47,7 @@ public class ReporterController {
 
     @GetMapping("/all")
     public String showAllReporters(Model model) {
-        model.addAttribute("reporterInfos", reporterService.findAllReporters());
+        model.addAttribute("allReporters", reporterService.findAllReporters());
 
         return "reporter-all";
     }

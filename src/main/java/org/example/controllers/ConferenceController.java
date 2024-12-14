@@ -47,7 +47,7 @@ public class ConferenceController {
 
     @GetMapping("/all")
     public String showAllConferences(Model model) {
-        model.addAttribute("conferenceInfos", conferenceService.findAllConferences());
+        model.addAttribute("allConferences", conferenceService.findAllConferences());
 
         return "conference-all";
     }

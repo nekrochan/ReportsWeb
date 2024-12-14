@@ -47,7 +47,7 @@ public class FounderController {
 
     @GetMapping("/all")
     public String showAllCompanies(Model model) {
-        model.addAttribute("founderInfos", founderService.findAllFounders());
+        model.addAttribute("allFounders", founderService.findAllFounders());
 
         return "founder-all";
     }
