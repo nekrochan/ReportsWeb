@@ -96,6 +96,12 @@ public class ReportServiceImpl implements ReportService {
 
     @Override
     public void deleteReport(String theme) {
-
+        Report report = reportRepository.findByTheme(theme);
+        if (report != null) {
+            reportRepository.delete(report);
+        } else {
+            // Handle case where report is not found
+            throw new IllegalArgumentException("Report with theme '" + theme + "' not found.");
+        }
     }
 }

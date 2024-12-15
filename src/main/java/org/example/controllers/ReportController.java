@@ -79,8 +79,8 @@ public class ReportController {
         return "report-by-theme";
     }
 
-    @GetMapping("/report-delete/{report-theme}")
-    public String deleteReport(@PathVariable("report-theme") String theme) {
+    @GetMapping("/report-delete/{report-by-theme}")
+    public String deleteReport(@PathVariable("report-by-theme") String theme) {
         reportService.deleteReport(theme);
 
         return "redirect:/reports/all";

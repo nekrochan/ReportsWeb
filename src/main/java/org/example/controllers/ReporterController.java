@@ -59,8 +59,8 @@ public class ReporterController {
         return "reporter-by-name";
     }
 
-    @GetMapping("/reporter-delete/{reporter-name}")
-    public String deleteReporter(@PathVariable("reporter-name") String reporterName) {
+    @GetMapping("/reporter-delete/{reporter-by-name}")
+    public String deleteReporter(@PathVariable("reporter-by-name") String reporterName) {
         reporterService.deleteReporter(reporterName);
 
         return "redirect:/reporters/all";

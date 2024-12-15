@@ -1,6 +1,7 @@
 package org.example.service.impl;
 
 import jakarta.validation.ConstraintViolation;
+import org.example.models.Report;
 import org.example.models.Reporter;
 import org.example.repositories.ReporterRepository;
 import org.example.service.dto.ReporterDto;
@@ -87,9 +88,19 @@ public class ReporterServiceImpl implements ReporterService {
 
     @Override
     public void deleteReporter(String reporterName) {
+        /*
         this.reporterRepository.delete(
                 this.reporterRepository.findReporterByReporterName(reporterName)
         );
+
+         */
+        Reporter reporter = reporterRepository.findReporterByReporterName(reporterName);
+        if (reporter != null) {
+            reporterRepository.delete(reporter);
+        } else {
+            // Handle case where report is not found
+            throw new IllegalArgumentException("Report with theme '" + reporterName + "' not found.");
+        }
     }
 
 
