@@ -20,7 +20,7 @@
                         <h4 th:text="'Host: ' + ${conferenceByName.host?.hostName}"></h4>
                         <div class="align-bottom" sec:authorize="hasAnyRole('ADMIN', 'MODERATOR')">
                             <a class="btn btn-danger align-bottom"
-                               th:href="@{/conferences/conference-delete{conference-name}(conference-name=${conferenceByName.confName})}">
+                               th:href="@{/conferences/conference-delete/{conference-name}(conference-name=${conferenceByName.confName})}">
                                 Delete conference
                             </a>
                         </div>

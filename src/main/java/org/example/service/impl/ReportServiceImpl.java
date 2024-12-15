@@ -77,21 +77,23 @@ public class ReportServiceImpl implements ReportService {
     @Override
     public Report updateReport(ReportDto reportDto) {
         if (!this.validationUtil.isValid(reportDto)) {
-
-            this.validationUtil
-                    .violations(reportDto)
-                    .stream()
+            this.validationUtil.violations(reportDto).stream()
                     .map(ConstraintViolation::getMessage)
                     .forEach(System.out::println);
-
             throw new IllegalArgumentException("Illegal arguments!");
         }
 
-        Report report = this.modelMapper.map(reportDto, Report.class);
-        report.setReporter(reporterService.findReporterByReporterName(reportDto.getReporterName()));
-        report.setConference(conferenceService.findConferenceByConfName(reportDto.getConfName()));
+        Report existingReport = reportRepository.findByTheme(reportDto.getTheme());
+        if (existingReport == null) {
+            throw new IllegalArgumentException("Report not found.");
+        }
 
-        return this.reportRepository.saveAndFlush(report);
+        existingReport.setTheme(reportDto.getTheme());
+        existingReport.setVolume(reportDto.getVolume());
+        existingReport.setReporter(reporterService.findReporterByReporterName(reportDto.getReporterName()));
+        existingReport.setConference(conferenceService.findConferenceByConfName(reportDto.getConfName()));
+
+        return reportRepository.saveAndFlush(existingReport);
     }
 
     @Override

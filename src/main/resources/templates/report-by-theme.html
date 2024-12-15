@@ -19,6 +19,8 @@
                         <h4 th:text="'Reporter: ' + ${reportByTheme.reporter?.reporterName}"></h4>
                         <h4 th:text="'Conference: ' + ${reportByTheme.conference?.confName}"></h4>
                         <div class="align-bottom" sec:authorize="hasAnyRole('ADMIN', 'MODERATOR')">
+                            <a class="btn btn-success align-bottom"
+                               th:href="@{/reports/report-edit/{report-theme}(report-theme=${reportByTheme.theme})}">Edit report</a>
                             <a class="btn btn-danger align-bottom"
                                th:href="@{/reports/report-delete/{report-by-theme}(report-by-theme=${reportByTheme.theme})}">Delete report</a>
                         </div>

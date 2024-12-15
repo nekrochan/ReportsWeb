@@ -1,9 +1,11 @@
 package org.example.controllers;
 
+import org.example.models.Report;
 import org.example.service.dto.ReportDto;
 import org.example.service.interfaces.ConferenceService;
 import org.example.service.interfaces.ReportService;
 import org.example.service.interfaces.ReporterService;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
@@ -84,5 +86,39 @@ public class ReportController {
         reportService.deleteReport(theme);
 
         return "redirect:/reports/all";
+    }
+
+    @GetMapping("/report-edit/{report-theme}")
+    public String editReport(@PathVariable("report-theme") String theme, Model model) {
+        Report report = reportService.findReportByTheme(theme);
+        ModelMapper modelMapper = new ModelMapper();
+        if (report != null) {
+            ReportDto reportDto = modelMapper.map(report, ReportDto.class);
+            reportDto.setConfName(report.getConference().getConfName());
+            reportDto.setReporterName(report.getReporter().getReporterName());
+            model.addAttribute("reportModel", reportDto);
+            model.addAttribute("conferences", conferenceService.findAllConferences());
+            model.addAttribute("reporters", reporterService.findAllReporters());
+            return "report-edit";
+        } else {
+            // Handle case where report is not found
+            return "redirect:/reports/all";
+        }
+    }
+
+    @PostMapping("/report-edit/{report-theme}")
+    public String updateReport(@PathVariable("report-theme") String theme,
+                               @Valid ReportDto reportModel, BindingResult bindingResult,
+                               RedirectAttributes redirectAttributes) {
+
+        if (bindingResult.hasErrors()) {
+            redirectAttributes.addFlashAttribute("reportModel", reportModel);
+            redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.reportModel", bindingResult);
+            return "redirect:/reports/report-edit/" + theme;
+        }
+
+        reportService.updateReport(reportModel);
+
+        return "redirect:/reports/report-by-theme/" + reportModel.getTheme();
     }
 }
