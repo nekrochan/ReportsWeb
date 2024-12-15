@@ -72,7 +72,7 @@ public class ReportController {
         return "report-all";
     }
 
-    @GetMapping("/report-details/{report-theme}")
+    @GetMapping("/report-by-theme/{report-theme}")
     public String reportByTheme(@PathVariable("report-theme") String theme, Model model) {
         model.addAttribute("reportByTheme", reportService.findReportByTheme(theme));
 

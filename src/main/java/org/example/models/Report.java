@@ -31,7 +31,7 @@ public class Report extends BaseEntity{
         this.volume = volume;
     }
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     public Conference getConference() {
         return conference;
     }
@@ -40,7 +40,7 @@ public class Report extends BaseEntity{
         this.conference = conference;
     }
 
-    @ManyToOne()
+    @ManyToOne(fetch = FetchType.EAGER)
     public Reporter getReporter() {
         return reporter;
     }

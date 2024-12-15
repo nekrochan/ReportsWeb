@@ -16,8 +16,8 @@
                         <h2>Conference</h2>
                         <h4 th:text="'Conference Name: ' + ${conferenceByName.confName}"></h4>
                         <h4 th:text="'Year: ' + ${conferenceByName.year}"></h4>
-                        <h4 th:text="'Founder: ' + ${conferenceByName.founder}"></h4>
-                        <h4 th:text="'Host: ' + ${conferenceByName.host}"></h4>
+                        <h4 th:text="'Founder: ' + ${conferenceByName.founder?.founderName}"></h4>
+                        <h4 th:text="'Host: ' + ${conferenceByName.host?.hostName}"></h4>
                         <div class="align-bottom" sec:authorize="hasAnyRole('ADMIN', 'MODERATOR')">
                             <a class="btn btn-danger align-bottom"
                                th:href="@{/conferences/conference-delete{conference-name}(conference-name=${conferenceByName.confName})}">

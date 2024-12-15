@@ -67,7 +67,7 @@ public class ConferenceController {
     @GetMapping("/conference-by-name/{conference-name}")
     public String conferenceByName(@PathVariable("conference-name") String conferenceName, Model model) {
         model.addAttribute("conferenceByName", conferenceService.findConferenceByConfName(conferenceName));
-
+        System.out.println("conferenceByName method called with name: " + conferenceName);
         return "conference-by-name";
     }
 

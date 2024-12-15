@@ -1,25 +1,32 @@
 <!DOCTYPE html>
-
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-
-<head>
-
-    <meta charset="UTF-8">
-
-    <title>Reporter Details</title>
-
-</head>
-
-<body>
-
-<h1>Reporter Details</h1>
-
-<p>Name: <span th:text="${reporterByName.reporterName}"></span></p>
-
-<p>Competence: <span th:text="${reporterByName.competence}"></span></p>
-
-<p>Organization: <span th:text="${reporterByName.organization}"></span></p>
-
+<html lang="en" class="h-100" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="fragments/head"></head>
+<body class="d-flex flex-column h-100">
+<div th:replace="fragments/navbar">Navbar</div>
+<main class="flex-shrink-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <main class="jumbotron text-center rounded col-md-8 align-self-center pt-5">
+                <div class="justify-content-center">
+                    <h1>Reporter Details</h1>
+                </div>
+                <div class="row bg-light rounded">
+                    <div class="col-md-12">
+                        <h4 th:text="'Name: ' + ${reporterByName.reporterName}"></h4>
+                        <h4 th:text="'Competence: ' + ${reporterByName.competence}"></h4>
+                        <h4 th:text="'Organization: ' + ${reporterByName.organization}"></h4>
+                        <div class="align-bottom" sec:authorize="hasAnyRole('ADMIN', 'MODERATOR')">
+                            <a class="btn btn-danger align-bottom"
+                               th:href="@{/reporters/reporter-delete{reporter-by-name}(report-by-theme=${reporterByName.reporterName})}">Delete report</a>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+</main>
+<footer th:replace="fragments/footer"></footer>
 </body>
-
 </html>
