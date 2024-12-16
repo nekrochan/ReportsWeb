@@ -9,9 +9,9 @@
             <div class="col-md-2"></div>
             <div class="jumbotron text-center rounded col-md-8 align-self-center pt-5">
                 <h2 class="text-center text-dark mt-5">All Reports</h2>
-                <div class='row mb-4 d-flex justify-content-around'>
+                <div class='row mb-4 d-flex justify-content-center'>
                     <div th:if="${allReports != null && !#lists.isEmpty(allReports)}">
-                        <div th:each="e : ${allReports}" class="col-md-4 d-flex flex-column bg-text mb-3 rounded">
+                        <div th:each="e : ${allReports}" class="d-flex flex-column bg-text mb-3 rounded">
                             <h3 th:text="'Theme: ' + *{e.theme}"></h3>
                             <h4 th:text="'Volume: ' + *{e.volume}"></h4>
                             <h4><a class="btn-block"

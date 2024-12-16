@@ -1778,347 +1778,923 @@ textarea.form-control-lg {
     appearance: none; /* Remove default appearance */
 }
 
-@media (prefers-reduced-motion:reduce){.form-select{transition:none}
-}
-.form-select:focus{border-color:#86b7fe;
-  outline:0;
-  box-shadow:0 0 0 .25rem rgba(13,110,253,.25)}
-.form-select[multiple],.form-select[size]:not([size="1"]){padding-right:.75rem;
-  background-image:none}
-.form-select:disabled{background-color:#e9ecef}
-.form-select:-moz-focusring{color:transparent;
-  text-shadow:0 0 0 #212529}
-.form-select-sm{padding-top:.25rem;
-  padding-bottom:.25rem;
-  padding-left:.5rem;
-  font-size:.875rem;
-  border-radius:.25rem}
-.form-select-lg{padding-top:.5rem;
-  padding-bottom:.5rem;
-  padding-left:1rem;
-  font-size:1.25rem;
-  border-radius:.5rem}
-.form-check{display:block;
-  min-height:1.5rem;
-  padding-left:1.5em;
-  margin-bottom:.125rem}
-.form-check .form-check-input{float:left;
-  margin-left:-1.5em}
-.form-check-reverse{padding-right:1.5em;
-  padding-left:0;
-  text-align:right}
-.form-check-reverse .form-check-input{float:right;
-  margin-right:-1.5em;
-  margin-left:0}
-.form-check-input{width:1em;
-  height:1em;
-  margin-top:.25em;
-  vertical-align:top;
-  background-color:#fff;
-  background-repeat:no-repeat;
-  background-position:center;
-  background-size:contain;
-  border:1px solid rgba(0,0,0,.25);
-  -webkit-appearance:none;
-  -moz-appearance:none;
-  appearance:none;
-  -webkit-print-color-adjust:exact;
-  color-adjust:exact;
-  print-color-adjust:exact}
-.form-check-input[type=checkbox]{border-radius:.25em}
-.form-check-input[type=radio]{border-radius:50%}
-.form-check-input:active{filter:brightness(90%)}
-.form-check-input:focus{border-color:#86b7fe;
-  outline:0;
-  box-shadow:0 0 0 .25rem rgba(13,110,253,.25)}
-.form-check-input:checked{background-color:#0d6efd;
-  border-color:#0d6efd}
-.form-check-input:checked[type=checkbox]{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e")}
-.form-check-input:checked[type=radio]{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e")}
-.form-check-input[type=checkbox]:indeterminate{background-color:#0d6efd;
-  border-color:#0d6efd;
-  background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10h8'/%3e%3c/svg%3e")}
-.form-check-input:disabled{pointer-events:none;
-  filter:none;
-  opacity:.5}
-.form-check-input:disabled~.form-check-label,.form-check-input[disabled]~.form-check-label{cursor:default;
-  opacity:.5}
-.form-switch{padding-left:2.5em}
-.form-switch .form-check-input{width:2em;
-  margin-left:-2.5em;
-  background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba%280, 0, 0, 0.25%29'/%3e%3c/svg%3e");
-  background-position:left center;
-  border-radius:2em;
-  transition:background-position .15s ease-in-out}
 
-@media (prefers-reduced-motion:reduce){.form-switch .form-check-input{transition:none}
+/* Media query to reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  /* Disable transitions for form select elements */
+  .form-select {
+    transition: none;
+  }
 }
-.form-switch .form-check-input:focus{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%2386b7fe'/%3e%3c/svg%3e")}
-.form-switch .form-check-input:checked{background-position:right center;
-  background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e")}
-.form-switch.form-check-reverse{padding-right:2.5em;
-  padding-left:0}
-.form-switch.form-check-reverse .form-check-input{margin-right:-2.5em;
-  margin-left:0}
-.form-check-inline{display:inline-block;
-  margin-right:1rem}
-.btn-check{position:absolute;
-  clip:rect(0,0,0,0);
-  pointer-events:none}
-.btn-check:disabled+.btn,.btn-check[disabled]+.btn{pointer-events:none;
-  filter:none;
-  opacity:.65}
-.form-range{width:100%;
-  height:1.5rem;
-  padding:0;
-  background-color:transparent;
-  -webkit-appearance:none;
-  -moz-appearance:none;
-  appearance:none}
-.form-range:focus{outline:0}
-.form-range:focus::-webkit-slider-thumb{box-shadow:0 0 0 1px #fff,0 0 0 .25rem rgba(13,110,253,.25)}
-.form-range:focus::-moz-range-thumb{box-shadow:0 0 0 1px #fff,0 0 0 .25rem rgba(13,110,253,.25)}
-.form-range::-moz-focus-outer{border:0}
-.form-range::-webkit-slider-thumb{width:1rem;
-  height:1rem;
-  margin-top:-.25rem;
-  background-color:#0d6efd;
-  border:0;
-  border-radius:1rem;
-  -webkit-transition:background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-  transition:background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-  -webkit-appearance:none;
-  appearance:none}
 
-@media (prefers-reduced-motion:reduce){.form-range::-webkit-slider-thumb{-webkit-transition:none;
-  transition:none}
+/* Styles for form select elements when focused */
+.form-select:focus {
+  border-color: #86b7fe; /* Change border color */
+  outline: 0; /* Remove default outline */
+  box-shadow: 0 0 0 .25rem rgba(13, 110, 253, .25); /* Add custom shadow */
 }
-.form-range::-webkit-slider-thumb:active{background-color:#b6d4fe}
-.form-range::-webkit-slider-runnable-track{width:100%;
-  height:.5rem;
-  color:transparent;
-  cursor:pointer;
-  background-color:#dee2e6;
-  border-color:transparent;
-  border-radius:1rem}
-.form-range::-moz-range-thumb{width:1rem;
-  height:1rem;
-  background-color:#0d6efd;
-  border:0;
-  border-radius:1rem;
-  -moz-transition:background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-  transition:background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-  -moz-appearance:none;
-  appearance:none}
 
-@media (prefers-reduced-motion:reduce){.form-range::-moz-range-thumb{-moz-transition:none;
-  transition:none}
+/* Styles for multiple or larger form select elements */
+.form-select[multiple],
+.form-select[size]:not([size="1"]) {
+  padding-right: .75rem; /* Add right padding */
+  background-image: none; /* Remove background image */
 }
-.form-range::-moz-range-thumb:active{background-color:#b6d4fe}
-.form-range::-moz-range-track{width:100%;
-  height:.5rem;
-  color:transparent;
-  cursor:pointer;
-  background-color:#dee2e6;
-  border-color:transparent;
-  border-radius:1rem}
-.form-range:disabled{pointer-events:none}
-.form-range:disabled::-webkit-slider-thumb{background-color:#adb5bd}
-.form-range:disabled::-moz-range-thumb{background-color:#adb5bd}
-.form-floating{position:relative}
-.form-floating>.form-control,.form-floating>.form-control-plaintext,.form-floating>.form-select{height:calc(3.5rem + 2px);
-  line-height:1.25}
-.form-floating>label{position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  padding:1rem .75rem;
-  overflow:hidden;
-  text-align:start;
-  text-overflow:ellipsis;
-  white-space:nowrap;
-  pointer-events:none;
-  border:1px solid transparent;
-  transform-origin:0 0;
-  transition:opacity .1s ease-in-out,transform .1s ease-in-out}
 
-@media (prefers-reduced-motion:reduce){.form-floating>label{transition:none}
+/* Styles for disabled form select elements */
+.form-select:disabled {
+  background-color: #e9ecef; /* Light gray background */
 }
-.form-floating>.form-control,.form-floating>.form-control-plaintext{padding:1rem .75rem}
-.form-floating>.form-control-plaintext::-moz-placeholder,.form-floating>.form-control::-moz-placeholder{color:transparent}
-.form-floating>.form-control-plaintext::placeholder,.form-floating>.form-control::placeholder{color:transparent}
-.form-floating>.form-control-plaintext:not(:-moz-placeholder-shown),.form-floating>.form-control:not(:-moz-placeholder-shown){padding-top:1.625rem;
-  padding-bottom:.625rem}
-.form-floating>.form-control-plaintext:focus,.form-floating>.form-control-plaintext:not(:placeholder-shown),.form-floating>.form-control:focus,.form-floating>.form-control:not(:placeholder-shown){padding-top:1.625rem;
-  padding-bottom:.625rem}
-.form-floating>.form-control-plaintext:-webkit-autofill,.form-floating>.form-control:-webkit-autofill{padding-top:1.625rem;
-  padding-bottom:.625rem}
-.form-floating>.form-select{padding-top:1.625rem;
-  padding-bottom:.625rem}
-.form-floating>.form-control:not(:-moz-placeholder-shown)~label{opacity:.65;
-  transform:scale(.85) translateY(-.5rem) translateX(.15rem)}
-.form-floating>.form-control-plaintext~label,.form-floating>.form-control:focus~label,.form-floating>.form-control:not(:placeholder-shown)~label,.form-floating>.form-select~label{opacity:.65;
-  transform:scale(.85) translateY(-.5rem) translateX(.15rem)}
-.form-floating>.form-control:-webkit-autofill~label{opacity:.65;
-  transform:scale(.85) translateY(-.5rem) translateX(.15rem)}
-.form-floating>.form-control-plaintext~label{border-width:1px 0}
-.input-group{position:relative;
-  display:flex;
-  flex-wrap:wrap;
-  align-items:stretch;
-  width:100%}
-.input-group>.form-control,.input-group>.form-floating,.input-group>.form-select{position:relative;
-  flex:1 1 auto;
-  width:1%;
-  min-width:0}
-.input-group>.form-control:focus,.input-group>.form-floating:focus-within,.input-group>.form-select:focus{z-index:5}
-.input-group .btn{position:relative;
-  z-index:2}
-.input-group .btn:focus{z-index:5}
-.input-group-text{display:flex;
-  align-items:center;
-  padding:.375rem .75rem;
-  font-size:1rem;
-  font-weight:400;
-  line-height:1.5;
-  color:#212529;
-  text-align:center;
-  white-space:nowrap;
-  background-color:#e9ecef;
-  border:1px solid #ced4da;
-  border-radius:.375rem}
-.input-group-lg>.btn,.input-group-lg>.form-control,.input-group-lg>.form-select,.input-group-lg>.input-group-text{padding:.5rem 1rem;
-  font-size:1.25rem;
-  border-radius:.5rem}
-.input-group-sm>.btn,.input-group-sm>.form-control,.input-group-sm>.form-select,.input-group-sm>.input-group-text{padding:.25rem .5rem;
-  font-size:.875rem;
-  border-radius:.25rem}
-.input-group-lg>.form-select,.input-group-sm>.form-select{padding-right:3rem}
-.input-group:not(.has-validation)>.dropdown-toggle:nth-last-child(n+3),.input-group:not(.has-validation)>.form-floating:not(:last-child)>.form-control,.input-group:not(.has-validation)>.form-floating:not(:last-child)>.form-select,.input-group:not(.has-validation)>:not(:last-child):not(.dropdown-toggle):not(.dropdown-menu):not(.form-floating){border-top-right-radius:0;
-  border-bottom-right-radius:0}
-.input-group.has-validation>.dropdown-toggle:nth-last-child(n+4),.input-group.has-validation>.form-floating:nth-last-child(n+3)>.form-control,.input-group.has-validation>.form-floating:nth-last-child(n+3)>.form-select,.input-group.has-validation>:nth-last-child(n+3):not(.dropdown-toggle):not(.dropdown-menu):not(.form-floating){border-top-right-radius:0;
-  border-bottom-right-radius:0}
-.input-group>:not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback){margin-left:-1px;
-  border-top-left-radius:0;
-  border-bottom-left-radius:0}
-.input-group>.form-floating:not(:first-child)>.form-control,.input-group>.form-floating:not(:first-child)>.form-select{border-top-left-radius:0;
-  border-bottom-left-radius:0}
-.valid-feedback{display:none;
-  width:100%;
-  margin-top:.25rem;
-  font-size:.875em;
-  color:#198754}
-.valid-tooltip{position:absolute;
-  top:100%;
-  z-index:5;
-  display:none;
-  max-width:100%;
-  padding:.25rem .5rem;
-  margin-top:.1rem;
-  font-size:.875rem;
-  color:#fff;
-  background-color:rgba(25,135,84,.9);
-  border-radius:.375rem}
-.is-valid~.valid-feedback,.is-valid~.valid-tooltip,.was-validated :valid~.valid-feedback,.was-validated :valid~.valid-tooltip{display:block}
-.form-control.is-valid,.was-validated .form-control:valid{border-color:#198754;
-  padding-right:calc(1.5em + .75rem);
-  background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23198754' d='M2.3 6.73.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
-  background-repeat:no-repeat;
-  background-position:right calc(.375em + .1875rem) center;
-  background-size:calc(.75em + .375rem) calc(.75em + .375rem)}
-.form-control.is-valid:focus,.was-validated .form-control:valid:focus{border-color:#198754;
-  box-shadow:0 0 0 .25rem rgba(25,135,84,.25)}
-.was-validated textarea.form-control:valid,textarea.form-control.is-valid{padding-right:calc(1.5em + .75rem);
-  background-position:top calc(.375em + .1875rem) right calc(.375em + .1875rem)}
-.form-select.is-valid,.was-validated .form-select:valid{border-color:#198754}
-.form-select.is-valid:not([multiple]):not([size]),.form-select.is-valid:not([multiple])[size="1"],.was-validated .form-select:valid:not([multiple]):not([size]),.was-validated .form-select:valid:not([multiple])[size="1"]{padding-right:4.125rem;
-  background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e"),url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23198754' d='M2.3 6.73.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
-  background-position:right .75rem center,center right 2.25rem;
-  background-size:16px 12px,calc(.75em + .375rem) calc(.75em + .375rem)}
-.form-select.is-valid:focus,.was-validated .form-select:valid:focus{border-color:#198754;
-  box-shadow:0 0 0 .25rem rgba(25,135,84,.25)}
-.form-control-color.is-valid,.was-validated .form-control-color:valid{width:calc(3rem + calc(1.5em + .75rem))}
-.form-check-input.is-valid,.was-validated .form-check-input:valid{border-color:#198754}
-.form-check-input.is-valid:checked,.was-validated .form-check-input:valid:checked{background-color:#198754}
-.form-check-input.is-valid:focus,.was-validated .form-check-input:valid:focus{box-shadow:0 0 0 .25rem rgba(25,135,84,.25)}
-.form-check-input.is-valid~.form-check-label,.was-validated .form-check-input:valid~.form-check-label{color:#198754}
-.form-check-inline .form-check-input~.valid-feedback{margin-left:.5em}
-.input-group>.form-control:not(:focus).is-valid,.input-group>.form-floating:not(:focus-within).is-valid,.input-group>.form-select:not(:focus).is-valid,.was-validated .input-group>.form-control:not(:focus):valid,.was-validated .input-group>.form-floating:not(:focus-within):valid,.was-validated .input-group>.form-select:not(:focus):valid{z-index:3}
-.invalid-feedback{display:none;
-  width:100%;
-  margin-top:.25rem;
-  font-size:.875em;
-  color:#dc3545}
-.invalid-tooltip{position:absolute;
-  top:100%;
-  z-index:5;
-  display:none;
-  max-width:100%;
-  padding:.25rem .5rem;
-  margin-top:.1rem;
-  font-size:.875rem;
-  color:#fff;
-  background-color:rgba(220,53,69,.9);
-  border-radius:.375rem}
-.is-invalid~.invalid-feedback,.is-invalid~.invalid-tooltip,.was-validated :invalid~.invalid-feedback,.was-validated :invalid~.invalid-tooltip{display:block}
-.form-control.is-invalid,.was-validated .form-control:invalid{border-color:#dc3545;
-  padding-right:calc(1.5em + .75rem);
-  background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
-  background-repeat:no-repeat;
-  background-position:right calc(.375em + .1875rem) center;
-  background-size:calc(.75em + .375rem) calc(.75em + .375rem)}
-.form-control.is-invalid:focus,.was-validated .form-control:invalid:focus{border-color:#dc3545;
-  box-shadow:0 0 0 .25rem rgba(220,53,69,.25)}
-.was-validated textarea.form-control:invalid,textarea.form-control.is-invalid{padding-right:calc(1.5em + .75rem);
-  background-position:top calc(.375em + .1875rem) right calc(.375em + .1875rem)}
-.form-select.is-invalid,.was-validated .form-select:invalid{border-color:#dc3545}
-.form-select.is-invalid:not([multiple]):not([size]),.form-select.is-invalid:not([multiple])[size="1"],.was-validated .form-select:invalid:not([multiple]):not([size]),.was-validated .form-select:invalid:not([multiple])[size="1"]{padding-right:4.125rem;
-  background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e"),url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
-  background-position:right .75rem center,center right 2.25rem;
-  background-size:16px 12px,calc(.75em + .375rem) calc(.75em + .375rem)}
-.form-select.is-invalid:focus,.was-validated .form-select:invalid:focus{border-color:#dc3545;
-  box-shadow:0 0 0 .25rem rgba(220,53,69,.25)}
-.form-control-color.is-invalid,.was-validated .form-control-color:invalid{width:calc(3rem + calc(1.5em + .75rem))}
-.form-check-input.is-invalid,.was-validated .form-check-input:invalid{border-color:#dc3545}
-.form-check-input.is-invalid:checked,.was-validated .form-check-input:invalid:checked{background-color:#dc3545}
-.form-check-input.is-invalid:focus,.was-validated .form-check-input:invalid:focus{box-shadow:0 0 0 .25rem rgba(220,53,69,.25)}
-.form-check-input.is-invalid~.form-check-label,.was-validated .form-check-input:invalid~.form-check-label{color:#dc3545}
-.form-check-inline .form-check-input~.invalid-feedback{margin-left:.5em}
-.input-group>.form-control:not(:focus).is-invalid,.input-group>.form-floating:not(:focus-within).is-invalid,.input-group>.form-select:not(:focus).is-invalid,.was-validated .input-group>.form-control:not(:focus):invalid,.was-validated .input-group>.form-floating:not(:focus-within):invalid,.was-validated .input-group>.form-select:not(:focus):invalid{z-index:4}
-.btn{--bs-btn-padding-x:0.75rem;
-  --bs-btn-padding-y:0.375rem;
-  --bs-btn-font-family: ;
-  --bs-btn-font-size:1rem;
-  --bs-btn-font-weight:400;
-  --bs-btn-line-height:1.5;
-  --bs-btn-color:#212529;
-  --bs-btn-bg:transparent;
-  --bs-btn-border-width:1px;
-  --bs-btn-border-color:transparent;
-  --bs-btn-border-radius:0.375rem;
-  --bs-btn-hover-border-color:transparent;
-  --bs-btn-box-shadow:inset 0 1px 0 rgba(255, 255, 255, 0.15),0 1px 1px rgba(0, 0, 0, 0.075);
-  --bs-btn-disabled-opacity:0.65;
-  --bs-btn-focus-box-shadow:0 0 0 0.25rem rgba(var(--bs-btn-focus-shadow-rgb), .5);
-  display:inline-block;
-  padding:var(--bs-btn-padding-y) var(--bs-btn-padding-x);
-  font-family:var(--bs-btn-font-family);
-  font-size:var(--bs-btn-font-size);
-  font-weight:var(--bs-btn-font-weight);
-  line-height:var(--bs-btn-line-height);
-  color:var(--bs-btn-color);
-  text-align:center;
-  text-decoration:none;
-  vertical-align:middle;
-  cursor:pointer;
-  -webkit-user-select:none;
-  -moz-user-select:none;
-  user-select:none;
-  border:var(--bs-btn-border-width) solid var(--bs-btn-border-color);
-  border-radius:var(--bs-btn-border-radius);
-  background-color:var(--bs-btn-bg);
-  transition:color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out}
+
+/* Styles for Firefox focus ring */
+.form-select:-moz-focusring {
+  color: transparent; /* Hide text color */
+  text-shadow: 0 0 0 #212529; /* Show text shadow */
+}
+
+/* Small form select styles */
+.form-select-sm {
+  padding-top: .25rem; /* Padding on top */
+  padding-bottom: .25rem; /* Padding on bottom */
+  padding-left: .5rem; /* Padding on left */
+  font-size: .875rem; /* Font size */
+  border-radius: .25rem; /* Rounded corners */
+}
+
+/* Large form select styles */
+.form-select-lg {
+  padding-top: .5rem; /* Padding on top */
+  padding-bottom: .5rem; /* Padding on bottom */
+  padding-left: 1rem; /* Padding on left */
+  font-size: 1.25rem; /* Font size */
+  border-radius: .5rem; /* Rounded corners */
+}
+
+/* Base styles for form check elements */
+.form-check {
+  display: block; /* Block display */
+  min-height: 1.5rem; /* Minimum height */
+  padding-left: 1.5em; /* Padding on left */
+  margin-bottom: .125rem; /* Margin on bottom */
+}
+
+/* Positioning for form check input */
+.form-check .form-check-input {
+  float: left; /* Align to the left */
+  margin-left: -1.5em; /* Negative margin to overlap */
+}
+
+/* Styles for reversed form check elements */
+.form-check-reverse {
+  padding-right: 1.5em; /* Padding on right */
+  padding-left: 0; /* No padding on left */
+  text-align: right; /* Align text to the right */
+}
+
+/* Positioning for reversed form check input */
+.form-check-reverse .form-check-input {
+  float: right; /* Align to the right */
+  margin-right: -1.5em; /* Negative margin to overlap */
+  margin-left: 0; /* No margin on left */
+}
+
+/* Base styles for form check input */
+.form-check-input {
+  width: 1em; /* Width of input */
+  height: 1em; /* Height of input */
+  margin-top: .25em; /* Margin on top */
+  vertical-align: top; /* Align to top */
+  background-color: #fff; /* White background */
+  background-repeat: no-repeat; /* No repeat */
+  background-position: center; /* Center the background */
+  background-size: contain; /* Contain background size */
+  border: 1px solid rgba(0, 0, 0, .25); /* Border style */
+  -webkit-appearance: none; /* Remove default styling in WebKit */
+  -moz-appearance: none; /* Remove default styling in Firefox */
+  appearance: none; /* Remove default styling */
+  -webkit-print-color-adjust: exact; /* Print color adjustment */
+  color-adjust: exact; /* Color adjustment */
+  print-color-adjust: exact; /* Print color adjustment */
+}
+
+/* Checkbox specific styles */
+.form-check-input[type=checkbox] {
+  border-radius: .25em; /* Round corners */
+}
+
+/* Radio button specific styles */
+.form-check-input[type=radio] {
+  border-radius: 50%; /* Circular shape */
+}
+
+/* Active state for form check input */
+.form-check-input:active {
+  filter: brightness(90%); /* Darken on active */
+}
+
+/* Focus state for form check input */
+.form-check-input:focus {
+  border-color: #86b7fe; /* Change border color */
+  outline: 0; /* Remove default outline */
+  box-shadow: 0 0 0 .25rem rgba(13, 110, 253, .25); /* Add custom shadow */
+}
+
+/* Checked state for form check input */
+.form-check-input:checked {
+  background-color: #0d6efd; /* Change background color */
+  border-color: #0d6efd; /* Change border color */
+}
+
+/* Checkbox checked state with custom SVG */
+.form-check-input:checked[type=checkbox] {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e");
+}
+
+/* Radio checked state with custom SVG */
+.form-check-input:checked[type=radio] {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e");
+}
+
+/* Indeterminate state for checkbox */
+.form-check-input[type=checkbox]:indeterminate {
+  background-color: #0d6efd; /* Change background color */
+  border-color: #0d6efd; /* Change border color */
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10h8'/%3e%3c/svg%3e");
+}
+
+/* Styles for disabled form check input */
+.form-check-input:disabled {
+  pointer-events: none; /* Disable pointer events */
+  filter: none; /* No filter */
+  opacity: .5; /* Reduce opacity */
+}
+
+/* Styles for disabled form check label */
+.form-check-input:disabled ~ .form-check-label,
+.form-check-input[disabled] ~ .form-check-label {
+  cursor: default; /* Default cursor */
+  opacity: .5; /* Reduce opacity */
+}
+
+/* Styles for form switch */
+.form-switch {
+  padding-left: 2.5em; /* Padding on left */
+}
+
+/* Styles for form switch input */
+.form-switch .form-check-input {
+  width: 2em; /* Width of switch input */
+  margin-left: -2.5em; /* Negative margin to overlap */
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba%280, 0, 0, 0.25%29'/%3e%3c/svg%3e");
+  background-position: left center; /* Background position */
+  border-radius: 2em; /* Rounded corners */
+  transition: background-position .15s ease-in-out; /* Smooth transition for background */
+}
+
+/*
+  Медиа-запрос для пользователей, предпочитающих уменьшенные анимации.
+  Убирает анимацию для переключателей.
+*/
+@media (prefers-reduced-motion: reduce) {
+  .form-switch .form-check-input {
+    transition: none; /* Убирает переходы при изменении состояния */
+  }
+}
+
+
+/*
+  Стиль для элемента ввода при получении фокуса.
+  Устанавливает фоновое изображение.
+*/
+.form-switch .form-check-input:focus {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%2386b7fe'/%3e%3c/svg%3e");
+}
+
+
+/*
+  Стиль для элемента ввода, когда он отмечен.
+  Устанавливает позицию фона и изображение.
+*/
+.form-switch .form-check-input:checked {
+  background-position: right center; /* Выравнивание фона */
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
+}
+
+
+/*
+  Стиль для переключателей с обратной разметкой.
+  Устанавливает отступы.
+*/
+.form-switch.form-check-reverse {
+  padding-right: 2.5em; /* Отступ справа */
+  padding-left: 0; /* Отступ слева */
+}
+
+
+/*
+  Стиль для элемента ввода внутри переключателя с обратной разметкой.
+  Убирает отступы.
+*/
+.form-switch.form-check-reverse .form-check-input {
+  margin-right: -2.5em; /* Убирает правый отступ */
+  margin-left: 0; /* Убирает левый отступ */
+}
+
+
+/*
+  Стиль для инлайн-контейнеров форм.
+  Устанавливает отображение и отступы.
+*/
+.form-check-inline {
+  display: inline-block; /* Отображение в строку */
+  margin-right: 1rem; /* Отступ справа */
+}
+
+
+/*
+  Стиль для скрытых кнопок.
+  Убирает их из потока документа.
+*/
+.btn-check {
+  position: absolute; /* Абсолютное позиционирование */
+  clip: rect(0, 0, 0, 0); /* Скрывает элемент */
+  pointer-events: none; /* Отключает взаимодействие */
+}
+
+
+/*
+  Стиль для отключенных кнопок.
+  Убирает возможность взаимодействия и уменьшает непрозрачность.
+*/
+.btn-check:disabled + .btn,
+.btn-check[disabled] + .btn {
+  pointer-events: none; /* Отключает взаимодействие */
+  filter: none; /* Убирает фильтры */
+  opacity: .65; /* Уменьшает непрозрачность */
+}
+
+
+/*
+  Стиль для ползунков диапазона.
+  Устанавливает ширину, высоту и фон.
+*/
+.form-range {
+  width: 100%; /* Полная ширина */
+  height: 1.5rem; /* Высота ползунка */
+  padding: 0; /* Убирает внутренние отступы */
+  background-color: transparent; /* Прозрачный фон */
+  -webkit-appearance: none; /* Убирает стандартный вид для WebKit */
+  -moz-appearance: none; /* Убирает стандартный вид для Firefox */
+  appearance: none; /* Убирает стандартный вид */
+}
+
+
+/*
+  Стиль для ползунка при получении фокуса.
+  Убирает обводку.
+*/
+.form-range:focus {
+  outline: 0; /* Убирает обводку */
+}
+
+
+/*
+  Стиль для ползунка при получении фокуса (WebKit).
+  Добавляет тень к ползунку.
+*/
+.form-range:focus::-webkit-slider-thumb {
+  box-shadow: 0 0 0 1px #fff, 0 0 0 .25rem rgba(13, 110, 253, .25); /* Тень */
+}
+
+
+/*
+  Стиль для ползунка при получении фокуса (Mozilla).
+  Добавляет тень к ползунку.
+*/
+.form-range:focus::-moz-range-thumb {
+  box-shadow: 0 0 0 1px #fff, 0 0 0 .25rem rgba(13, 110, 253, .25); /* Тень */
+}
+
+
+/*
+  Убирает обводку для ползунка в Mozilla.
+*/
+.form-range::-moz-focus-outer {
+  border: 0; /* Убирает обводку */
+}
+
+
+/*
+  Стиль для ползунка (WebKit).
+  Устанавливает размеры, цвет фона и переходы.
+*/
+.form-range::-webkit-slider-thumb {
+  width: 1rem; /* Ширина ползунка */
+  height: 1rem; /* Высота ползунка */
+  margin-top: -.25rem; /* Вертикальное смещение */
+  background-color: #0d6efd; /* Цвет фона */
+  border: 0; /* Убирает границу */
+  border-radius: 1rem; /* Закругленные углы */
+  -webkit-transition: background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out; /* Переходы для WebKit */
+  transition: background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out; /* Переходы */
+  -webkit-appearance: none; /* Убирает стандартный вид для WebKit */
+  appearance: none; /* Убирает стандартный вид */
+}
+
+
+/* Медиазапрос для пользователей, предпочитающих уменьшенные анимации */
+/* Если пользователь выбрал уменьшенные движения, отключаем переходы для ползунка в WebKit */
+@media (prefers-reduced-motion: reduce) {
+    .form-range::-webkit-slider-thumb {
+        -webkit-transition: none; /* Отключаем WebKit переходы */
+        transition: none; /* Отключаем переходы */
+    }
+}
+
+/* Стили для активного состояния ползунка в WebKit */
+.form-range::-webkit-slider-thumb:active {
+    background-color: #b6d4fe; /* Цвет фона при активном состоянии */
+}
+
+/* Стили для дорожки ползунка в WebKit */
+.form-range::-webkit-slider-runnable-track {
+    width: 100%; /* Ширина дорожки */
+    height: .5rem; /* Высота дорожки */
+    color: transparent; /* Цвет (прозрачный) */
+    cursor: pointer; /* Указатель при наведении */
+    background-color: #dee2e6; /* Цвет фона дорожки */
+    border-color: transparent; /* Цвет границы (прозрачный) */
+    border-radius: 1rem; /* Радиус скругления границ */
+}
+
+/* Стили для ползунка в Mozilla Firefox */
+.form-range::-moz-range-thumb {
+    width: 1rem; /* Ширина ползунка */
+    height: 1rem; /* Высота ползунка */
+    background-color: #0d6efd; /* Цвет фона ползунка */
+    border: 0; /* Без границы */
+    border-radius: 1rem; /* Радиус скругления границ */
+    -moz-transition: background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out; /* Переходы для Firefox */
+    transition: background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out; /* Переходы */
+    -moz-appearance: none; /* Убираем стандартный вид ползунка в Firefox */
+    appearance: none; /* Убираем стандартный вид ползунка */
+}
+
+/* Медиазапрос для пользователей, предпочитающих уменьшенные анимации */
+/* Если пользователь выбрал уменьшенные движения, отключаем переходы для ползунка в Firefox */
+@media (prefers-reduced-motion: reduce) {
+    .form-range::-moz-range-thumb {
+        -moz-transition: none; /* Отключаем переходы для Firefox */
+        transition: none; /* Отключаем переходы */
+    }
+}
+
+/* Стили для активного состояния ползунка в Firefox */
+.form-range::-moz-range-thumb:active {
+    background-color: #b6d4fe; /* Цвет фона при активном состоянии */
+}
+
+/* Стили для дорожки ползунка в Firefox */
+.form-range::-moz-range-track {
+    width: 100%; /* Ширина дорожки */
+    height: .5rem; /* Высота дорожки */
+    color: transparent; /* Цвет (прозрачный) */
+    cursor: pointer; /* Указатель при наведении */
+    background-color: #dee2e6; /* Цвет фона дорожки */
+    border-color: transparent; /* Цвет границы (прозрачный) */
+    border-radius: 1rem; /* Радиус скругления границ */
+}
+
+/* Стили для отключенного состояния ползунка */
+.form-range:disabled {
+    pointer-events: none; /* Отключаем взаимодействие с элементом */
+}
+
+/* Стили для ползунка в отключенном состоянии в WebKit */
+.form-range:disabled::-webkit-slider-thumb {
+    background-color: #adb5bd; /* Цвет фона ползунка в отключенном состоянии */
+}
+
+/* Стили для ползунка в отключенном состоянии в Firefox */
+.form-range:disabled::-moz-range-thumb {
+    background-color: #adb5bd; /* Цвет фона ползунка в отключенном состоянии */
+}
+
+/* Стили для контейнера с плавающей меткой */
+.form-floating {
+    position: relative; /* Относительное позиционирование для контейнера */
+}
+
+/* Стили для элементов управления внутри плавающей метки */
+.form-floating > .form-control,
+.form-floating > .form-control-plaintext,
+.form-floating > .form-select {
+    height: calc(3.5rem + 2px); /* Высота элементов управления */
+    line-height: 1.25; /* Высота строки текста */
+}
+
+/* Стили для метки внутри плавающей метки */
+.form-floating > label {
+    position: absolute; /* Абсолютное позиционирование для метки */
+    top: 0; /* Позиция сверху */
+    left: 0; /* Позиция слева */
+    width: 100%; /* Ширина метки */
+    height: 100%; /* Высота метки */
+    padding: 1rem .75rem; /* Отступы внутри метки */
+    overflow: hidden; /* Скрываем переполнение */
+    text-align: start; /* Выравнивание текста по началу */
+    text-overflow: ellipsis; /* Указываем, что текст может быть обрезан с многоточием */
+    white-space: nowrap; /* Запрещаем перенос строк */
+    pointer-events: none; /* Отключаем взаимодействие с меткой */
+    border: 1px solid transparent; /* Прозрачная граница */
+    transform-origin: 0 0; /* Точка трансформации */
+    transition: opacity .1s ease-in-out, transform .1s ease-in-out; /* Переходы для изменения прозрачности и трансформации */
+}
+
+/* Медиа-запрос для пользователей, предпочитающих уменьшение анимации */
+@media (prefers-reduced-motion: reduce) {
+    /* Отключаем переходы для меток в форме с плавающей подсказкой */
+    .form-floating > label {
+        transition: none;
+    }
+}
+
+/* Общие стили для элементов формы с плавающей подсказкой */
+.form-floating > .form-control,
+.form-floating > .form-control-plaintext {
+    padding: 1rem .75rem; /* Устанавливаем отступы для элементов управления */
+}
+
+/* Устанавливаем цвет плейсхолдера прозрачным для элементов с плавающей подсказкой */
+.form-floating > .form-control-plaintext::-moz-placeholder,
+.form-floating > .form-control::-moz-placeholder {
+    color: transparent; /* Для Firefox */
+}
+
+.form-floating > .form-control-plaintext::placeholder,
+.form-floating > .form-control::placeholder {
+    color: transparent; /* Для других браузеров */
+}
+
+/* Устанавливаем отступы для элементов, если плейсхолдер не показан */
+.form-floating > .form-control-plaintext:not(:-moz-placeholder-shown),
+.form-floating > .form-control:not(:-moz-placeholder-shown) {
+    padding-top: 1.625rem; /* Увеличиваем верхний отступ */
+    padding-bottom: .625rem; /* Уменьшаем нижний отступ */
+}
+
+/* Стили для фокуса и состояния, когда плейсхолдер не показан */
+.form-floating > .form-control-plaintext:focus,
+.form-floating > .form-control-plaintext:not(:placeholder-shown),
+.form-floating > .form-control:focus,
+.form-floating > .form-control:not(:placeholder-shown) {
+    padding-top: 1.625rem; /* Увеличиваем верхний отступ */
+    padding-bottom: .625rem; /* Уменьшаем нижний отступ */
+}
+
+/* Стили для автозаполненных полей */
+.form-floating > .form-control-plaintext:-webkit-autofill,
+.form-floating > .form-control:-webkit-autofill {
+    padding-top: 1.625rem; /* Увеличиваем верхний отступ */
+    padding-bottom: .625rem; /* Уменьшаем нижний отступ */
+}
+
+/* Отступы для выпадающего списка с плавающей подсказкой */
+.form-floating > .form-select {
+    padding-top: 1.625rem; /* Увеличиваем верхний отступ */
+    padding-bottom: .625rem; /* Уменьшаем нижний отступ */
+}
+
+/* Стили для меток, когда значение поля не является плейсхолдером */
+.form-floating > .form-control:not(:-moz-placeholder-shown) ~ label {
+    opacity: .65; /* Уменьшаем непрозрачность метки */
+    transform: scale(.85) translateY(-.5rem) translateX(.15rem); /* Изменяем размер и положение метки */
+}
+
+/* Стили для меток в различных состояниях */
+.form-floating > .form-control-plaintext ~ label,
+.form-floating > .form-control:focus ~ label,
+.form-floating > .form-control:not(:placeholder-shown) ~ label,
+.form-floating > .form-select ~ label {
+    opacity: .65; /* Уменьшаем непрозрачность метки */
+    transform: scale(.85) translateY(-.5rem) translateX(.15rem); /* Изменяем размер и положение метки */
+}
+
+/* Стили для меток в автозаполненных полях */
+.form-floating > .form-control:-webkit-autofill ~ label {
+    opacity: .65; /* Уменьшаем непрозрачность метки */
+    transform: scale(.85) translateY(-.5rem) translateX(.15rem); /* Изменяем размер и положение метки */
+}
+
+/* Устанавливаем ширину границы для полей без плейсхолдера */
+.form-floating > .form-control-plaintext ~ label {
+    border-width: 1px 0; /* Устанавливаем ширину границы только сверху и снизу */
+}
+
+/* Стили для группы ввода */
+.input-group {
+    position: relative; /* Устанавливаем относительное позиционирование */
+    display: flex; /* Используем флексбокс для выравнивания элементов */
+    flex-wrap: wrap; /* Позволяем элементам обтекать */
+    align-items: stretch; /* Растягиваем элементы по высоте */
+    width: 100%; /* Устанавливаем ширину группы на 100% */
+}
+
+/* Стили для элементов управления внутри группы ввода */
+.input-group > .form-control,
+.input-group > .form-floating,
+.input-group > .form-select {
+    position: relative; /* Устанавливаем относительное позиционирование */
+    flex: 1 1 auto; /* Устанавливаем гибкость для элементов */
+    width: 1%; /* Устанавливаем начальную ширину */
+    min-width: 0; /* Убираем минимальную ширину */
+}
+
+/* Устанавливаем z-index для элементов ввода при фокусе */
+.input-group > .form-control:focus,
+.input-group > .form-floating:focus-within,
+.input-group > .form-select:focus {
+    z-index: 5; /* Поднимаем слой элемента, чтобы он был выше других */
+}
+
+/* Стили для кнопок внутри группы ввода */
+.input-group .btn {
+    position: relative; /* Устанавливаем относительное позиционирование для кнопки */
+    z-index: 2; /* Устанавливаем z-index для кнопки */
+}
+
+/* Устанавливаем z-index для кнопки при фокусе */
+.input-group .btn:focus {
+    z-index: 5; /* Поднимаем слой кнопки, чтобы она была выше других элементов */
+}
+
+/* Стили для текстовых элементов внутри группы ввода */
+.input-group-text {
+    display: flex; /* Используем флексбокс для выравнивания содержимого */
+    align-items: center; /* Центрируем элементы по вертикали */
+    padding: .375rem .75rem; /* Устанавливаем отступы */
+    font-size: 1rem; /* Размер шрифта */
+    font-weight: 400; /* Начертание шрифта */
+    line-height: 1.5; /* Высота строки */
+    color: #212529; /* Цвет текста */
+    text-align: center; /* Выравнивание текста по центру */
+    white-space: nowrap; /* Запрещаем перенос строк */
+    background-color: #e9ecef; /* Цвет фона */
+    border: 1px solid #ced4da; /* Цвет границы */
+    border-radius: .375rem; /* Радиус скругления границ */
+}
+
+/* Стили для элементов большого размера внутри группы ввода */
+.input-group-lg > .btn,
+.input-group-lg > .form-control,
+.input-group-lg > .form-select,
+.input-group-lg > .input-group-text {
+    padding: .5rem 1rem; /* Устанавливаем отступы для больших элементов */
+    font-size: 1.25rem; /* Размер шрифта для больших элементов */
+    border-radius: .5rem; /* Радиус скругления границ для больших элементов */
+}
+
+/* Стили для элементов маленького размера внутри группы ввода */
+.input-group-sm > .btn,
+.input-group-sm > .form-control,
+.input-group-sm > .form-select,
+.input-group-sm > .input-group-text {
+    padding: .25rem .5rem; /* Устанавливаем отступы для маленьких элементов */
+    font-size: .875rem; /* Размер шрифта для маленьких элементов */
+    border-radius: .25rem; /* Радиус скругления границ для маленьких элементов */
+}
+
+/* Устанавливаем отступ справа для элементов .form-select внутри больших и маленьких групп ввода */
+.input-group-lg > .form-select,
+.input-group-sm > .form-select {
+    padding-right: 3rem; /* Отступ справа 3rem */
+}
+
+/* Настраиваем радиус границ для элементов в группах ввода без валидации */
+.input-group:not(.has-validation) > .dropdown-toggle:nth-last-child(n+3),
+.input-group:not(.has-validation) > .form-floating:not(:last-child) > .form-control,
+.input-group:not(.has-validation) > .form-floating:not(:last-child) > .form-select,
+.input-group:not(.has-validation) > :not(:last-child):not(.dropdown-toggle):not(.dropdown-menu):not(.form-floating) {
+    border-top-right-radius: 0; /* Убираем верхний правый радиус */
+    border-bottom-right-radius: 0; /* Убираем нижний правый радиус */
+}
+
+/* Настраиваем радиус границ для элементов в группах ввода с валидацией */
+.input-group.has-validation > .dropdown-toggle:nth-last-child(n+4),
+.input-group.has-validation > .form-floating:nth-last-child(n+3) > .form-control,
+.input-group.has-validation > .form-floating:nth-last-child(n+3) > .form-select,
+.input-group.has-validation > :nth-last-child(n+3):not(.dropdown-toggle):not(.dropdown-menu):not(.form-floating) {
+    border-top-right-radius: 0; /* Убираем верхний правый радиус */
+    border-bottom-right-radius: 0; /* Убираем нижний правый радиус */
+}
+
+/* Устанавливаем отступ слева и радиус границ для элементов в группах ввода */
+.input-group > :not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
+    margin-left: -1px; /* Убираем отступ слева */
+    border-top-left-radius: 0; /* Убираем верхний левый радиус */
+    border-bottom-left-radius: 0; /* Убираем нижний левый радиус */
+}
+
+/* Убираем радиус границ для элементов .form-floating, кроме первого */
+.input-group > .form-floating:not(:first-child) > .form-control,
+.input-group > .form-floating:not(:first-child) > .form-select {
+    border-top-left-radius: 0; /* Убираем верхний левый радиус */
+    border-bottom-left-radius: 0; /* Убираем нижний левый радиус */
+}
+
+/* Настройки для положительной обратной связи */
+.valid-feedback {
+    display: none; /* Скрываем элемент по умолчанию */
+    width: 100%; /* Ширина 100% */
+    margin-top: .25rem; /* Отступ сверху 0.25rem */
+    font-size: .875em; /* Размер шрифта 0.875em */
+    color: #198754; /* Цвет текста - зеленый */
+}
+
+/* Настройки для положительной подсказки */
+.valid-tooltip {
+    position: absolute; /* Абсолютное позиционирование */
+    top: 100%; /* Расположение под элементом */
+    z-index: 5; /* Уровень наложения */
+    display: none; /* Скрываем элемент по умолчанию */
+    max-width: 100%; /* Максимальная ширина 100% */
+    padding: .25rem .5rem; /* Отступы внутри элемента */
+    margin-top: .1rem; /* Отступ сверху 0.1rem */
+    font-size: .875rem; /* Размер шрифта 0.875rem */
+    color: #fff; /* Цвет текста - белый */
+    background-color: rgba(25, 135, 84, .9); /* Фоновый цвет с прозрачностью */
+    border-radius: .375rem; /* Радиус границ 0.375rem */
+}
+
+/* Отображает подсказки о валидности, когда форма валидна */
+.is-valid ~ .valid-feedback,
+.is-valid ~ .valid-tooltip,
+.was-validated :valid ~ .valid-feedback,
+.was-validated :valid ~ .valid-tooltip {
+    display: block; /* Показывает валидные подсказки */
+}
+
+/* Стили для валидных полей ввода */
+.form-control.is-valid,
+.was-validated .form-control:valid {
+    border-color: #198754; /* Цвет рамки для валидных полей */
+    padding-right: calc(1.5em + .75rem); /* Отступ справа для иконки */
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23198754' d='M2.3 6.73.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e"); /* Иконка валидности */
+    background-repeat: no-repeat; /* Не повторять фоновое изображение */
+    background-position: right calc(.375em + .1875rem) center; /* Позиция фона */
+    background-size: calc(.75em + .375rem) calc(.75em + .375rem); /* Размер фона */
+}
+
+/* Стили для фокуса валидных полей ввода */
+.form-control.is-valid:focus,
+.was-validated .form-control:valid:focus {
+    border-color: #198754; /* Цвет рамки при фокусе */
+    box-shadow: 0 0 0 .25rem rgba(25, 135, 84, .25); /* Тень при фокусе */
+}
+
+/* Стили для валидных текстовых областей */
+.was-validated textarea.form-control:valid,
+textarea.form-control.is-valid {
+    padding-right: calc(1.5em + .75rem); /* Отступ справа для иконки */
+    background-position: top calc(.375em + .1875rem) right calc(.375em + .1875rem); /* Позиция фона */
+}
+
+/* Стили для валидных селекторов */
+.form-select.is-valid,
+.was-validated .form-select:valid {
+    border-color: #198754; /* Цвет рамки для валидных селекторов */
+}
+
+/* Стили для валидных селекторов с определенными условиями */
+.form-select.is-valid:not([multiple]):not([size]),
+.form-select.is-valid:not([multiple])[size="1"],
+.was-validated .form-select:valid:not([multiple]):not([size]),
+.was-validated .form-select:valid:not([multiple])[size="1"] {
+    padding-right: 4.125rem; /* Отступ справа для иконки */
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e"),
+                      url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23198754' d='M2.3 6.73.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e"); /* Иконки для валидности */
+    background-position: right .75rem center, center right 2.25rem; /* Позиция фона */
+    background-size: 16px 12px, calc(.75em + .375rem) calc(.75em + .375rem); /* Размеры фона */
+}
+
+/* Стили для фокуса валидных селекторов */
+.form-select.is-valid:focus,
+.was-validated .form-select:valid:focus {
+    border-color: #198754; /* Цвет рамки при фокусе для валидных селекторов */
+    box-shadow: 0 0 0 .25rem rgba(25, 135, 84, .25); /* Тень при фокусе для валидных селекторов */
+}
+
+/* Ширина валидного цветового поля */
+.form-control-color.is-valid,
+.was-validated .form-control-color:valid {
+    width: calc(3rem + calc(1.5em + .75rem)); /* Ширина для валидного цветового поля */
+}
+
+/* Стили для валидных чекбоксов */
+.form-check-input.is-valid,
+.was-validated .form-check-input:valid {
+    border-color: #198754; /* Цвет рамки для валидных чекбоксов */
+}
+
+/* Стили для отмеченных валидных чекбоксов */
+.form-check-input.is-valid:checked,
+.was-validated .form-check-input:valid:checked {
+    background-color: #198754; /* Цвет фона для отмеченных валидных чекбоксов */
+}
+
+/* Стили для фокуса валидных чекбоксов */
+.form-check-input.is-valid:focus,
+.was-validated .form-check-input:valid:focus {
+    box-shadow: 0 0 0 .25rem rgba(25, 135, 84, .25); /* Тень при фокусе для валидных чекбоксов */
+}
+
+/* Цвет метки для валидных чекбоксов */
+.form-check-input.is-valid ~ .form-check-label,
+.was-validated .form-check-input:valid ~ .form-check-label {
+    color: #198754; /* Цвет текста метки для валидных чекбоксов */
+}
+
+/* Отступ для валидной обратной связи в инлайн чекбоксах */
+.form-check-inline .form-check-input ~ .valid-feedback {
+    margin-left: .5em; /* Отступ слева для валидной обратной связи */
+}
+
+/* Установка z-index для валидных элементов в группе ввода */
+.input-group > .form-control:not(:focus).is-valid,
+.input-group > .form-floating:not(:focus-within).is-valid,
+.input-group > .form-select:not(:focus).is-valid,
+.was-validated .input-group > .form-control:not(:focus):valid,
+.was-validated .input-group > .form-floating:not(:focus-within):valid,
+.was-validated .input-group > .form-select:not(:focus):valid {
+    z-index: 3; /* Установка z-index для валидных элементов в группе ввода */
+}
+
+/* Стили для элемента сообщения об ошибке, которое по умолчанию скрыто и будет показано при наличии ошибок валидации */
+.invalid-feedback {
+  display: none; /* Скрывает элемент по умолчанию */
+  width: 100%; /* Ширина 100% от родительского элемента */
+  margin-top: 0.25rem; /* Отступ сверху 0.25rem */
+  font-size: 0.875em; /* Размер шрифта 0.875em */
+  color: #dc3545; /* Цвет текста - красный (ошибка) */
+}
+
+/* Стили для элемента всплывающей подсказки с ошибкой, которая также скрыта по умолчанию */
+.invalid-tooltip {
+  position: absolute; /* Абсолютное позиционирование */
+  top: 100%; /* Располагает элемент под родительским элементом */
+  z-index: 5; /* Устанавливает уровень наложения */
+  display: none; /* Скрывает элемент по умолчанию */
+  max-width: 100%; /* Максимальная ширина 100% от родительского элемента */
+  padding: 0.25rem 0.5rem; /* Внутренние отступы: сверху и снизу 0.25rem, слева и справа 0.5rem */
+  margin-top: 0.1rem; /* Отступ сверху 0.1rem */
+  font-size: 0.875rem; /* Размер шрифта 0.875rem */
+  color: #fff; /* Цвет текста - белый */
+  background-color: rgba(220, 53, 69, 0.9); /* Полупрозрачный красный фон */
+  border-radius: 0.375rem; /* Скругление углов */
+}
+
+/* Правило для отображения .invalid-feedback и .invalid-tooltip при наличии класса .is-invalid или .was-validated */
+.is-invalid ~ .invalid-feedback,
+.is-invalid ~ .invalid-tooltip,
+.was-validated :invalid ~ .invalid-feedback,
+.was-validated :invalid ~ .invalid-tooltip {
+  display: block; /* Показывает элемент */
+}
+
+/* Стили для элементов с классом .form-control, когда они находятся в состоянии ошибки */
+.form-control.is-invalid,
+.was-validated .form-control:invalid {
+  border-color: #dc3545; /* Устанавливает красный цвет границы для ошибок */
+  padding-right: calc(1.5em + .75rem); /* Увеличивает отступ справа для отображения иконки ошибки */
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e"); /* Устанавливает фоновое изображение для иконки ошибки */
+  background-repeat: no-repeat; /* Отключает повторение фонового изображения */
+  background-position: right calc(.375em + .1875rem) center; /* Позиционирует фоновое изображение справа по центру */
+  background-size: calc(.75em + .375rem) calc(.75em + .375rem); /* Устанавливает размер фонового изображения */
+}
+
+/* Стили для элементов .form-control в состоянии фокуса при ошибках */
+.form-control.is-invalid:focus,
+.was-validated .form-control:invalid:focus {
+  border-color: #dc3545; /* Устанавливает красный цвет границы при фокусе */
+  box-shadow: 0 0 0 .25rem rgba(220, 53, 69, .25); /* Добавляет тень вокруг элемента при фокусе */
+}
+
+/* Стили для текстовых областей с ошибками */
+.was-validated textarea.form-control:invalid,
+textarea.form-control.is-invalid {
+  padding-right: calc(1.5em + .75rem); /* Увеличивает отступ справа для отображения иконки ошибки */
+  background-position: top calc(.375em + .1875rem) right calc(.375em + .1875rem); /* Позиционирует фоновое изображение для текстовых областей */
+}
+
+/* Стили для элементов с классом .form-select в состоянии ошибки */
+.form-select.is-invalid,
+.was-validated .form-select:invalid {
+  border-color: #dc3545; /* Устанавливает красный цвет границы для ошибок */
+}
+
+/* Стили для элементов .form-select, когда они не являются множественными и находятся в состоянии ошибки */
+.form-select.is-invalid:not([multiple]):not([size]),
+.form-select.is-invalid:not([multiple])[size="1"],
+.was-validated .form-select:invalid:not([multiple]):not([size]),
+.was-validated .form-select:invalid:not([multiple])[size="1"] {
+  padding-right: 4.125rem; /* Увеличивает отступ справа для отображения иконки ошибки */
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e"),
+                    url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e"); /* Устанавливает фоновое изображение для иконки ошибки */
+  background-position: right .75rem center, center right 2.25rem; /* Позиционирует фоновое изображение */
+  background-size: 16px 12px, calc(.75em + .375rem) calc(.75em + .375rem); /* Устанавливает размер фонового изображения */
+}
+
+/* Стили для элементов .form-select в состоянии фокуса при ошибках */
+.form-select.is-invalid:focus,
+.was-validated .form-select:invalid:focus {
+  border-color: #dc3545; /* Устанавливает красный цвет границы при фокусе */
+  box-shadow: 0 0 0 .25rem rgba(220, 53, 69, .25); /* Добавляет тень вокруг элемента при фокусе */
+}
+
+/* Стили для элементов .form-control-color в состоянии ошибки */
+.form-control-color.is-invalid,
+.was-validated .form-control-color:invalid {
+  width: calc(3rem + calc(1.5em + .75rem)); /* Устанавливает ширину элемента с учетом отступов для отображения иконки */
+}
+
+/* Стили для элементов .form-check-input в состоянии ошибки */
+.form-check-input.is-invalid,
+.was-validated .form-check-input:invalid {
+  border-color: #dc3545; /* Устанавливает красный цвет границы для ошибок */
+}
+
+/* Стили для отмеченных элементов .form-check-input в состоянии ошибки */
+.form-check-input.is-invalid:checked,
+.was-validated .form-check-input:invalid:checked {
+  background-color: #dc3545; /* Устанавливает красный фон для отмеченных элементов с ошибками */
+}
+
+/* Стили для элементов .form-check-input в состоянии фокуса при ошибках */
+.form-check-input.is-invalid:focus,
+.was-validated .form-check-input:invalid:focus {
+  box-shadow: 0 0 0 .25rem rgba(220, 53, 69, .25); /* Добавляет тень вокруг элемента при фокусе */
+}
+
+/* Стили для меток .form-check-label, связанных с элементами .form-check-input в состоянии ошибки */
+.form-check-input.is-invalid ~ .form-check-label,
+.was-validated .form-check-input:invalid ~ .form-check-label {
+  color: #dc3545; /* Устанавливает красный цвет текста метки для ошибок */
+}
+
+/* Стили для элементов .form-check-input с ошибками внутри инлайн-контейнера */
+.form-check-inline .form-check-input ~ .invalid-feedback {
+  margin-left: .5em; /* Устанавливает отступ слева для сообщения об ошибке */
+}
+
+/* Стили для элементов в группе ввода с ошибками */
+.input-group > .form-control:not(:focus).is-invalid,
+.input-group > .form-floating:not(:focus-within).is-invalid,
+.input-group > .form-select:not(:focus).is-invalid,
+.was-validated .input-group > .form-control:not(:focus):invalid,
+.was-validated .input-group > .form-floating:not(:focus-within):invalid,
+.was-validated .input-group > .form-select:not(:focus):invalid {
+  z-index: 4; /* Устанавливает уровень наложения для элементов с ошибками */
+}
+
+
+/* Основные стили для кнопки */
+.btn {
+  --bs-btn-padding-x: 0.75rem; /* Горизонтальный отступ кнопки */
+  --bs-btn-padding-y: 0.375rem; /* Вертикальный отступ кнопки */
+  --bs-btn-font-family: ; /* Шрифт кнопки (можно указать значение) */
+  --bs-btn-font-size: 1rem; /* Размер шрифта кнопки */
+  --bs-btn-font-weight: 400; /* Начертание шрифта кнопки */
+  --bs-btn-line-height: 1.5; /* Межстрочный интервал для текста кнопки */
+  --bs-btn-color: #212529; /* Цвет текста кнопки */
+  --bs-btn-bg: transparent; /* Цвет фона кнопки */
+  --bs-btn-border-width: 1px; /* Ширина границы кнопки */
+  --bs-btn-border-color: transparent; /* Цвет границы кнопки */
+  --bs-btn-border-radius: 0.375rem; /* Радиус скругления углов кнопки */
+  --bs-btn-hover-border-color: transparent; /* Цвет границы при наведении */
+  --bs-btn-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 1px rgba(0, 0, 0, 0.075); /* Тень кнопки */
+  --bs-btn-disabled-opacity: 0.65; /* Прозрачность кнопки в состоянии отключения */
+  --bs-btn-focus-box-shadow: 0 0 0 0.25rem rgba(var(--bs-btn-focus-shadow-rgb), .5); /* Тень при фокусе на кнопке */
+
+  display: inline-block; /* Отображение кнопки как встроенного блока */
+  padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x); /* Установка отступов с использованием переменных */
+  font-family: var(--bs-btn-font-family); /* Шрифт кнопки */
+  font-size: var(--bs-btn-font-size); /* Размер шрифта кнопки */
+  font-weight: var(--bs-btn-font-weight); /* Начертание шрифта кнопки */
+  line-height: var(--bs-btn-line-height); /* Межстрочный интервал для текста кнопки */
+  color: var(--bs-btn-color); /* Цвет текста кнопки */
+  text-align: center; /* Центрирование текста кнопки */
+  text-decoration: none; /* Убирает подчеркивание текста кнопки */
+  vertical-align: middle; /* Выравнивание по вертикали */
+  cursor: pointer; /* Указатель при наведении на кнопку */
+  -webkit-user-select: none; /* Запрет выделения текста в Safari */
+  -moz-user-select: none; /* Запрет выделения текста в Firefox */
+  user-select: none; /* Запрет выделения текста в других браузерах */
+  border: var(--bs-btn-border-width) solid var(--bs-btn-border-color); /* Установка границы кнопки */
+  border-radius: var(--bs-btn-border-radius); /* Установка радиуса скругления углов кнопки */
+  background-color: var(--bs-btn-bg); /* Цвет фона кнопки */
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out; /* Плавный переход для различных свойств кнопки */
+}
+
 
 @media (prefers-reduced-motion:reduce){.btn{transition:none}
 }

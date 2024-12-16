@@ -54,7 +54,7 @@ public class ConferenceController {
         }
         conferenceService.addConference(conferenceModel);
 
-        return "redirect:/";
+        return "redirect:/conferences/all";
     }
 
     @GetMapping("/all")

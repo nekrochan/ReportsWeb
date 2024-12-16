@@ -42,7 +42,7 @@ public class FounderController {
         }
         founderService.addFounder(founderModel.getFounderName());
 
-        return "redirect:/";
+        return "redirect:/founders/all";
     }
 
     @GetMapping("/all")

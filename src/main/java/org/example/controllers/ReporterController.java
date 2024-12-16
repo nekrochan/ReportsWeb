@@ -42,7 +42,7 @@ public class ReporterController {
         }
         reporterService.addReporter(reporterModel);
 
-        return "redirect:/";
+        return "redirect:/reporters/all";
     }
 
     @GetMapping("/all")

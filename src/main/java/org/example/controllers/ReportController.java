@@ -35,7 +35,6 @@ public class ReportController {
     }
 
     @GetMapping("/add")
-
     public String addReport(Model model) {
 
         model.addAttribute("reportModel", new ReportDto());
@@ -64,7 +63,7 @@ public class ReportController {
         }
         reportService.addReport(reportModel);
 
-        return "redirect:/";
+        return "redirect:/reports/all";
     }
 
     @GetMapping("/all")

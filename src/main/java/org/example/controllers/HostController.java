@@ -42,7 +42,7 @@ public class HostController {
         }
         hostService.addHost(hostModel.getHostName());
 
-        return "redirect:/";
+        return "redirect:/hosts/all";
     }
 
     @GetMapping("/all")
