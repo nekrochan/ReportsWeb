@@ -1,10 +1,14 @@
 package org.example.controllers;
 
+import org.example.models.Conference;
 import org.example.models.Report;
+import org.example.models.Reporter;
 import org.example.service.dto.ReportDto;
 import org.example.service.interfaces.ConferenceService;
 import org.example.service.interfaces.ReportService;
 import org.example.service.interfaces.ReporterService;
+import org.example.views.ConferenceViewModel;
+import org.example.views.ReporterViewModel;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import jakarta.validation.Valid;
@@ -13,6 +17,8 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/reports")
@@ -36,17 +42,20 @@ public class ReportController {
 
     @GetMapping("/add")
     public String addReport(Model model) {
-
         model.addAttribute("reportModel", new ReportDto());
 
-        model.addAttribute("conferences", conferenceService.findAllConferences());
+        List<ConferenceViewModel> conferences = conferenceService.findAllConferences();
+        List<ReporterViewModel> reporters = reporterService.findAllReporters();
 
-        model.addAttribute("reporters", reporterService.findAllReporters());
+        model.addAttribute("conferences", conferences);
+        model.addAttribute("reporters", reporters);
+
+        if (conferences.isEmpty() || reporters.isEmpty()) {
+            model.addAttribute("noOptions", true);
+        }
 
         return "report-add";
-
     }
-
     @ModelAttribute("reportModel")
     public ReportDto initReport() {
         return new ReportDto();

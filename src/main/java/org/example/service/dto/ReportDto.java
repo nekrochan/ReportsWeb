@@ -1,5 +1,6 @@
 package org.example.service.dto;
 
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 
@@ -33,6 +34,7 @@ public class ReportDto {
         this.theme = theme;
     }
 
+    @Min(1)
     public int getVolume() {
         return volume;
     }
@@ -60,6 +62,8 @@ public class ReportDto {
 
      */
 
+    @NotNull
+    @NotEmpty
     public String getReporterName() {
         return reporterName;
     }
@@ -68,6 +72,8 @@ public class ReportDto {
         this.reporterName = reporterName;
     }
 
+    @NotNull
+    @NotEmpty
     public String getConfName() {
         return confName;
     }
