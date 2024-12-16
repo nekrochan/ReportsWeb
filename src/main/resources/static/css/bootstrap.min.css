@@ -1002,500 +1002,781 @@ progress {
     .g-md-5, .gy-md-5 { --bs-gutter-y: 3rem; } /* Вертикальный отступ 3rem */
 }
 
-@media (min-width:992px){.col-lg{flex:1 0 0%}
-.row-cols-lg-auto>*{flex:0 0 auto;
-  width:auto}
-.row-cols-lg-1>*{flex:0 0 auto;
-  width:100%}
-.row-cols-lg-2>*{flex:0 0 auto;
-  width:50%}
-.row-cols-lg-3>*{flex:0 0 auto;
-  width:33.3333333333%}
-.row-cols-lg-4>*{flex:0 0 auto;
-  width:25%}
-.row-cols-lg-5>*{flex:0 0 auto;
-  width:20%}
-.row-cols-lg-6>*{flex:0 0 auto;
-  width:16.6666666667%}
-.col-lg-auto{flex:0 0 auto;
-  width:auto}
-.col-lg-1{flex:0 0 auto;
-  width:8.33333333%}
-.col-lg-2{flex:0 0 auto;
-  width:16.66666667%}
-.col-lg-3{flex:0 0 auto;
-  width:25%}
-.col-lg-4{flex:0 0 auto;
-  width:33.33333333%}
-.col-lg-5{flex:0 0 auto;
-  width:41.66666667%}
-.col-lg-6{flex:0 0 auto;
-  width:50%}
-.col-lg-7{flex:0 0 auto;
-  width:58.33333333%}
-.col-lg-8{flex:0 0 auto;
-  width:66.66666667%}
-.col-lg-9{flex:0 0 auto;
-  width:75%}
-.col-lg-10{flex:0 0 auto;
-  width:83.33333333%}
-.col-lg-11{flex:0 0 auto;
-  width:91.66666667%}
-.col-lg-12{flex:0 0 auto;
-  width:100%}
-.offset-lg-0{margin-left:0}
-.offset-lg-1{margin-left:8.33333333%}
-.offset-lg-2{margin-left:16.66666667%}
-.offset-lg-3{margin-left:25%}
-.offset-lg-4{margin-left:33.33333333%}
-.offset-lg-5{margin-left:41.66666667%}
-.offset-lg-6{margin-left:50%}
-.offset-lg-7{margin-left:58.33333333%}
-.offset-lg-8{margin-left:66.66666667%}
-.offset-lg-9{margin-left:75%}
-.offset-lg-10{margin-left:83.33333333%}
-.offset-lg-11{margin-left:91.66666667%}
-.g-lg-0,.gx-lg-0{--bs-gutter-x:0}
-.g-lg-0,.gy-lg-0{--bs-gutter-y:0}
-.g-lg-1,.gx-lg-1{--bs-gutter-x:0.25rem}
-.g-lg-1,.gy-lg-1{--bs-gutter-y:0.25rem}
-.g-lg-2,.gx-lg-2{--bs-gutter-x:0.5rem}
-.g-lg-2,.gy-lg-2{--bs-gutter-y:0.5rem}
-.g-lg-3,.gx-lg-3{--bs-gutter-x:1rem}
-.g-lg-3,.gy-lg-3{--bs-gutter-y:1rem}
-.g-lg-4,.gx-lg-4{--bs-gutter-x:1.5rem}
-.g-lg-4,.gy-lg-4{--bs-gutter-y:1.5rem}
-.g-lg-5,.gx-lg-5{--bs-gutter-x:3rem}
-.g-lg-5,.gy-lg-5{--bs-gutter-y:3rem}
+/* Условие для медиа-запроса: применяется, если ширина экрана больше или равна 992px */
+@media (min-width: 992px) {
+
+    /* Базовый класс для колонок с минимальной шириной */
+    .col-lg {
+        flex: 1 0 0%; /* Позволяет колонкам занимать доступное пространство */
+    }
+
+    /* Определяем автоматическое распределение колонок для .row */
+    .row-cols-lg-auto > * {
+        flex: 0 0 auto; /* Элементы не будут сжиматься */
+        width: auto; /* Автоширина */
+    }
+
+    /* Определяем количество колонок от 1 до 6 для .row */
+    .row-cols-lg-1 > * { flex: 0 0 auto; width: 100%; } /* 1 колонка */
+    .row-cols-lg-2 > * { flex: 0 0 auto; width: 50%; } /* 2 колонки */
+    .row-cols-lg-3 > * { flex: 0 0 auto; width: 33.3333333333%; } /* 3 колонки */
+    .row-cols-lg-4 > * { flex: 0 0 auto; width: 25%; } /* 4 колонки */
+    .row-cols-lg-5 > * { flex: 0 0 auto; width: 20%; } /* 5 колонок */
+    .row-cols-lg-6 > * { flex: 0 0 auto; width: 16.6666666667%; } /* 6 колонок */
+
+    /* Автоматическая ширина для колонки */
+    .col-lg-auto {
+        flex: 0 0 auto; /* Элементы не будут сжиматься */
+        width: auto; /* Автоширина */
+    }
+
+    /* Ширина колонок от 1 до 12 для класса .col-lg */
+    .col-lg-1 { flex: 0 0 auto; width: 8.33333333%; }
+    .col-lg-2 { flex: 0 0 auto; width: 16.66666667%; }
+    .col-lg-3 { flex: 0 0 auto; width: 25%; }
+    .col-lg-4 { flex: 0 0 auto; width: 33.33333333%; }
+    .col-lg-5 { flex: 0 0 auto; width: 41.66666667%; }
+    .col-lg-6 { flex: 0 0 auto; width: 50%; }
+    .col-lg-7 { flex: 0 0 auto; width: 58.33333333%; }
+    .col-lg-8 { flex: 0 0 auto; width: 66.66666667%; }
+    .col-lg-9 { flex: 0 0 auto; width: 75%; }
+    .col-lg-10 { flex: 0 0 auto; width: 83.33333333%; }
+    .col-lg-11 { flex: 0 0 auto; width: 91.66666667%; }
+    .col-lg-12 { flex: 0 0 auto; width: 100%; }
+
+    /* Отступы для колонок с классами offset-lg */
+    .offset-lg-0 { margin-left: 0; }
+    .offset-lg-1 { margin-left: 8.33333333%; }
+    .offset-lg-2 { margin-left: 16.66666667%; }
+    .offset-lg-3 { margin-left: 25%; }
+    .offset-lg-4 { margin-left: 33.33333333%; }
+    .offset-lg-5 { margin-left: 41.66666667%; }
+    .offset-lg-6 { margin-left: 50%; }
+    .offset-lg-7 { margin-left: 58.33333333%; }
+    .offset-lg-8 { margin-left: 66.66666667%; }
+    .offset-lg-9 { margin-left: 75%; }
+    .offset-lg-10 { margin-left: 83.33333333%; }
+    .offset-lg-11 { margin-left: 91.66666667%; }
+
+    /* Установка значений отступов для элементов с классами g- и gx-/gy- */
+    .g-lg-0, .gx-lg-0 { --bs-gutter-x: 0; } /* Устанавливаем горизонтальные отступы в 0 */
+    .g-lg-0, .gy-lg-0 { --bs-gutter-y: 0; } /* Устанавливаем вертикальные отступы в 0 */
+    .g-lg-1, .gx-lg-1 { --bs-gutter-x: 0.25rem; } /* Горизонтальный отступ 0.25rem */
+    .g-lg-1, .gy-lg-1 { --bs-gutter-y: 0.25rem; } /* Вертикальный отступ 0.25rem */
+    .g-lg-2, .gx-lg-2 { --bs-gutter-x: 0.5rem; } /* Горизонтальный отступ 0.5rem */
+    .g-lg-2, .gy-lg-2 { --bs-gutter-y: 0.5rem; } /* Вертикальный отступ 0.5rem */
+    .g-lg-3, .gx-lg-3 { --bs-gutter-x: 1rem; } /* Горизонтальный отступ 1rem */
+    .g-lg-3, .gy-lg-3 { --bs-gutter-y: 1rem; } /* Вертикальный отступ 1rem */
+    .g-lg-4, .gx-lg-4 { --bs-gutter-x: 1.5rem; } /* Горизонтальный отступ 1.5rem */
+    .g-lg-4, .gy-lg-4 { --bs-gutter-y: 1.5rem; } /* Вертикальный отступ 1.5rem */
+    .g-lg-5, .gx-lg-5 { --bs-gutter-x: 3rem; } /* Горизонтальный отступ 3rem */
+    .g-lg-5, .gy-lg-5 { --bs-gutter-y: 3rem; } /* Вертикальный отступ 3rem */
 }
 
-@media (min-width:1200px){.col-xl{flex:1 0 0%}
-.row-cols-xl-auto>*{flex:0 0 auto;
-  width:auto}
-.row-cols-xl-1>*{flex:0 0 auto;
-  width:100%}
-.row-cols-xl-2>*{flex:0 0 auto;
-  width:50%}
-.row-cols-xl-3>*{flex:0 0 auto;
-  width:33.3333333333%}
-.row-cols-xl-4>*{flex:0 0 auto;
-  width:25%}
-.row-cols-xl-5>*{flex:0 0 auto;
-  width:20%}
-.row-cols-xl-6>*{flex:0 0 auto;
-  width:16.6666666667%}
-.col-xl-auto{flex:0 0 auto;
-  width:auto}
-.col-xl-1{flex:0 0 auto;
-  width:8.33333333%}
-.col-xl-2{flex:0 0 auto;
-  width:16.66666667%}
-.col-xl-3{flex:0 0 auto;
-  width:25%}
-.col-xl-4{flex:0 0 auto;
-  width:33.33333333%}
-.col-xl-5{flex:0 0 auto;
-  width:41.66666667%}
-.col-xl-6{flex:0 0 auto;
-  width:50%}
-.col-xl-7{flex:0 0 auto;
-  width:58.33333333%}
-.col-xl-8{flex:0 0 auto;
-  width:66.66666667%}
-.col-xl-9{flex:0 0 auto;
-  width:75%}
-.col-xl-10{flex:0 0 auto;
-  width:83.33333333%}
-.col-xl-11{flex:0 0 auto;
-  width:91.66666667%}
-.col-xl-12{flex:0 0 auto;
-  width:100%}
-.offset-xl-0{margin-left:0}
-.offset-xl-1{margin-left:8.33333333%}
-.offset-xl-2{margin-left:16.66666667%}
-.offset-xl-3{margin-left:25%}
-.offset-xl-4{margin-left:33.33333333%}
-.offset-xl-5{margin-left:41.66666667%}
-.offset-xl-6{margin-left:50%}
-.offset-xl-7{margin-left:58.33333333%}
-.offset-xl-8{margin-left:66.66666667%}
-.offset-xl-9{margin-left:75%}
-.offset-xl-10{margin-left:83.33333333%}
-.offset-xl-11{margin-left:91.66666667%}
-.g-xl-0,.gx-xl-0{--bs-gutter-x:0}
-.g-xl-0,.gy-xl-0{--bs-gutter-y:0}
-.g-xl-1,.gx-xl-1{--bs-gutter-x:0.25rem}
-.g-xl-1,.gy-xl-1{--bs-gutter-y:0.25rem}
-.g-xl-2,.gx-xl-2{--bs-gutter-x:0.5rem}
-.g-xl-2,.gy-xl-2{--bs-gutter-y:0.5rem}
-.g-xl-3,.gx-xl-3{--bs-gutter-x:1rem}
-.g-xl-3,.gy-xl-3{--bs-gutter-y:1rem}
-.g-xl-4,.gx-xl-4{--bs-gutter-x:1.5rem}
-.g-xl-4,.gy-xl-4{--bs-gutter-y:1.5rem}
-.g-xl-5,.gx-xl-5{--bs-gutter-x:3rem}
-.g-xl-5,.gy-xl-5{--bs-gutter-y:3rem}
+/* Медиа-запрос для экранов шириной 1200 пикселей и более */
+@media (min-width: 1200px) {
+    /* Устанавливает flex-grow, flex-shrink и flex-basis для элемента с классом .col-xl */
+    .col-xl {
+        flex: 1 0 0%; /* Элемент занимает доступное пространство, не сжимается, базовая ширина 0% */
+    }
+
+    /* Устанавливает свойства для автоматической ширины в ряду */
+    .row-cols-xl-auto > * {
+        flex: 0 0 auto; /* Элемент не растягивается и не сжимается, ширина автоматическая */
+        width: auto; /* Ширина элемента автоматически подстраивается */
+    }
+
+    /* Устанавливает ширину для 1 колонки */
+    .row-cols-xl-1 {
+        flex: 0 0 auto; /* Элемент не растягивается и не сжимается */
+        width: 100%; /* Ширина 100% */
+    }
+
+    /* Устанавливает ширину для 2 колонок */
+    .row-cols-xl-2 {
+        flex: 0 0 auto; /* Элемент не растягивается и не сжимается */
+        width: 50%; /* Ширина 50% */
+    }
+
+    /* Устанавливает ширину для 3 колонок */
+    .row-cols-xl-3 {
+        flex: 0 0 auto;
+        width: 33.3333333333%; /* Ширина 33.33% */
+    }
+
+    /* Устанавливает ширину для 4 колонок */
+    .row-cols-xl-4 {
+        flex: 0 0 auto;
+        width: 25%; /* Ширина 25% */
+    }
+
+    /* Устанавливает ширину для 5 колонок */
+    .row-cols-xl-5 {
+        flex: 0 0 auto;
+        width: 20%; /* Ширина 20% */
+    }
+
+    /* Устанавливает ширину для 6 колонок */
+    .row-cols-xl-6 > * {
+        flex: 0 0 auto;
+        width: 16.6666666667%; /* Ширина 16.67% */
+    }
+
+    /* Устанавливает автоматическую ширину для колонки */
+    .col-xl-auto {
+        flex: 0 0 auto; /* Элемент не растягивается и не сжимается */
+        width: auto; /* Ширина автоматическая */
+    }
+
+    /* Устанавливает ширину для 1-12 колонок */
+    .col-xl-1 { flex: 0 0 auto; width: 8.33333333%; }
+    .col-xl-2 { flex: 0 0 auto; width: 16.66666667%; }
+    .col-xl-3 { flex: 0 0 auto; width: 25%; }
+    .col-xl-4 { flex: 0 0 auto; width: 33.33333333%; }
+    .col-xl-5 { flex: 0 0 auto; width: 41.66666667%; }
+    .col-xl-6 { flex: 0 0 auto; width: 50%; }
+    .col-xl-7 { flex: 0 0 auto; width: 58.33333333%; }
+    .col-xl-8 { flex: 0 0 auto; width: 66.66666667%; }
+    .col-xl-9 { flex: 0 0 auto; width: 75%; }
+    .col-xl-10 { flex: 0 0 auto; width: 83.33333333%; }
+    .col-xl-11 { flex: 0 0 auto; width: 91.66666667%; }
+    .col-xl-12 { flex: 0 0 auto; width: 100%; }
+
+    /* Устанавливает отступы для колонок */
+    .offset-xl-0 { margin-left: 0; }
+    .offset-xl-1 { margin-left: 8.33333333%; }
+    .offset-xl-2 { margin-left: 16.66666667%; }
+    .offset-xl-3 { margin-left: 25%; }
+    .offset-xl-4 { margin-left: 33.33333333%; }
+    .offset-xl-5 { margin-left: 41.66666667%; }
+    .offset-xl-6 { margin-left: 50%; }
+    .offset-xl-7 { margin-left: 58.33333333%; }
+    .offset-xl-8 { margin-left: 66.66666667%; }
+    .offset-xl-9 { margin-left: 75%; }
+    .offset-xl-10 { margin-left: 83.33333333%; }
+    .offset-xl-11 { margin-left: 91.66666667%; }
+
+    /* Устанавливает отступы между элементами */
+    .g-xl-0, .gx-xl-0 { --bs-gutter-x: 0; } /* Горизонтальный отступ 0 */
+    .g-xl-0, .gy-xl-0 { --bs-gutter-y: 0; } /* Вертикальный отступ 0 */
+    .g-xl-1, .gx-xl-1 { --bs-gutter-x: 0.25rem; } /* Горизонтальный отступ 0.25rem */
+    .g-xl-1, .gy-xl-1 { --bs-gutter-y: 0.25rem; } /* Вертикальный отступ 0.25rem */
+    .g-xl-2, .gx-xl-2 { --bs-gutter-x: 0.5rem; } /* Горизонтальный отступ 0.5rem */
+    .g-xl-2, .gy-xl-2 { --bs-gutter-y: 0.5rem; } /* Вертикальный отступ 0.5rem */
+    .g-xl-3, .gx-xl-3 { --bs-gutter-x: 1rem; } /* Горизонтальный отступ 1rem */
+    .g-xl-3, .gy-xl-3 { --bs-gutter-y: 1rem; } /* Вертикальный отступ 1rem */
+    .g-xl-4, .gx-xl-4 { --bs-gutter-x: 1.5rem; } /* Горизонтальный отступ 1.5rem */
+    .g-xl-4, .gy-xl-4 { --bs-gutter-y: 1.5rem; } /* Вертикальный отступ 1.5rem */
+    .g-xl-5, .gx-xl-5 { --bs-gutter-x: 3rem; } /* Горизонтальный отступ 3rem */
+    .g-xl-5, .gy-xl-5 { --bs-gutter-y: 3rem; } /* Вертикальный отступ 3rem */
 }
 
-@media (min-width:1400px){.col-xxl{flex:1 0 0%}
-.row-cols-xxl-auto>*{flex:0 0 auto;
-  width:auto}
-.row-cols-xxl-1>*{flex:0 0 auto;
-  width:100%}
-.row-cols-xxl-2>*{flex:0 0 auto;
-  width:50%}
-.row-cols-xxl-3>*{flex:0 0 auto;
-  width:33.3333333333%}
-.row-cols-xxl-4>*{flex:0 0 auto;
-  width:25%}
-.row-cols-xxl-5>*{flex:0 0 auto;
-  width:20%}
-.row-cols-xxl-6>*{flex:0 0 auto;
-  width:16.6666666667%}
-.col-xxl-auto{flex:0 0 auto;
-  width:auto}
-.col-xxl-1{flex:0 0 auto;
-  width:8.33333333%}
-.col-xxl-2{flex:0 0 auto;
-  width:16.66666667%}
-.col-xxl-3{flex:0 0 auto;
-  width:25%}
-.col-xxl-4{flex:0 0 auto;
-  width:33.33333333%}
-.col-xxl-5{flex:0 0 auto;
-  width:41.66666667%}
-.col-xxl-6{flex:0 0 auto;
-  width:50%}
-.col-xxl-7{flex:0 0 auto;
-  width:58.33333333%}
-.col-xxl-8{flex:0 0 auto;
-  width:66.66666667%}
-.col-xxl-9{flex:0 0 auto;
-  width:75%}
-.col-xxl-10{flex:0 0 auto;
-  width:83.33333333%}
-.col-xxl-11{flex:0 0 auto;
-  width:91.66666667%}
-.col-xxl-12{flex:0 0 auto;
-  width:100%}
-.offset-xxl-0{margin-left:0}
-.offset-xxl-1{margin-left:8.33333333%}
-.offset-xxl-2{margin-left:16.66666667%}
-.offset-xxl-3{margin-left:25%}
-.offset-xxl-4{margin-left:33.33333333%}
-.offset-xxl-5{margin-left:41.66666667%}
-.offset-xxl-6{margin-left:50%}
-.offset-xxl-7{margin-left:58.33333333%}
-.offset-xxl-8{margin-left:66.66666667%}
-.offset-xxl-9{margin-left:75%}
-.offset-xxl-10{margin-left:83.33333333%}
-.offset-xxl-11{margin-left:91.66666667%}
-.g-xxl-0,.gx-xxl-0{--bs-gutter-x:0}
-.g-xxl-0,.gy-xxl-0{--bs-gutter-y:0}
-.g-xxl-1,.gx-xxl-1{--bs-gutter-x:0.25rem}
-.g-xxl-1,.gy-xxl-1{--bs-gutter-y:0.25rem}
-.g-xxl-2,.gx-xxl-2{--bs-gutter-x:0.5rem}
-.g-xxl-2,.gy-xxl-2{--bs-gutter-y:0.5rem}
-.g-xxl-3,.gx-xxl-3{--bs-gutter-x:1rem}
-.g-xxl-3,.gy-xxl-3{--bs-gutter-y:1rem}
-.g-xxl-4,.gx-xxl-4{--bs-gutter-x:1.5rem}
-.g-xxl-4,.gy-xxl-4{--bs-gutter-y:1.5rem}
-.g-xxl-5,.gx-xxl-5{--bs-gutter-x:3rem}
-.g-xxl-5,.gy-xxl-5{--bs-gutter-y:3rem}
-}
-.table{--bs-table-color:var(--bs-body-color);
-  --bs-table-bg:transparent;
-  --bs-table-border-color:var(--bs-border-color);
-  --bs-table-accent-bg:transparent;
-  --bs-table-striped-color:var(--bs-body-color);
-  --bs-table-striped-bg:rgba(0, 0, 0, 0.05);
-  --bs-table-active-color:var(--bs-body-color);
-  --bs-table-active-bg:rgba(0, 0, 0, 0.1);
-  --bs-table-hover-color:var(--bs-body-color);
-  --bs-table-hover-bg:rgba(0, 0, 0, 0.075);
-  width:100%;
-  margin-bottom:1rem;
-  color:var(--bs-table-color);
-  vertical-align:top;
-  border-color:var(--bs-table-border-color)}
-.table>:not(caption)>*>*{padding:.5rem .5rem;
-  background-color:var(--bs-table-bg);
-  border-bottom-width:1px;
-  box-shadow:inset 0 0 0 9999px var(--bs-table-accent-bg)}
-.table>tbody{vertical-align:inherit}
-.table>thead{vertical-align:bottom}
-.table-group-divider{border-top:2px solid currentcolor}
-.caption-top{caption-side:top}
-.table-sm>:not(caption)>*>*{padding:.25rem .25rem}
-.table-bordered>:not(caption)>*{border-width:1px 0}
-.table-bordered>:not(caption)>*>*{border-width:0 1px}
-.table-borderless>:not(caption)>*>*{border-bottom-width:0}
-.table-borderless>:not(:first-child){border-top-width:0}
-.table-striped>tbody>tr:nth-of-type(odd)>*{--bs-table-accent-bg:var(--bs-table-striped-bg);
-  color:var(--bs-table-striped-color)}
-.table-striped-columns>:not(caption)>tr>:nth-child(2n){--bs-table-accent-bg:var(--bs-table-striped-bg);
-  color:var(--bs-table-striped-color)}
-.table-active{--bs-table-accent-bg:var(--bs-table-active-bg);
-  color:var(--bs-table-active-color)}
-.table-hover>tbody>tr:hover>*{--bs-table-accent-bg:var(--bs-table-hover-bg);
-  color:var(--bs-table-hover-color)}
-.table-primary{--bs-table-color:#000;
-  --bs-table-bg:#cfe2ff;
-  --bs-table-border-color:#bacbe6;
-  --bs-table-striped-bg:#c5d7f2;
-  --bs-table-striped-color:#000;
-  --bs-table-active-bg:#bacbe6;
-  --bs-table-active-color:#000;
-  --bs-table-hover-bg:#bfd1ec;
-  --bs-table-hover-color:#000;
-  color:var(--bs-table-color);
-  border-color:var(--bs-table-border-color)}
-.table-secondary{--bs-table-color:#000;
-  --bs-table-bg:#e2e3e5;
-  --bs-table-border-color:#cbccce;
-  --bs-table-striped-bg:#d7d8da;
-  --bs-table-striped-color:#000;
-  --bs-table-active-bg:#cbccce;
-  --bs-table-active-color:#000;
-  --bs-table-hover-bg:#d1d2d4;
-  --bs-table-hover-color:#000;
-  color:var(--bs-table-color);
-  border-color:var(--bs-table-border-color)}
-.table-success{--bs-table-color:#000;
-  --bs-table-bg:#d1e7dd;
-  --bs-table-border-color:#bcd0c7;
-  --bs-table-striped-bg:#c7dbd2;
-  --bs-table-striped-color:#000;
-  --bs-table-active-bg:#bcd0c7;
-  --bs-table-active-color:#000;
-  --bs-table-hover-bg:#c1d6cc;
-  --bs-table-hover-color:#000;
-  color:var(--bs-table-color);
-  border-color:var(--bs-table-border-color)}
-.table-info{--bs-table-color:#000;
-  --bs-table-bg:#cff4fc;
-  --bs-table-border-color:#badce3;
-  --bs-table-striped-bg:#c5e8ef;
-  --bs-table-striped-color:#000;
-  --bs-table-active-bg:#badce3;
-  --bs-table-active-color:#000;
-  --bs-table-hover-bg:#bfe2e9;
-  --bs-table-hover-color:#000;
-  color:var(--bs-table-color);
-  border-color:var(--bs-table-border-color)}
-.table-warning{--bs-table-color:#000;
-  --bs-table-bg:#fff3cd;
-  --bs-table-border-color:#e6dbb9;
-  --bs-table-striped-bg:#f2e7c3;
-  --bs-table-striped-color:#000;
-  --bs-table-active-bg:#e6dbb9;
-  --bs-table-active-color:#000;
-  --bs-table-hover-bg:#ece1be;
-  --bs-table-hover-color:#000;
-  color:var(--bs-table-color);
-  border-color:var(--bs-table-border-color)}
-.table-danger{--bs-table-color:#000;
-  --bs-table-bg:#f8d7da;
-  --bs-table-border-color:#dfc2c4;
-  --bs-table-striped-bg:#eccccf;
-  --bs-table-striped-color:#000;
-  --bs-table-active-bg:#dfc2c4;
-  --bs-table-active-color:#000;
-  --bs-table-hover-bg:#e5c7ca;
-  --bs-table-hover-color:#000;
-  color:var(--bs-table-color);
-  border-color:var(--bs-table-border-color)}
-.table-light{--bs-table-color:#000;
-  --bs-table-bg:#f8f9fa;
-  --bs-table-border-color:#dfe0e1;
-  --bs-table-striped-bg:#ecedee;
-  --bs-table-striped-color:#000;
-  --bs-table-active-bg:#dfe0e1;
-  --bs-table-active-color:#000;
-  --bs-table-hover-bg:#e5e6e7;
-  --bs-table-hover-color:#000;
-  color:var(--bs-table-color);
-  border-color:var(--bs-table-border-color)}
-.table-dark{--bs-table-color:#fff;
-  --bs-table-bg:#212529;
-  --bs-table-border-color:#373b3e;
-  --bs-table-striped-bg:#2c3034;
-  --bs-table-striped-color:#fff;
-  --bs-table-active-bg:#373b3e;
-  --bs-table-active-color:#fff;
-  --bs-table-hover-bg:#323539;
-  --bs-table-hover-color:#fff;
-  color:var(--bs-table-color);
-  border-color:var(--bs-table-border-color)}
-.table-responsive{overflow-x:auto;
-  -webkit-overflow-scrolling:touch}
+/* Медиа-запрос для экранов шириной 1400px и больше */
+@media (min-width: 1400px) {
+    /* Определяет класс колонки с шириной 0% и гибким поведением */
+    .col-xxl {
+        flex: 1 0 0%; /* flex-grow: 1, flex-shrink: 0, flex-basis: 0% */
+    }
 
-@media (max-width:575.98px){.table-responsive-sm{overflow-x:auto;
-  -webkit-overflow-scrolling:touch}
+    /* Автоматическая ширина для всех элементов в строке с классом row-cols-xxl-auto */
+    .row-cols-xxl-auto > * {
+        flex: 0 0 auto; /* flex-grow: 0, flex-shrink: 0, flex-basis: auto */
+        width: auto; /* Ширина элемента автоматически подстраивается */
+    }
+
+    /* Определение ширины для строк с различным количеством колонок */
+    .row-cols-xxl-1 > * { width: 100%; } /* 1 колонка */
+    .row-cols-xxl-2 > * { width: 50%; } /* 2 колонки */
+    .row-cols-xxl-3 > * { width: 33.3333333333%; } /* 3 колонки */
+    .row-cols-xxl-4 > * { width: 25%; } /* 4 колонки */
+    .row-cols-xxl-5 > * { width: 20%; } /* 5 колонок */
+    .row-cols-xxl-6 > * { width: 16.6666666667%; } /* 6 колонок */
+
+    /* Определение классов колонок с шириной от 8.33% до 100% */
+    .col-xxl-auto { width: auto; }
+    .col-xxl-1 { width: 8.33333333%; }
+    .col-xxl-2 { width: 16.66666667%; }
+    .col-xxl-3 { width: 25%; }
+    .col-xxl-4 { width: 33.33333333%; }
+    .col-xxl-5 { width: 41.66666667%; }
+    .col-xxl-6 { width: 50%; }
+    .col-xxl-7 { width: 58.33333333%; }
+    .col-xxl-8 { width: 66.66666667%; }
+    .col-xxl-9 { width: 75%; }
+    .col-xxl-10 { width: 83.33333333%; }
+    .col-xxl-11 { width: 91.66666667%; }
+    .col-xxl-12 { width: 100%; }
+
+    /* Определение отступов для колонок */
+    .offset-xxl-0 { margin-left: 0; }
+    .offset-xxl-1 { margin-left: 8.33333333%; }
+    .offset-xxl-2 { margin-left: 16.66666667%; }
+    .offset-xxl-3 { margin-left: 25%; }
+    .offset-xxl-4 { margin-left: 33.33333333%; }
+    .offset-xxl-5 { margin-left: 41.66666667%; }
+    .offset-xxl-6 { margin-left: 50%; }
+    .offset-xxl-7 { margin-left: 58.33333333%; }
+    .offset-xxl-8 { margin-left: 66.66666667%; }
+    .offset-xxl-9 { margin-left: 75%; }
+    .offset-xxl-10 { margin-left: 83.33333333%; }
+    .offset-xxl-11 { margin-left: 91.66666667%; }
+
+    /* Определение отступов для сетки */
+    .g-xxl-0, .gx-xxl-0 { --bs-gutter-x: 0; } /* Горизонтальный отступ 0 */
+    .g-xxl-0, .gy-xxl-0 { --bs-gutter-y: 0; } /* Вертикальный отступ 0 */
+    .g-xxl-1, .gx-xxl-1 { --bs-gutter-x: 0.25rem; } /* Горизонтальный отступ 0.25rem */
+    .g-xxl-1, .gy-xxl-1 { --bs-gutter-y: 0.25rem; } /* Вертикальный отступ 0.25rem */
+    .g-xxl-2, .gx-xxl-2 { --bs-gutter-x: 0.5rem; } /* Горизонтальный отступ 0.5rem */
+    .g-xxl-2, .gy-xxl-2 { --bs-gutter-y: 0.5rem; } /* Вертикальный отступ 0.5rem */
+    .g-xxl-3, .gx-xxl-3 { --bs-gutter-x: 1rem; } /* Горизонтальный отступ 1rem */
+    .g-xxl-3, .gy-xxl-3 { --bs-gutter-y: 1rem; } /* Вертикальный отступ 1rem */
+    .g-xxl-4, .gx-xxl-4 { --bs-gutter-x: 1.5rem; } /* Горизонтальный отступ 1.5rem */
+    .g-xxl-4, .gy-xxl-4 { --bs-gutter-y: 1.5rem; } /* Вертикальный отступ 1.5rem */
+    .g-xxl-5, .gx-xxl-5 { --bs-gutter-x: 3rem; } /* Горизонтальный отступ 3rem */
+    .g-xxl-5, .gy-xxl-5 { --bs-gutter-y: 3rem; } /* Вертикальный отступ 3rem */
 }
 
-@media (max-width:767.98px){.table-responsive-md{overflow-x:auto;
-  -webkit-overflow-scrolling:touch}
+/* Основные стили для таблиц */
+.table {
+    --bs-table-color: var(--bs-body-color); /* Цвет текста таблицы */
+    --bs-table-bg: transparent; /* Фоновый цвет таблицы */
+    --bs-table-border-color: var(--bs-border-color); /* Цвет границ таблицы */
+    --bs-table-accent-bg: transparent; /* Фоновый цвет акцента таблицы */
+    --bs-table-striped-color: var(--bs-body-color); /* Цвет текста для полосатой таблицы */
+    --bs-table-striped-bg: rgba(0, 0, 0, 0.05); /* Фоновый цвет для полосатой таблицы */
+    --bs-table-active-color: var(--bs-body-color); /* Цвет текста для активной строки */
+    --bs-table-active-bg: rgba(0, 0, 0, 0.1); /* Фоновый цвет для активной строки */
+    --bs-table-hover-color: var(--bs-body-color); /* Цвет текста для строки при наведении */
+    --bs-table-hover-bg: rgba(0, 0, 0, 0.075); /* Фоновый цвет для строки при наведении */
+    width: 100%; /* Ширина таблицы 100% */
+    margin-bottom: 1rem; /* Нижний отступ */
+    color: var(--bs-table-color); /* Цвет текста */
+    vertical-align: top; /* Выравнивание по верхнему краю ячеек */
+    border-color: var(--bs-table-border-color); /* Цвет границ таблицы */
 }
 
-@media (max-width:991.98px){.table-responsive-lg{overflow-x:auto;
-  -webkit-overflow-scrolling:touch}
+/* Паттерн для ячеек таблицы */
+.table > :not(caption) > * {
+    padding: .5rem .5rem; /* Внутренние отступы ячеек */
+    background-color: var(--bs-table-bg); /* Фоновый цвет ячеек */
+    border-bottom-width: 1px; /* Нижняя граница ячеек */
+    box-shadow: inset 0 0 0 9999px var(--bs-table-accent-bg); /* Эффект акцента */
 }
 
-@media (max-width:1199.98px){.table-responsive-xl{overflow-x:auto;
-  -webkit-overflow-scrolling:touch}
+.table > tbody { vertical-align: inherit; } /* Вертикальное выравнивание для тела таблицы */
+.table > thead { vertical-align: bottom; } /* Вертикальное выравнивание для заголовка таблицы */
+
+/* Стили для разделителей групп таблицы */
+.table-group-divider {
+    border-top: 2px solid currentcolor; /* Граница сверху */
 }
 
-@media (max-width:1399.98px){.table-responsive-xxl{overflow-x:auto;
-  -webkit-overflow-scrolling:touch}
-}
-.form-label{margin-bottom:.5rem}
-.col-form-label{padding-top:calc(.375rem + 1px);
-  padding-bottom:calc(.375rem + 1px);
-  margin-bottom:0;
-  font-size:inherit;
-  line-height:1.5}
-.col-form-label-lg{padding-top:calc(.5rem + 1px);
-  padding-bottom:calc(.5rem + 1px);
-  font-size:1.25rem}
-.col-form-label-sm{padding-top:calc(.25rem + 1px);
-  padding-bottom:calc(.25rem + 1px);
-  font-size:.875rem}
-.form-text{margin-top:.25rem;
-  font-size:.875em;
-  color:#6c757d}
-.form-control{display:block;
-  width:100%;
-  padding:.375rem .75rem;
-  font-size:1rem;
-  font-weight:400;
-  line-height:1.5;
-  color:#212529;
-  background-color:#fff;
-  background-clip:padding-box;
-  border:1px solid #ced4da;
-  -webkit-appearance:none;
-  -moz-appearance:none;
-  appearance:none;
-  border-radius:.375rem;
-  transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out}
+/* Положение заголовка таблицы */
+.caption-top { caption-side: top; }
 
-@media (prefers-reduced-motion:reduce){.form-control{transition:none}
+/* Уменьшенные отступы для маленьких таблиц */
+.table-sm > :not(caption) > * {
+    padding: .25rem .25rem; /* Внутренние отступы для маленьких таблиц */
 }
-.form-control[type=file]{overflow:hidden}
-.form-control[type=file]:not(:disabled):not([readonly]){cursor:pointer}
-.form-control:focus{color:#212529;
-  background-color:#fff;
-  border-color:#86b7fe;
-  outline:0;
-  box-shadow:0 0 0 .25rem rgba(13,110,253,.25)}
-.form-control::-webkit-date-and-time-value{height:1.5em}
-.form-control::-moz-placeholder{color:#6c757d;
-  opacity:1}
-.form-control::placeholder{color:#6c757d;
-  opacity:1}
-.form-control:disabled{background-color:#e9ecef;
-  opacity:1}
-.form-control::-webkit-file-upload-button{padding:.375rem .75rem;
-  margin:-.375rem -.75rem;
-  -webkit-margin-end:.75rem;
-  margin-inline-end:.75rem;
-  color:#212529;
-  background-color:#e9ecef;
-  pointer-events:none;
-  border-color:inherit;
-  border-style:solid;
-  border-width:0;
-  border-inline-end-width:1px;
-  border-radius:0;
-  -webkit-transition:color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-  transition:color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out}
-.form-control::file-selector-button{padding:.375rem .75rem;
-  margin:-.375rem -.75rem;
-  -webkit-margin-end:.75rem;
-  margin-inline-end:.75rem;
-  color:#212529;
-  background-color:#e9ecef;
-  pointer-events:none;
-  border-color:inherit;
-  border-style:solid;
-  border-width:0;
-  border-inline-end-width:1px;
-  border-radius:0;
-  transition:color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out}
 
-@media (prefers-reduced-motion:reduce){.form-control::-webkit-file-upload-button{-webkit-transition:none;
-  transition:none}
-.form-control::file-selector-button{transition:none}
+/* Стили для границ таблицы */
+.table-bordered > :not(caption) > * {
+    border-width: 1px 0; /* Границы ячеек */
 }
-.form-control:hover:not(:disabled):not([readonly])::-webkit-file-upload-button{background-color:#dde0e3}
-.form-control:hover:not(:disabled):not([readonly])::file-selector-button{background-color:#dde0e3}
-.form-control-plaintext{display:block;
-  width:100%;
-  padding:.375rem 0;
-  margin-bottom:0;
-  line-height:1.5;
-  color:#212529;
-  background-color:transparent;
-  border:solid transparent;
-  border-width:1px 0}
-.form-control-plaintext:focus{outline:0}
-.form-control-plaintext.form-control-lg,.form-control-plaintext.form-control-sm{padding-right:0;
-  padding-left:0}
-.form-control-sm{min-height:calc(1.5em + .5rem + 2px);
-  padding:.25rem .5rem;
-  font-size:.875rem;
-  border-radius:.25rem}
-.form-control-sm::-webkit-file-upload-button{padding:.25rem .5rem;
-  margin:-.25rem -.5rem;
-  -webkit-margin-end:.5rem;
-  margin-inline-end:.5rem}
-.form-control-sm::file-selector-button{padding:.25rem .5rem;
-  margin:-.25rem -.5rem;
-  -webkit-margin-end:.5rem;
-  margin-inline-end:.5rem}
-.form-control-lg{min-height:calc(1.5em + 1rem + 2px);
-  padding:.5rem 1rem;
-  font-size:1.25rem;
-  border-radius:.5rem}
-.form-control-lg::-webkit-file-upload-button{padding:.5rem 1rem;
-  margin:-.5rem -1rem;
-  -webkit-margin-end:1rem;
-  margin-inline-end:1rem}
-.form-control-lg::file-selector-button{padding:.5rem 1rem;
-  margin:-.5rem -1rem;
-  -webkit-margin-end:1rem;
-  margin-inline-end:1rem}
-textarea.form-control{min-height:calc(1.5em + .75rem + 2px)}
-textarea.form-control-sm{min-height:calc(1.5em + .5rem + 2px)}
-textarea.form-control-lg{min-height:calc(1.5em + 1rem + 2px)}
-.form-control-color{width:3rem;
-  height:calc(1.5em + .75rem + 2px);
-  padding:.375rem}
-.form-control-color:not(:disabled):not([readonly]){cursor:pointer}
-.form-control-color::-moz-color-swatch{border:0!important;
-  border-radius:.375rem}
-.form-control-color::-webkit-color-swatch{border-radius:.375rem}
-.form-control-color.form-control-sm{height:calc(1.5em + .5rem + 2px)}
-.form-control-color.form-control-lg{height:calc(1.5em + 1rem + 2px)}
-.form-select{display:block;
-  width:100%;
-  padding:.375rem 2.25rem .375rem .75rem;
-  -moz-padding-start:calc(0.75rem - 3px);
-  font-size:1rem;
-  font-weight:400;
-  line-height:1.5;
-  color:#212529;
-  background-color:#fff;
-  background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
-  background-repeat:no-repeat;
-  background-position:right .75rem center;
-  background-size:16px 12px;
-  border:1px solid #ced4da;
-  border-radius:.375rem;
-  transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-  -webkit-appearance:none;
-  -moz-appearance:none;
-  appearance:none}
+
+.table-bordered > :not(caption) > *> * {
+    border-width: 0 1px; /* Границы ячеек */
+}
+
+.table-borderless > :not(caption) > *> * {
+    border-bottom-width: 0; /* Убирает нижнюю границу */
+}
+
+.table-borderless > :not(:first-child) {
+    border-top-width: 0; /* Убирает верхнюю границу для всех, кроме первой строки */
+}
+
+/* Полосатые строки для таблицы */
+.table-striped > tbody > tr:nth-of-type(odd) > * {
+    --bs-table-accent-bg: var(--bs-table-striped-bg); /* Фоновый цвет для нечетных строк */
+    color: var(--bs-table-striped-color); /* Цвет текста для нечетных строк */
+}
+
+.table-striped-columns > :not(caption) > tr > :nth-child(2n) {
+    --bs-table-accent-bg: var(--bs-table-striped-bg); /* Фоновый цвет для четных колонок */
+    color: var(--bs-table-striped-color); /* Цвет текста для четных колонок */
+}
+
+/* Активные строки таблицы */
+.table-active {
+    --bs-table-accent-bg: var(--bs-table-active-bg); /* Фоновый цвет для активной строки */
+    color: var(--bs-table-active-color); /* Цвет текста для активной строки */
+}
+
+/* Эффекты при наведении на строки таблицы */
+.table-hover > tbody > tr:hover > * {
+    --bs-table-accent-bg: var(--bs-table-hover-bg); /* Фоновый цвет для строки при наведении */
+    color: var(--bs-table-hover-color); /* Цвет текста для строки при наведении */
+}
+
+/* Стили для различных типов таблиц с определенными цветами */
+.table-primary {
+    --bs-table-color: #000; /* Цвет текста */
+    --bs-table-bg: #cfe2ff; /* Фоновый цвет */
+    --bs-table-border-color: #bacbe6; /* Цвет границ */
+    --bs-table-striped-bg: #c5d7f2; /* Фоновый цвет для полосатой таблицы */
+    --bs-table-striped-color: #000; /* Цвет текста для полосатой таблицы */
+    --bs-table-active-bg: #bacbe6; /* Фоновый цвет для активной строки */
+    --bs-table-active-color: #000; /* Цвет текста для активной строки */
+    --bs-table-hover-bg: #bfd1ec; /* Фоновый цвет для строки при наведении */
+    --bs-table-hover-color: #000; /* Цвет текста для строки при наведении */
+    color: var(--bs-table-color); /* Цвет текста */
+    border-color: var(--bs-table-border-color); /* Цвет границ */
+}
+
+/* Стили для вторичных таблиц */
+.table-secondary {
+    --bs-table-color: #000; /* Цвет текста */
+    --bs-table-bg: #e2e3e5; /* Фоновый цвет */
+    --bs-table-border-color: #cbccce; /* Цвет границ */
+    --bs-table-striped-bg: #d7d8da; /* Фоновый цвет для полосатой таблицы */
+    --bs-table-striped-color: #000; /* Цвет текста для полосатой таблицы */
+    --bs-table-active-bg: #cbccce; /* Фоновый цвет для активной строки */
+    --bs-table-active-color: #000; /* Цвет текста для активной строки */
+    --bs-table-hover-bg: #d1d2d4; /* Фоновый цвет для строки при наведении */
+    --bs-table-hover-color: #000; /* Цвет текста для строки при наведении */
+    color: var(--bs-table-color); /* Цвет текста */
+    border-color: var(--bs-table-border-color); /* Цвет границ */
+}
+
+/* Стили для успешных таблиц */
+.table-success {
+    --bs-table-color: #000; /* Цвет текста */
+    --bs-table-bg: #d1e7dd; /* Фоновый цвет */
+    --bs-table-border-color: #bcd0c7; /* Цвет границ */
+    --bs-table-striped-bg: #c7dbd2; /* Фоновый цвет для полосатой таблицы */
+    --bs-table-striped-color: #000; /* Цвет текста для полосатой таблицы */
+    --bs-table-active-bg: #bcd0c7; /* Фоновый цвет для активной строки */
+    --bs-table-active-color: #000; /* Цвет текста для активной строки */
+    --bs-table-hover-bg: #c1d6cc; /* Фоновый цвет для строки при наведении */
+    --bs-table-hover-color: #000; /* Цвет текста для строки при наведении */
+    color: var(--bs-table-color); /* Цвет текста */
+    border-color: var(--bs-table-border-color); /* Цвет границ */
+}
+
+/* Стили для информационных таблиц */
+.table-info {
+    --bs-table-color: #000; /* Цвет текста */
+    --bs-table-bg: #cff4fc; /* Фоновый цвет */
+    --bs-table-border-color: #badce3; /* Цвет границ */
+    --bs-table-striped-bg: #c5e8ef; /* Фоновый цвет для полосатой таблицы */
+    --bs-table-striped-color: #000; /* Цвет текста для полосатой таблицы */
+    --bs-table-active-bg: #badce3; /* Фоновый цвет для активной строки */
+    --bs-table-active-color: #000; /* Цвет текста для активной строки */
+    --bs-table-hover-bg: #bfe2e9; /* Фоновый цвет для строки при наведении */
+    --bs-table-hover-color: #000; /* Цвет текста для строки при наведении */
+    color: var(--bs-table-color); /* Цвет текста */
+    border-color: var(--bs-table-border-color); /* Цвет границ */
+}
+
+/* Стили для предупреждающих таблиц */
+.table-warning {
+    --bs-table-color: #000; /* Цвет текста */
+    --bs-table-bg: #fff3cd; /* Фоновый цвет */
+    --bs-table-border-color: #e6dbb9; /* Цвет границ */
+    --bs-table-striped-bg: #f2e7c3; /* Фоновый цвет для полосатой таблицы */
+    --bs-table-striped-color: #000; /* Цвет текста для полосатой таблицы */
+    --bs-table-active-bg: #e6dbb9; /* Фоновый цвет для активной строки */
+    --bs-table-active-color: #000; /* Цвет текста для активной строки */
+    --bs-table-hover-bg: #ece1be; /* Фоновый цвет для строки при наведении */
+    --bs-table-hover-color: #000; /* Цвет текста для строки при наведении */
+    color: var(--bs-table-color); /* Цвет текста */
+    border-color: var(--bs-table-border-color); /* Цвет границ */
+}
+
+/* Стили для опасных таблиц */
+.table-danger {
+    --bs-table-color: #000; /* Цвет текста */
+    --bs-table-bg: #f8d7da; /* Фоновый цвет */
+    --bs-table-border-color: #dfc2c4; /* Цвет границ */
+    --bs-table-striped-bg: #eccccf; /* Фоновый цвет для полосатой таблицы */
+    --bs-table-striped-color: #000; /* Цвет текста для полосатой таблицы */
+    --bs-table-active-bg: #dfc2c4; /* Фоновый цвет для активной строки */
+    --bs-table-active-color: #000; /* Цвет текста для активной строки */
+    --bs-table-hover-bg: #e5c7ca; /* Фоновый цвет для строки при наведении */
+    --bs-table-hover-color: #000; /* Цвет текста для строки при наведении */
+    color: var(--bs-table-color); /* Цвет текста */
+    border-color: var(--bs-table-border-color); /* Цвет границ */
+}
+
+/* Стили для светлых таблиц */
+.table-light {
+    --bs-table-color: #000; /* Цвет текста */
+    --bs-table-bg: #f8f9fa; /* Фоновый цвет */
+    --bs-table-border-color: #dfe0e1; /* Цвет границ */
+    --bs-table-striped-bg: #ecedee; /* Фоновый цвет для полосатой таблицы */
+    --bs-table-striped-color: #000; /* Цвет текста для полосатой таблицы */
+    --bs-table-active-bg: #dfe0e1; /* Фоновый цвет для активной строки */
+    --bs-table-active-color: #000; /* Цвет текста для активной строки */
+    --bs-table-hover-bg: #e5e6e7; /* Фоновый цвет для строки при наведении */
+    --bs-table-hover-color: #000; /* Цвет текста для строки при наведении */
+    color: var(--bs-table-color); /* Цвет текста */
+    border-color: var(--bs-table-border-color); /* Цвет границ */
+}
+
+/* Стили для темных таблиц */
+.table-dark {
+    --bs-table-color: #fff; /* Цвет текста */
+    --bs-table-bg: #212529; /* Фоновый цвет */
+    --bs-table-border-color: #373b3e; /* Цвет границ */
+    --bs-table-striped-bg: #2c3034; /* Фоновый цвет для полосатой таблицы */
+    --bs-table-striped-color: #fff; /* Цвет текста для полосатой таблицы */
+    --bs-table-active-bg: #373b3e; /* Фоновый цвет для активной строки */
+    --bs-table-active-color: #fff; /* Цвет текста для активной строки */
+    --bs-table-hover-bg: #323539; /* Фоновый цвет для строки при наведении */
+    --bs-table-hover-color: #fff; /* Цвет текста для строки при наведении */
+    color: var(--bs-table-color); /* Цвет текста */
+    border-color: var(--bs-table-border-color); /* Цвет границ */
+}
+
+/* Стили для адаптивных таблиц */
+.table-responsive {
+    overflow-x: auto; /* Горизонтальная прокрутка при необходимости */
+    -webkit-overflow-scrolling: touch; /* Плавная прокрутка на устройствах iOS */
+}
+
+/* Медиа-запросы для адаптивного дизайна таблиц */
+@media (max-width: 575.98px) {
+    /* Для экранов шириной до 575.98px */
+    .table-responsive-sm {
+        overflow-x: auto; /* Позволяет горизонтальную прокрутку */
+        -webkit-overflow-scrolling: touch; /* Улучшает прокрутку на устройствах iOS */
+    }
+}
+
+@media (max-width: 767.98px) {
+    /* Для экранов шириной до 767.98px */
+    .table-responsive-md {
+        overflow-x: auto; /* Позволяет горизонтальную прокрутку */
+        -webkit-overflow-scrolling: touch; /* Улучшает прокрутку на устройствах iOS */
+    }
+}
+
+@media (max-width: 991.98px) {
+    /* Для экранов шириной до 991.98px */
+    .table-responsive-lg {
+        overflow-x: auto; /* Позволяет горизонтальную прокрутку */
+        -webkit-overflow-scrolling: touch; /* Улучшает прокрутку на устройствах iOS */
+    }
+}
+
+@media (max-width: 1199.98px) {
+    /* Для экранов шириной до 1199.98px */
+    .table-responsive-xl {
+        overflow-x: auto; /* Позволяет горизонтальную прокрутку */
+        -webkit-overflow-scrolling: touch; /* Улучшает прокрутку на устройствах iOS */
+    }
+}
+
+@media (max-width: 1399.98px) {
+    /* Для экранов шириной до 1399.98px */
+    .table-responsive-xxl {
+        overflow-x: auto; /* Позволяет горизонтальную прокрутку */
+        -webkit-overflow-scrolling: touch; /* Улучшает прокрутку на устройствах iOS */
+    }
+}
+
+/* Стиль для меток форм */
+.form-label {
+    margin-bottom: 0.5rem; /* Отступ снизу метки */
+}
+
+/* Стиль для меток форм с классом col-form-label */
+.col-form-label {
+    padding-top: calc(0.375rem + 1px); /* Отступ сверху */
+    padding-bottom: calc(0.375rem + 1px); /* Отступ снизу */
+    margin-bottom: 0; /* Убираем отступ снизу */
+    font-size: inherit; /* Наследует размер шрифта от родителя */
+    line-height: 1.5; /* Высота строки */
+}
+
+/* Стиль для больших меток форм */
+.col-form-label-lg {
+    padding-top: calc(0.5rem + 1px); /* Увеличенный отступ сверху */
+    padding-bottom: calc(0.5rem + 1px); /* Увеличенный отступ снизу */
+    font-size: 1.25rem; /* Увеличенный размер шрифта */
+}
+
+/* Стиль для маленьких меток форм */
+.col-form-label-sm {
+    padding-top: calc(0.25rem + 1px); /* Уменьшенный отступ сверху */
+    padding-bottom: calc(0.25rem + 1px); /* Уменьшенный отступ снизу */
+    font-size: 0.875rem; /* Уменьшенный размер шрифта */
+}
+
+/* Стиль для текста под формой */
+.form-text {
+    margin-top: 0.25rem; /* Отступ сверху */
+    font-size: 0.875em; /* Размер шрифта */
+    color: #6c757d; /* Цвет текста */
+}
+
+/* Стиль для элементов управления формами */
+.form-control {
+    display: block; /* Отображение как блочный элемент */
+    width: 100%; /* Ширина 100% */
+    padding: 0.375rem 0.75rem; /* Отступы внутри элемента */
+    font-size: 1rem; /* Размер шрифта */
+    font-weight: 400; /* Нормальная жирность шрифта */
+    line-height: 1.5; /* Высота строки */
+    color: #212529; /* Цвет текста */
+    background-color: #fff; /* Цвет фона */
+    background-clip: padding-box; /* Ограничивает фоновый цвет до отступов */
+    border: 1px solid #ced4da; /* Цвет границы */
+    -webkit-appearance: none; /* Убирает стандартный стиль для WebKit */
+    -moz-appearance: none; /* Убирает стандартный стиль для Mozilla */
+    appearance: none; /* Убирает стандартный стиль для других браузеров */
+    border-radius: 0.375rem; /* Скругленные углы */
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; /* Плавный переход для цвета границы и тени */
+}
+
+/* Условие для медиа-запроса, если пользователь предпочитает уменьшение анимации */
+@media (prefers-reduced-motion: reduce) {
+    /* Убираем анимацию для элементов с классом .form-control */
+    .form-control {
+        transition: none; /* Отключаем переходы */
+    }
+}
+
+/* Стили для элементов input типа file */
+.form-control[type="file"] {
+    overflow: hidden; /* Скрываем переполнение */
+}
+
+/* Указываем курсор в виде указателя для активных элементов input типа file */
+.form-control[type="file"]:not(:disabled):not([readonly]) {
+    cursor: pointer; /* Устанавливаем курсор в виде указателя */
+}
+
+/* Стили для элементов .form-control в фокусе */
+.form-control:focus {
+    color: #212529; /* Цвет текста */
+    background-color: #fff; /* Цвет фона */
+    border-color: #86b7fe; /* Цвет границы */
+    outline: 0; /* Убираем стандартное обводка */
+    box-shadow: 0 0 0 .25rem rgba(13, 110, 253, .25); /* Добавляем тень */
+}
+
+/* Стили для значений типа date и time в браузере WebKit */
+.form-control::-webkit-date-and-time-value {
+    height: 1.5em; /* Высота значения */
+}
+
+/* Плейсхолдер для браузеров на основе Gecko (например, Firefox) */
+.form-control::-moz-placeholder {
+    color: #6c757d; /* Цвет плейсхолдера */
+    opacity: 1; /* Непрозрачность плейсхолдера */
+}
+
+/* Плейсхолдер для всех браузеров */
+.form-control::placeholder {
+    color: #6c757d; /* Цвет плейсхолдера */
+    opacity: 1; /* Непрозрачность плейсхолдера */
+}
+
+/* Стили для отключенных элементов .form-control */
+.form-control:disabled {
+    background-color: #e9ecef; /* Цвет фона для отключенных элементов */
+    opacity: 1; /* Непрозрачность для отключенных элементов */
+}
+
+/* Стили для кнопки загрузки файла в элементах input типа file для браузеров на основе WebKit */
+.form-control::-webkit-file-upload-button {
+    padding: .375rem .75rem; /* Отступы внутри кнопки */
+    margin: -.375rem -.75rem; /* Отрицательные отступы для выравнивания */
+    -webkit-margin-end: .75rem; /* Отступ справа для WebKit */
+    margin-inline-end: .75rem; /* Отступ справа для других браузеров */
+    color: #212529; /* Цвет текста кнопки */
+    background-color: #e9ecef; /* Цвет фона кнопки */
+    pointer-events: none; /* Отключаем события указателя */
+    border-color: inherit; /* Унаследовать цвет границы */
+    border-style: solid; /* Стиль границы */
+    border-width: 0; /* Ширина границы */
+    border-inline-end-width: 1px; /* Ширина правой границы */
+    border-radius: 0; /* Скругление углов */
+    /* Переходы для плавного изменения свойств */
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+/* Стили для кнопки выбора файла в элементах input типа file */
+.form-control::file-selector-button {
+    padding: .375rem .75rem; /* Отступы внутри кнопки */
+    margin: -.375rem -.75rem; /* Отрицательные отступы для выравнивания */
+    -webkit-margin-end: .75rem; /* Отступ справа для WebKit */
+    margin-inline-end: .75rem; /* Отступ справа для других браузеров */
+    color: #212529; /* Цвет текста кнопки */
+    background-color: #e9ecef; /* Цвет фона кнопки */
+    pointer-events: none; /* Отключаем события указателя */
+    border-color: inherit; /* Унаследовать цвет границы */
+    border-style: solid; /* Стиль границы */
+    border-width: 0; /* Ширина границы */
+    border-inline-end-width: 1px; /* Ширина правой границы */
+    border-radius: 0; /* Скругление углов */
+    /* Переходы для плавного изменения свойств */
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+/* Media query for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    /* Disable transitions for file upload button in webkit browsers */
+    .form-control::-webkit-file-upload-button {
+        -webkit-transition: none; /* Disable webkit transition */
+        transition: none; /* Disable transition */
+    }
+
+    /* Disable transitions for file selector button */
+    .form-control::file-selector-button {
+        transition: none; /* Disable transition */
+    }
+}
+
+/* Change background color of file upload button on hover */
+.form-control:hover:not(:disabled):not([readonly])::-webkit-file-upload-button {
+    background-color: #dde0e3; /* Change background color */
+}
+
+/* Change background color of file selector button on hover */
+.form-control:hover:not(:disabled):not([readonly])::file-selector-button {
+    background-color: #dde0e3; /* Change background color */
+}
+
+/* Styles for plaintext form control */
+.form-control-plaintext {
+    display: block; /* Block display */
+    width: 100%; /* Full width */
+    padding: .375rem 0; /* Vertical padding */
+    margin-bottom: 0; /* No bottom margin */
+    line-height: 1.5; /* Line height */
+    color: #212529; /* Text color */
+    background-color: transparent; /* Transparent background */
+    border: solid transparent; /* Transparent border */
+    border-width: 1px 0; /* Border width only on top and bottom */
+}
+
+/* Remove outline on focus */
+.form-control-plaintext:focus {
+    outline: 0; /* No outline */
+}
+
+/* Remove padding for large and small variants */
+.form-control-plaintext.form-control-lg,
+.form-control-plaintext.form-control-sm {
+    padding-right: 0; /* No right padding */
+    padding-left: 0; /* No left padding */
+}
+
+/* Small form control styles */
+.form-control-sm {
+    min-height: calc(1.5em + .5rem + 2px); /* Minimum height */
+    padding: .25rem .5rem; /* Padding */
+    font-size: .875rem; /* Font size */
+    border-radius: .25rem; /* Rounded corners */
+}
+
+/* Styles for file upload button in small form control */
+.form-control-sm::-webkit-file-upload-button,
+.form-control-sm::file-selector-button {
+    padding: .25rem .5rem; /* Padding */
+    margin: -.25rem -.5rem; /* Negative margins */
+    -webkit-margin-end: .5rem; /* Margin for webkit */
+    margin-inline-end: .5rem; /* Inline margin */
+}
+
+/* Large form control styles */
+.form-control-lg {
+    min-height: calc(1.5em + 1rem + 2px); /* Minimum height */
+    padding: .5rem 1rem; /* Padding */
+    font-size: 1.25rem; /* Font size */
+    border-radius: .5rem; /* Rounded corners */
+}
+
+/* Styles for file upload button in large form control */
+.form-control-lg::-webkit-file-upload-button,
+.form-control-lg::file-selector-button {
+    padding: .5rem 1rem; /* Padding */
+    margin: -.5rem -1rem; /* Negative margins */
+    -webkit-margin-end: 1rem; /* Margin for webkit */
+    margin-inline-end: 1rem; /* Inline margin */
+}
+
+/* Textarea styles */
+textarea.form-control {
+    min-height: calc(1.5em + .75rem + 2px); /* Minimum height */
+}
+
+textarea.form-control-sm {
+    min-height: calc(1.5em + .5rem + 2px); /* Minimum height for small */
+}
+
+textarea.form-control-lg {
+    min-height: calc(1.5em + 1rem + 2px); /* Minimum height for large */
+}
+
+/* Color input styles */
+.form-control-color {
+    width: 3rem; /* Fixed width */
+    height: calc(1.5em + .75rem + 2px); /* Height */
+    padding: .375rem; /* Padding */
+}
+
+/* Change cursor for non-disabled color inputs */
+.form-control-color:not(:disabled):not([readonly]) {
+    cursor: pointer; /* Pointer cursor */
+}
+
+/* Styles for color swatch in Firefox */
+.form-control-color::-moz-color-swatch {
+    border: 0 !important; /* No border */
+    border-radius: .375rem; /* Rounded corners */
+}
+
+/* Styles for color swatch in WebKit browsers */
+.form-control-color::-webkit-color-swatch {
+    border-radius: .375rem; /* Rounded corners */
+}
+
+/* Small color input styles */
+.form-control-color.form-control-sm {
+    height: calc(1.5em + .5rem + 2px); /* Height for small */
+}
+
+/* Large color input styles */
+.form-control-color.form-control-lg {
+    height: calc(1.5em + 1rem + 2px); /* Height for large */
+}
+
+/* Select input styles */
+.form-select {
+    display: block; /* Block display */
+    width: 100%; /* Full width */
+    padding: .375rem 2.25rem .375rem .75rem; /* Padding */
+    -moz-padding-start: calc(0.75rem - 3px); /* Padding for Firefox */
+    font-size: 1rem; /* Font size */
+    font-weight: 400; /* Font weight */
+    line-height: 1.5; /* Line height */
+    color: #212529; /* Text color */
+    background-color: #fff; /* White background */
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e"); /* Custom dropdown icon */
+    background-repeat: no-repeat; /* No repeat */
+    background-position: right .75rem center; /* Position of the icon */
+    background-size: 16px 12px; /* Size of the icon */
+    border: 1px solid #ced4da; /* Border */
+    border-radius: .375rem; /* Rounded corners */
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out; /* Transition effects */
+    -webkit-appearance: none; /* Remove default appearance for webkit */
+    -moz-appearance: none; /* Remove default appearance for Firefox */
+    appearance: none; /* Remove default appearance */
+}
 
 @media (prefers-reduced-motion:reduce){.form-select{transition:none}
 }
