@@ -11,7 +11,14 @@
                 <div class="justify-content-center">
                     <h1>Reports Application</h1>
                 </div>
-                <div><span th:text="'Last update of Database:'"></span>&nbsp;
+                <div class="row bg-light rounded mt-4 p-3">
+                    <div class="col">
+                        <h5>This app has been created for Web App Development Discipline by</h5>
+                        <h5>V. Forovskaya, UVPv-421, RUT(MIIT).</h5>
+                        <h5><a href="https://github.com/nekrochan/ReportsWeb" target="_blank">GitHub Repository is here</a></h5>
+                    </div>
+                </div>
+                <div><span th:text="'Last update:'"></span>&nbsp;
                     <span th:text="${#dates.createNow()}"></span>
                 </div>
             </div>
