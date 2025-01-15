@@ -14,7 +14,7 @@
                     <h4><a class="btn-block" th:href="@{/founders/founder-by-name/{founder-name}(founder-name=${c.founderName})}">Detail
                         info</a></h4>
                 </div>
-                <div th:if="${allConferences == null || #lists.isEmpty(allConferences)}">
+                <div th:if="${allFounders == null || #lists.isEmpty(allFounders)}">
                     <h4 class="text-center">No founders to show</h4>
                 </div>
             </div>
