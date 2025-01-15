@@ -9,16 +9,16 @@
             <div class="col-md-2"></div>
             <div class="jumbotron text-center rounded col-md-8 align-self-center pt-5">
                 <div class="justify-content-center">
-                    <h1>Reports Application</h1>
+                    <h1 class="main-title">Reports Application</h1>
                 </div>
-                <div class="row bg-light rounded mt-4 p-3">
+                <div class="row inner-frame rounded mt-4 p-3">
                     <div class="col">
                         <h5>This app has been created for Web App Development Discipline by</h5>
                         <h5>V. Forovskaya, UVPv-421, RUT(MIIT).</h5>
                         <h5><a href="https://github.com/nekrochan/ReportsWeb" target="_blank">GitHub Repository is here</a></h5>
                     </div>
                 </div>
-                <div><span th:text="'Last update:'"></span>&nbsp;
+                <div class="last-update"><span th:text="'Last update:'"></span>&nbsp;
                     <span th:text="${#dates.createNow()}"></span>
                 </div>
             </div>
