@@ -1,5 +1,6 @@
 package org.example.controllers;
 
+import lombok.extern.slf4j.Slf4j;
 import org.example.service.dto.FounderDto;
 import org.example.service.interfaces.FounderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+@Slf4j
 @Controller
 @RequestMapping("/founders")
 public class FounderController {
@@ -23,6 +25,7 @@ public class FounderController {
 
     @GetMapping("/add")
     public String addFounder() {
+        log.info("founder-add page requested");
         return "founder-add";
     }
 
@@ -38,10 +41,13 @@ public class FounderController {
             redirectAttributes.addFlashAttribute("founderModel", founderModel);
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.founderModel",
                     bindingResult);
+
+            log.info("!! Unable to add founder: ".concat(founderModel.getFounderName()));
             return "redirect:/founders/add";
         }
         founderService.addFounder(founderModel.getFounderName());
 
+        log.info("Founder added successfully: ".concat(founderModel.getFounderName()));
         return "redirect:/founders/all";
     }
 
@@ -49,6 +55,7 @@ public class FounderController {
     public String showAllCompanies(Model model) {
         model.addAttribute("allFounders", founderService.findAllFounders());
 
+        log.info("founder-all page requested");
         return "founder-all";
     }
 
@@ -56,6 +63,7 @@ public class FounderController {
     public String founderDetails(@PathVariable("founder-name") String founderName, Model model) {
         model.addAttribute("founderByName", founderService.findFounderByFounderName(founderName));
 
+        log.info("founder-by-name page requested with founder name: ".concat(founderName));
         return "founder-by-name";
     }
 
@@ -63,6 +71,7 @@ public class FounderController {
     public String deleteFounder(@PathVariable("founder-name") String founderName) {
         founderService.deleteFounder(founderName);
 
+        log.info("Deleted founder: ".concat(founderName));
         return "redirect:/founders/all";
     }
 }

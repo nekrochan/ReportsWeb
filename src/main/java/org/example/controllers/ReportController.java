@@ -1,5 +1,6 @@
 package org.example.controllers;
 
+import lombok.extern.slf4j.Slf4j;
 import org.example.models.Conference;
 import org.example.models.Report;
 import org.example.models.Reporter;
@@ -20,6 +21,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
+@Slf4j
 @Controller
 @RequestMapping("/reports")
 public class ReportController {
@@ -68,10 +70,13 @@ public class ReportController {
             redirectAttributes.addFlashAttribute("reportModel", reportModel);
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.reportModel",
                     bindingResult);
+
+            log.info("!! Unable to add report with theme: ".concat(reportModel.getTheme()));
             return "redirect:/reports/add";
         }
         reportService.addReport(reportModel);
 
+        log.info("Report added successfully: ".concat(reportModel.getTheme()));
         return "redirect:/reports/all";
     }
 
@@ -79,6 +84,7 @@ public class ReportController {
     public String showAllReports(Model model) {
         model.addAttribute("allReports", reportService.findAllReports());
 
+        log.info("report-all page requested");
         return "report-all";
     }
 
@@ -86,6 +92,7 @@ public class ReportController {
     public String reportByTheme(@PathVariable("report-theme") String theme, Model model) {
         model.addAttribute("reportByTheme", reportService.findReportByTheme(theme));
 
+        log.info("report-by-theme page requested for report with theme: ".concat(theme));
         return "report-by-theme";
     }
 
@@ -93,6 +100,7 @@ public class ReportController {
     public String deleteReport(@PathVariable("report-by-theme") String theme) {
         reportService.deleteReport(theme);
 
+        log.info("Deleted report: ".concat(theme));
         return "redirect:/reports/all";
     }
 
@@ -107,9 +115,11 @@ public class ReportController {
             model.addAttribute("reportModel", reportDto);
             model.addAttribute("conferences", conferenceService.findAllConferences());
             model.addAttribute("reporters", reporterService.findAllReporters());
+
+            log.info("report-edit page requested for report with theme: ".concat(theme));
             return "report-edit";
         } else {
-            // Handle case where report is not found
+            log.info("!! Unable to open report-edit page for report with theme: ".concat(theme));
             return "redirect:/reports/all";
         }
     }
@@ -122,11 +132,14 @@ public class ReportController {
         if (bindingResult.hasErrors()) {
             redirectAttributes.addFlashAttribute("reportModel", reportModel);
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.reportModel", bindingResult);
+
+            log.info("!! Unable to save updated report with theme: ".concat(theme));
             return "redirect:/reports/report-edit/" + theme;
         }
 
         reportService.updateReport(reportModel);
 
+        log.info("Updated report: ".concat(theme));
         return "redirect:/reports/report-by-theme/" + reportModel.getTheme();
     }
 }

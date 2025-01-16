@@ -27,8 +27,6 @@ public class ConferenceController {
     @Autowired
     private final FounderService founderService;
 
-    private static final Logger log = LoggerFactory.getLogger(ConferenceController.class);
-
     public ConferenceController(ConferenceService conferenceService,
                                 HostService hostService,
                                 FounderService founderService) {
@@ -42,7 +40,7 @@ public class ConferenceController {
         model.addAttribute("hosts", hostService.findAllHosts());
         model.addAttribute("founders", founderService.findAllFounders());
 
-        log.info("Requested page conference-add");
+        log.info("conference-add page requested");
         return "conference-add";
     }
 
@@ -58,10 +56,12 @@ public class ConferenceController {
             redirectAttributes.addFlashAttribute("conferenceModel", conferenceModel);
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.conferenceModel",
                     bindingResult);
-            log.info("Unable to add conference: ".concat(conferenceModel.getConfName()));
+
+            log.info("!! Unable to add conference: ".concat(conferenceModel.getConfName()));
             return "redirect:/conferences/add";
         }
         conferenceService.addConference(conferenceModel);
+
         log.info("Conference added successfully: ".concat(conferenceModel.getConfName()));
         return "redirect:/conferences/all";
     }
@@ -70,7 +70,7 @@ public class ConferenceController {
     public String showAllConferences(Model model) {
         model.addAttribute("allConferences", conferenceService.findAllConferences());
 
-        log.info("conference-all page opening requested");
+        log.info("conference-all page requested");
         return "conference-all";
     }
 
@@ -79,7 +79,7 @@ public class ConferenceController {
         model.addAttribute("conferenceByName", conferenceService.findConferenceByConfName(conferenceName));
         System.out.println("conferenceByName method called with name: " + conferenceName);
 
-        log.info("conference-by-name page opening requested with conference name: ".concat(conferenceName));
+        log.info("conference-by-name page requested with conference name: ".concat(conferenceName));
         return "conference-by-name";
     }
 
