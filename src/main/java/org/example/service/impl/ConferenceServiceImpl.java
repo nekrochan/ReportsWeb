@@ -13,6 +13,9 @@ import org.example.views.ConferenceViewModel;
 import org.example.views.ReportViewModel;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -42,9 +45,9 @@ public class ConferenceServiceImpl implements ConferenceService {
     }
 
     @Override
+    @CacheEvict(value = "conferences", allEntries = true) // Очищаем кэш при добавлении новой конференции
     public void addConference(ConferenceDto conferenceDto) {
         if (!this.validationUtil.isValid(conferenceDto)) {
-
             this.validationUtil
                     .violations(conferenceDto)
                     .stream()
@@ -57,16 +60,17 @@ public class ConferenceServiceImpl implements ConferenceService {
         conference.setFounder(this.founderService.findFounderByFounderName(conferenceDto.getFounderName()));
         conference.setHost(this.hostService.findHostByHostName(conferenceDto.getHostName()));
 
-        this.conferenceRepository
-                .saveAndFlush(conference);
+        this.conferenceRepository.saveAndFlush(conference);
     }
 
     @Override
+    @Cacheable(value = "conferences", key = "#name") // Кэшируем конференцию по имени
     public Conference findConferenceByConfName(String name) {
         return this.conferenceRepository.findConferenceByConfName(name);
     }
 
     @Override
+    @Cacheable(value = "reports", key = "#conferenceName") // Кэшируем отчеты по имени конференции
     public List<ReportViewModel> findAllReportsFromConference(String conferenceName) {
         return this.conferenceRepository
                 .findConferenceByConfName(conferenceName)
@@ -77,6 +81,7 @@ public class ConferenceServiceImpl implements ConferenceService {
     }
 
     @Override
+    @Cacheable(value = "reportsDto", key = "#conferenceName") // Кэшируем DTO отчетов по имени конференции
     public List<ReportDto> findAllReportsFromConfDto(String conferenceName) {
         return this.conferenceRepository
                 .findConferenceByConfName(conferenceName)
@@ -87,18 +92,19 @@ public class ConferenceServiceImpl implements ConferenceService {
     }
 
     @Override
+    @Cacheable(value = "conferences") // Кэшируем все конференции
     public List<ConferenceViewModel> findAllConferences() {
-        return this.conferenceRepository.
-                findAll().
-                stream().
-                map(conference -> this.modelMapper.map(conference, ConferenceViewModel.class))
+        return this.conferenceRepository
+                .findAll()
+                .stream()
+                .map(conference -> this.modelMapper.map(conference, ConferenceViewModel.class))
                 .collect(Collectors.toList());
     }
 
     @Override
+    @CachePut(value = "conferences", key = "#name") // Обновляем кэш при обновлении конференции
     public Conference updateConference(String name, ConferenceDto conferenceDto) {
         if (!this.validationUtil.isValid(conferenceDto)) {
-
             this.validationUtil
                     .violations(conferenceDto)
                     .stream()
@@ -114,10 +120,10 @@ public class ConferenceServiceImpl implements ConferenceService {
     }
 
     @Override
+    @CacheEvict(value = "conferences", key = "#confName") // Удаляем конференцию из кэша
     public void deleteConference(String confName) {
         this.conferenceRepository.delete(
                 this.conferenceRepository.findConferenceByConfName(confName)
         );
     }
-
 }
