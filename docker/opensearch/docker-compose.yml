@@ -8,8 +8,8 @@ services:
       - discovery.type=single-node
       - "OPENSEARCH_JAVA_OPTS=-Xms1g -Xmx1g"
     ports:
-      - "9200:9200"
-      - "9600:9600"
+      - "9201:9201"
+      - "9601:9601"
     networks:
       - opensearch-net
 
@@ -19,7 +19,7 @@ services:
     volumes:
       - ./logstash.conf:/usr/share/logstash/pipeline/logstash.conf
     ports:
-      - "5000:5000"
+      - "5001:5001"
     environment:
       - LS_JAVA_OPTS=-Xmx256m -Xms256m
     networks:
@@ -31,7 +31,7 @@ services:
     image: opensearchproject/opensearch-dashboards:latest
     container_name: kibana
     ports:
-      - "5601:5601"
+      - "5602:5602"
     environment:
       - OPENSEARCH_HOSTS=http://opensearch:9200
     networks:
