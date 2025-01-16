@@ -1,7 +1,7 @@
 # Reports Web
 *Repository for Web App Development discipline*
 
-> ***ToDo:*** *set connection with postgresql*
+> ***ToDo:*** *fix docker opensearch, maybe healthcheck.sh is needed*
 
 **Subject area:** Reports
 ## Explanation of Reports subject area
