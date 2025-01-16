@@ -1,0 +1,16 @@
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
+
+    <appender name="LOGSTASH" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+        <destination>localhost:4560</destination>
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder"/>
+    </appender>
+
+    <root level="INFO">org.zalando.logbook.Logbook
+        <appender-ref ref="CONSOLE"/>
+    </root>
+    <logger name="org.zalando.logbook.Logbook" level="TRACE">
+        <appender-ref ref="LOGSTASH"/>
+    </logger>
+</configuration>
