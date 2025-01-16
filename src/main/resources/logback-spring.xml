@@ -7,7 +7,17 @@
         <encoder class="net.logstash.logback.encoder.LogstashEncoder"/>
     </appender>
 
-    <root level="INFO">org.zalando.logbook.Logbook
+    <!-- Логирование SQL-запросов Hibernate -->
+    <logger name="org.hibernate.SQL" level="DEBUG">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="LOGSTASH"/>
+    </logger>
+    <logger name="org.hibernate.type.descriptor.sql.BasicBinder" level="TRACE">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="LOGSTASH"/>
+    </logger>
+
+    <root level="INFO">
         <appender-ref ref="CONSOLE"/>
     </root>
     <logger name="org.zalando.logbook.Logbook" level="TRACE">
