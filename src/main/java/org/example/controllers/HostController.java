@@ -25,7 +25,7 @@ public class HostController {
 
     @GetMapping("/add")
     public String addHost() {
-        log.info("host-add page requested");
+        log.info("Get Request:\thost-add page");
         return "host-add";
     }
 
@@ -37,41 +37,47 @@ public class HostController {
     @PostMapping("/add")
     public String addHost(@Valid HostDto hostModel, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
 
+        log.info("Post Request:\thost-add page");
+
         if (bindingResult.hasErrors()) {
             redirectAttributes.addFlashAttribute("hostModel", hostModel);
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.hostModel",
                     bindingResult);
 
-            log.info("!! Unable to add host: ".concat(hostModel.getHostName()));
+            log.info("Response for Post Request host-add:\tunable to add host ".concat(hostModel.getHostName()));
             return "redirect:/hosts/add";
         }
         hostService.addHost(hostModel.getHostName());
 
-        log.info("Host added successfully: ".concat(hostModel.getHostName()));
+        log.info("Response for Post Request host-add:\thost added successfully: ".concat(hostModel.getHostName()));
         return "redirect:/hosts/all";
     }
 
     @GetMapping("/all")
     public String showAllCompanies(Model model) {
+        log.info("Get Request:\thost-all page");
         model.addAttribute("allHosts", hostService.findAllHosts());
 
-        log.info("host-all page requested");
+        log.info("Response for Get Request host-all:\treturning host-all page");
         return "host-all";
     }
 
     @GetMapping("/host-by-name/{host-name}")
     public String hostDetails(@PathVariable("host-name") String hostName, Model model) {
+        log.info("Get Request:\thost-by-name page with host name ".concat(hostName));
+
         model.addAttribute("hostByName", hostService.findHostByHostName(hostName));
 
-        log.info("host-by-name page requested with host name: ".concat(hostName));
+        log.info("Response for Get Request host-by-name:\treturning host-by-name/".concat(hostName));
         return "host-by-name";
     }
 
     @GetMapping("/host-delete/{host-name}")
     public String deleteHost(@PathVariable("host-name") String hostName) {
+        log.info("Get Request:\tdelete host with name ".concat(hostName));
         hostService.deleteHost(hostName);
 
-        log.info("Deleted host: ".concat(hostName));
+        log.info("Response for Get Request delete host:\thost deleted: ".concat(hostName));
         return "redirect:/hosts/all";
     }
 }

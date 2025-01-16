@@ -25,7 +25,7 @@ public class FounderController {
 
     @GetMapping("/add")
     public String addFounder() {
-        log.info("founder-add page requested");
+        log.info("Get Request:\tfounder-add page");
         return "founder-add";
     }
 
@@ -37,41 +37,47 @@ public class FounderController {
     @PostMapping("/add")
     public String addFounder(@Valid FounderDto founderModel, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
 
+        log.info("Post Request:\tfounder-add page");
+
         if (bindingResult.hasErrors()) {
             redirectAttributes.addFlashAttribute("founderModel", founderModel);
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.founderModel",
                     bindingResult);
 
-            log.info("!! Unable to add founder: ".concat(founderModel.getFounderName()));
+            log.info("Response for Post Request founder-add:\tunable to add founder ".concat(founderModel.getFounderName()));
             return "redirect:/founders/add";
         }
         founderService.addFounder(founderModel.getFounderName());
 
-        log.info("Founder added successfully: ".concat(founderModel.getFounderName()));
+        log.info("Response for Post Request founder-add:\tfounder added successfully: ".concat(founderModel.getFounderName()));
         return "redirect:/founders/all";
     }
 
     @GetMapping("/all")
     public String showAllCompanies(Model model) {
+        log.info("Get Request:\tfounder-all page");
         model.addAttribute("allFounders", founderService.findAllFounders());
 
-        log.info("founder-all page requested");
+        log.info("Response for Get Request founder-all:\treturning founder-all page");
         return "founder-all";
     }
 
     @GetMapping("/founder-by-name/{founder-name}")
     public String founderDetails(@PathVariable("founder-name") String founderName, Model model) {
+        log.info("Get Request:\tfounder-by-name page with founder name ".concat(founderName));
+
         model.addAttribute("founderByName", founderService.findFounderByFounderName(founderName));
 
-        log.info("founder-by-name page requested with founder name: ".concat(founderName));
+        log.info("Response for Get Request founder-by-name:\treturning founder-by-name/".concat(founderName));
         return "founder-by-name";
     }
 
     @GetMapping("/founder-delete/{founder-name}")
     public String deleteFounder(@PathVariable("founder-name") String founderName) {
+        log.info("Get Request:\tdelete founder with name ".concat(founderName));
         founderService.deleteFounder(founderName);
 
-        log.info("Deleted founder: ".concat(founderName));
+        log.info("Response for Get Request delete founder:\tfounder deleted: ".concat(founderName));
         return "redirect:/founders/all";
     }
 }

@@ -44,6 +44,8 @@ public class ReportController {
 
     @GetMapping("/add")
     public String addReport(Model model) {
+        log.info("Get Request:\treport-add page");
+
         model.addAttribute("reportModel", new ReportDto());
 
         List<ConferenceViewModel> conferences = conferenceService.findAllConferences();
@@ -56,8 +58,10 @@ public class ReportController {
             model.addAttribute("noOptions", true);
         }
 
+        log.info("Response for Get Request report-add:\treturning report-add page");
         return "report-add";
     }
+
     @ModelAttribute("reportModel")
     public ReportDto initReport() {
         return new ReportDto();
@@ -66,46 +70,54 @@ public class ReportController {
     @PostMapping("/add")
     public String addReport(@Valid ReportDto reportModel, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
 
+        log.info("Post Request:\treport-add page");
+
         if (bindingResult.hasErrors()) {
             redirectAttributes.addFlashAttribute("reportModel", reportModel);
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.reportModel",
                     bindingResult);
 
-            log.info("!! Unable to add report with theme: ".concat(reportModel.getTheme()));
+            log.info("Response for Post Request report-add:\tunable to add report with theme ".concat(reportModel.getTheme()));
             return "redirect:/reports/add";
         }
         reportService.addReport(reportModel);
 
-        log.info("Report added successfully: ".concat(reportModel.getTheme()));
+        log.info("Response for Post Request report-add:\treport added successfully: ".concat(reportModel.getTheme()));
         return "redirect:/reports/all";
     }
 
     @GetMapping("/all")
     public String showAllReports(Model model) {
+        log.info("Get Request:\treport-all page");
         model.addAttribute("allReports", reportService.findAllReports());
 
-        log.info("report-all page requested");
+        log.info("Response for Get Request report-all:\treturning report-all page");
         return "report-all";
     }
 
     @GetMapping("/report-by-theme/{report-theme}")
     public String reportByTheme(@PathVariable("report-theme") String theme, Model model) {
+        log.info("Get Request:\treport-by-theme page with report theme ".concat(theme));
+
         model.addAttribute("reportByTheme", reportService.findReportByTheme(theme));
 
-        log.info("report-by-theme page requested for report with theme: ".concat(theme));
+        log.info("Response for Get Request report-by-theme:\treturning report-by-theme/".concat(theme));
         return "report-by-theme";
     }
 
     @GetMapping("/report-delete/{report-by-theme}")
     public String deleteReport(@PathVariable("report-by-theme") String theme) {
+        log.info("Get Request:\tdelete report with theme ".concat(theme));
         reportService.deleteReport(theme);
 
-        log.info("Deleted report: ".concat(theme));
+        log.info("Response for Get Request delete report:\treport deleted: ".concat(theme));
         return "redirect:/reports/all";
     }
 
     @GetMapping("/report-edit/{report-theme}")
     public String editReport(@PathVariable("report-theme") String theme, Model model) {
+        log.info("Get Request:\treport-edit page with report theme ".concat(theme));
+
         Report report = reportService.findReportByTheme(theme);
         ModelMapper modelMapper = new ModelMapper();
         if (report != null) {
@@ -116,10 +128,10 @@ public class ReportController {
             model.addAttribute("conferences", conferenceService.findAllConferences());
             model.addAttribute("reporters", reporterService.findAllReporters());
 
-            log.info("report-edit page requested for report with theme: ".concat(theme));
+            log.info("Response for Get Request report-edit:\treturning report-edit page for theme ".concat(theme));
             return "report-edit";
         } else {
-            log.info("!! Unable to open report-edit page for report with theme: ".concat(theme));
+            log.info("Response for Get Request report-edit:\tunable to find report with theme ".concat(theme));
             return "redirect:/reports/all";
         }
     }
@@ -129,17 +141,19 @@ public class ReportController {
                                @Valid ReportDto reportModel, BindingResult bindingResult,
                                RedirectAttributes redirectAttributes) {
 
+        log.info("Post Request:\treport-edit page with report theme ".concat(theme));
+
         if (bindingResult.hasErrors()) {
             redirectAttributes.addFlashAttribute("reportModel", reportModel);
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.reportModel", bindingResult);
 
-            log.info("!! Unable to save updated report with theme: ".concat(theme));
+            log.info("Response for Post Request report-edit:\tunable to save updated report with theme ".concat(theme));
             return "redirect:/reports/report-edit/" + theme;
         }
 
         reportService.updateReport(reportModel);
 
-        log.info("Updated report: ".concat(theme));
+        log.info("Response for Post Request report-edit:\treport updated successfully: ".concat(theme));
         return "redirect:/reports/report-by-theme/" + reportModel.getTheme();
     }
 }

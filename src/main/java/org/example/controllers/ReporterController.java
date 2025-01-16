@@ -15,7 +15,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 @RequestMapping("/reporters")
 public class ReporterController {
-    
+
     @Autowired
     private final ReporterService reporterService;
 
@@ -25,7 +25,7 @@ public class ReporterController {
 
     @GetMapping("/add")
     public String addReporter() {
-        log.info("reporter-add page requested");
+        log.info("Get Request:\treporter-add page");
         return "reporter-add";
     }
 
@@ -37,41 +37,47 @@ public class ReporterController {
     @PostMapping("/add")
     public String addReporter(@Valid ReporterDto reporterModel, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
 
+        log.info("Post Request:\treporter-add page");
+
         if (bindingResult.hasErrors()) {
             redirectAttributes.addFlashAttribute("reporterModel", reporterModel);
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.reporterModel",
                     bindingResult);
 
-            log.info("!! Unable to add reporter with reporter name: ".concat(reporterModel.getReporterName()));
+            log.info("Response for Post Request reporter-add:\tunable to add reporter with name ".concat(reporterModel.getReporterName()));
             return "redirect:/reporters/add";
         }
         reporterService.addReporter(reporterModel);
 
-        log.info("Reporter added successfully: ".concat(reporterModel.getReporterName()));
+        log.info("Response for Post Request reporter-add:\treporter added successfully: ".concat(reporterModel.getReporterName()));
         return "redirect:/reporters/all";
     }
 
     @GetMapping("/all")
     public String showAllReporters(Model model) {
+        log.info("Get Request:\treporter-all page");
         model.addAttribute("allReporters", reporterService.findAllReporters());
 
-        log.info("reporter-all page requested");
+        log.info("Response for Get Request reporter-all:\treturning reporter-all page");
         return "reporter-all";
     }
 
     @GetMapping("/reporter-by-name/{reporter-name}")
     public String reporterByName(@PathVariable("reporter-name") String reporterName, Model model) {
+        log.info("Get Request:\treporter-by-name page with reporter name ".concat(reporterName));
+
         model.addAttribute("reporterByName", reporterService.findReporterByReporterName(reporterName));
 
-        log.info("reporter-by-name page requested with reporter name: ".concat(reporterName));
+        log.info("Response for Get Request reporter-by-name:\treturning reporter-by-name/".concat(reporterName));
         return "reporter-by-name";
     }
 
     @GetMapping("/reporter-delete/{reporter-by-name}")
     public String deleteReporter(@PathVariable("reporter-by-name") String reporterName) {
+        log.info("Get Request:\tdelete reporter with name ".concat(reporterName));
         reporterService.deleteReporter(reporterName);
 
-        log.info("Deleted reporter: ".concat(reporterName));
+        log.info("Response for Get Request delete reporter:\treporter deleted: ".concat(reporterName));
         return "redirect:/reporters/all";
     }
 }
