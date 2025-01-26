@@ -33,13 +33,15 @@ public class AppSecurityConfiguration {
                         authorizeHttpRequests ->
                                 authorizeHttpRequests.
                                         requestMatchers(PathRequest.toStaticResources().atCommonLocations())
-                                        .permitAll().
-                                        requestMatchers("/", "/users/login", "/users/register", "/users/login-error")
-                                        .permitAll().
-                                        requestMatchers("/users/profile").authenticated().
-                                        requestMatchers("/employees/add", "/employees/employee-delete/").hasRole(UserRoles.MODERATOR.name()).
-                                        requestMatchers("/companies/add","/companies/company-delete/","/employees/add", "/employees/employee-delete/").hasRole(UserRoles.ADMIN.name()).
-                                        anyRequest().authenticated()
+                                        .permitAll()
+                                        .requestMatchers("/static/**", "/css/**", "/images/**")
+                                        .permitAll()
+                                        .requestMatchers("/", "/users/login", "/users/register", "/users/login-error")
+                                        .permitAll()
+                                        .requestMatchers("/users/profile").authenticated()
+                                        .requestMatchers("/employees/add", "/employees/employee-delete/").hasRole(UserRoles.MODERATOR.name())
+                                        .requestMatchers("/companies/add","/companies/company-delete/","/employees/add", "/employees/employee-delete/").hasRole(UserRoles.ADMIN.name())
+                                        .anyRequest().authenticated()
                 )
                 .formLogin(
                         (formLogin) ->
