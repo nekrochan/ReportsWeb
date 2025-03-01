@@ -8,9 +8,7 @@ public class ReportDto {
     private String id;
     private String theme;
     private int volume;
-    //private String reporterID;
     private String reporterName;
-    //private String confID;
     private String confName;
 
     public ReportDto() {
@@ -42,25 +40,6 @@ public class ReportDto {
     public void setVolume(int volume) {
         this.volume = volume;
     }
-    /*
-
-    public String getReporterID() {
-        return reporterID;
-    }
-
-    public void setReporterID(String reporterID) {
-        this.reporterID = reporterID;
-    }
-
-    public String getConfID() {
-        return confID;
-    }
-
-    public void setConfID(String confID) {
-        this.confID = confID;
-    }
-
-     */
 
     @NotNull
     @NotEmpty
