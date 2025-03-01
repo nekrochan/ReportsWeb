@@ -7,23 +7,21 @@
     <div class="container">
         <div class="row">
             <div class="col-md-2"></div>
-            <main class="jumbotron text-center rounded col-md-8 align-self-center pt-5">
-                <div class="justify-content-center">
-                    <h1>Reporter Details</h1>
-                </div>
-                <div class="row bg-light rounded">
-                    <div class="col-md-12">
-                        <h4 th:text="'Name: ' + ${reporterByName.reporterName}"></h4>
-                        <h4 th:text="'Competence: ' + ${reporterByName.competence}"></h4>
-                        <h4 th:text="'Organization: ' + ${reporterByName.organization}"></h4>
-                        <div class="align-bottom" sec:authorize="hasAnyRole('ADMIN', 'MODERATOR')">
-                            <a class="btn btn-danger align-bottom"
-                               th:href="@{/reporters/reporter-delete/{reporter-by-name}(reporter-by-name=${reporterByName.reporterName})}">Delete reporter</a>
+            <div class="jumbotron text-center rounded col-md-8 align-self-center pt-5">
+                <h1 class="text-center text-dark mt-5">Reporter Details</h1>
+                <div class='row mb-4 d-flex justify-content-around'>
+                    <h4 th:text="'Name: ' + ${reporterByName.reporterName}"></h4>
+                    <h4 th:text="'Competence: ' + ${reporterByName.competence}"></h4>
+                    <h4 th:text="'Organization: ' + ${reporterByName.organization}"></h4>
 
-                        </div>
+                    <div class="align-bottom" sec:authorize="hasAnyRole('ADMIN', 'MODERATOR')">
+                        <a class="btn btn-danger align-bottom"
+                           th:href="@{/reporters/reporter-delete/{reporter-by-name}(reporter-by-name=${reporterByName.reporterName})}">
+                            Delete reporter
+                        </a>
                     </div>
                 </div>
-            </main>
+            </div>
             <div class="col-md-2"></div>
         </div>
     </div>
