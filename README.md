@@ -12,9 +12,20 @@
 - 
 ### OpenSearch
 - поднимается **_в докере_**
-- версия: 3.8
-- порты: 9200 и 9600
-- container_name: opensearch-reportsweb
+- версия: `3.8`
+- порты: `9200` и `9600`
+- container_name: `opensearch-reportsweb`
+- порт: `4560`
+
+### Logstash
+- поднимается **_в докере_**
+- порт: `4560`
+- container_name: `logstash-reportsweb`
+
+### Kibana
+- поднимается **_в докере_**
+- container_name: `kibana-reportsweb`
+- порт: `5601`
 
 ## Describtion
 > ***ToDo:*** *fix docker opensearch, maybe healthcheck.sh is needed; pages ...-by-name look ugly*
