@@ -4,7 +4,7 @@ services:
   # Redis Service
   redis:
     image: redis:latest
-    container_name: redis
+    container_name: redis-reportsweb
     ports:
       - "6379:6379"
     volumes:

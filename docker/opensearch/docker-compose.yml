@@ -2,8 +2,13 @@ version: '3.8'
 
 services:
   opensearch:
+    healthcheck:
+      test: curl -f http://localhost:9200/_cluster/health || exit 1
+      interval: 30s
+      timeout: 10s
+      retries: 5
     image: opensearchproject/opensearch:latest
-    container_name: opensearch
+    container_name: opensearch-reportsweb
     environment:
       - discovery.type=single-node
       - "OPENSEARCH_JAVA_OPTS=-Xms1g -Xmx1g"
@@ -14,12 +19,12 @@ services:
       - opensearch-net
 
   logstash:
-    image: docker.elastic.co/logstash/logstash:7.10.1
-    container_name: logstash
+    image: opensearchproject/logstash-oss-with-opensearch-output-plugin:latest
+    container_name: logstash-reportsweb
     volumes:
       - ./logstash.conf:/usr/share/logstash/pipeline/logstash.conf
     ports:
-      - "5000:5000"
+      - "4560:4560"
     environment:
       - LS_JAVA_OPTS=-Xmx256m -Xms256m
     networks:
@@ -29,7 +34,7 @@ services:
 
   kibana:
     image: opensearchproject/opensearch-dashboards:latest
-    container_name: kibana
+    container_name: kibana-reportsweb
     ports:
       - "5601:5601"
     environment:
