@@ -1,10 +1,26 @@
 # Reports Web
 *Repository for Web App Development discipline*
 
+## Инфа для запуска
+
+### Postgresql
+- поднимается **_локально_**
+- порт: `5432`
+- имя базы: `ReportsWeb`
+- username: `postgres`
+- password: `admin`
+- 
+### OpenSearch
+- поднимается **_в докере_**
+- версия: 3.8
+- порты: 9200 и 9600
+- container_name: opensearch-reportsweb
+
+## Describtion
 > ***ToDo:*** *fix docker opensearch, maybe healthcheck.sh is needed; pages ...-by-name look ugly*
 
 **Subject area:** Reports
-## Explanation of Reports subject area
+### Explanation of Reports subject area
 - Report:
 	- id - not null, unique, string;
 	- theme - not null, string;
@@ -45,5 +61,5 @@
 |reporterName - string|organization - string|hostName - string|||
 |conferenceName - string||founderName - string|||
 
-## ERD for Reports subject area
+### ERD for Reports subject area
 ![ReportsERDfromSQL.png](ReportsERDfromSQL.png)
