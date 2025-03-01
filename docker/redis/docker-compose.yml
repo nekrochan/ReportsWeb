@@ -1,22 +1,13 @@
 version: '3.8'
 
 services:
-  # Redis Service
   redis:
     image: redis:latest
     container_name: redis-reportsweb
     ports:
-      - "6379:6379"
+      - "6379:6379"  # Проброс порта на хост
     volumes:
       - redis_data:/data
-    networks:
-      - app-network
 
-# Volumes
 volumes:
   redis_data:
-
-# Networks
-networks:
-  app-network:
-    driver: bridge
