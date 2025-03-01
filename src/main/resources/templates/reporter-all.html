@@ -13,8 +13,12 @@
                     <div th:if="${allReporters != null && !#lists.isEmpty(allReporters)}">
                         <div th:each="e : ${allReporters}" class="d-flex flex-column bg-text mb-3 rounded">
                             <h3 th:text="'Reporter name: ' + *{e.reporterName}"></h3>
-                            <h4><a class="btn-block"
-                                   th:href="@{/reporters/reporter-by-name/{reporter-name}(reporter-name=${e.reporterName})}">Detail info</a></h4>
+                            <h4>
+                                <a class="btn-block"
+                                   th:href="@{/reporters/reporter-by-name/{reporter-name}(reporter-name=${e.reporterName})}">
+                                    Detail info
+                                </a>
+                            </h4>
                         </div>
                     </div>
                     <div th:if="${allReporters == null || #lists.isEmpty(allReporters)}">

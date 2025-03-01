@@ -14,7 +14,12 @@
                         <div th:each="e : ${allConferences}" class="d-flex flex-column bg-text mb-3 rounded">
                             <h3 th:text="'Conference name: ' + *{e.name}"></h3>
                             <h4 th:value="'Year: ' + *{e.year}"></h4>
-                            <h4><a class="btn-block" th:href="@{/conferences/conference-by-name/{conference-name}(conference-name=${e.name})}">Detail info</a><h4>
+                            <h4>
+                                <a class="btn-block"
+                                   th:href="@{/conferences/conference-by-name/{conference-name}(conference-name=${e.name})}">
+                                    Detail info
+                                </a>
+                            </h4>
                         </div>
                     </div>
                     <div th:if="${allConferences == null || #lists.isEmpty(allConferences)}">

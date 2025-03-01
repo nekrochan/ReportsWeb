@@ -11,7 +11,11 @@
                 <h2 class="text-center text-dark mt-5">All Hosts</h2>
                 <div th:each="c : ${allHosts}" class="d-flex flex-column bg-text mb-3">
                     <h3 th:text="'Company: ' + ${c.hostName}"></h3>
-                    <h4><a class="btn-block" th:href="@{/hosts/host-by-name/{host-name}(host-name=${c.hostName})}">Detail info</a></h4>
+                    <h4>
+                        <a class="btn-block" th:href="@{/hosts/host-by-name/{host-name}(host-name=${c.hostName})}">
+                            Detail info
+                        </a>
+                    </h4>
                 </div>
                 <div th:if="${allHosts == null || #lists.isEmpty(allHosts)}">
                     <h4 class="text-center">No hosts to show</h4>
