@@ -7,13 +7,10 @@
     <div class="container">
         <div class="row">
             <div class="col-md-2"></div>
-            <main class="jumbotron text-center rounded col-md-12 align-self-center pt-5">
-                <div class="justify-content-center">
-                    <h1>Founder Details</h1>
-                </div>
-                <div class="row bg-light rounded">
-                    <div class="col-md-6 pt-3">
-                        <h2>Founder</h2>
+            <div class="jumbotron text-center rounded col-md-8 align-self-center pt-5">
+                <h1 class="text-center text-dark mt-5">Founder Details</h1>
+                <div class='row mb-4 d-flex justify-content-around'>
+                    <div class='row mb-4 d-flex justify-content-around'>
                         <h4 th:text="'Name: ' + ${founderByName.founderName}"></h4>
                         <div class="align-bottom" sec:authorize="hasAnyRole('ADMIN')">
                             <a class="btn btn-danger align-bottom"
@@ -23,7 +20,7 @@
                         </div>
                     </div>
                 </div>
-            </main>
+            </div>
         </div>
     </div>
 </main>
