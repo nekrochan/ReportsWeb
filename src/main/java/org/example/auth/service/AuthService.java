@@ -33,6 +33,12 @@ public class AuthService {
             throw new RuntimeException("passwords.match");
         }
 
+        Optional<User> byUsername = this.userRepository.findByUsername(registrationDTO.getUsername());
+
+        if (byUsername.isPresent()) {
+            throw new RuntimeException("username.used");
+        }
+
         Optional<User> byEmail = this.userRepository.findByEmail(registrationDTO.getEmail());
 
         if (byEmail.isPresent()) {
