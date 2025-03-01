@@ -10,14 +10,13 @@
             <div class="jumbotron text-center rounded col-md-12 align-self-center pt-5">
                 <h1 class="text-center text-dark mt-5">Host Details</h1>
                 <div class='row mb-4 d-flex justify-content-around'>
-                    <div class='row mb-4 d-flex justify-content-around'>
-                        <h4 th:text="'Name: ' + ${hostByName.hostName}"></h4>
-                        <div class="align-bottom" sec:authorize="hasAnyRole('ADMIN')">
-                            <a class="btn btn-danger align-bottom"
-                               th:href="@{/hosts/host-delete/{host-name}(host-name=${hostByName.hostName})}">
-                                Delete host
-                            </a>
-                        </div>
+                    <h4 th:text="'Name: ' + ${hostByName.hostName}"></h4>
+
+                    <div class="align-bottom" sec:authorize="hasAnyRole('ADMIN')">
+                        <a class="btn btn-danger align-bottom"
+                           th:href="@{/hosts/host-delete/{host-name}(host-name=${hostByName.hostName})}">
+                            Delete host
+                        </a>
                     </div>
                 </div>
             </div>

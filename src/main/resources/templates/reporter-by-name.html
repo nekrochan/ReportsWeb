@@ -13,6 +13,7 @@
                     <h4 th:text="'Name: ' + ${reporterByName.reporterName}"></h4>
                     <h4 th:text="'Competence: ' + ${reporterByName.competence}"></h4>
                     <h4 th:text="'Organization: ' + ${reporterByName.organization}"></h4>
+
                     <div class="align-bottom" sec:authorize="hasAnyRole('ADMIN', 'MODERATOR')">
                         <a class="btn btn-danger align-bottom"
                            th:href="@{/reporters/reporter-delete/{reporter-by-name}(reporter-by-name=${reporterByName.reporterName})}">
