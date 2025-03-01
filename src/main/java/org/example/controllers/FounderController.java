@@ -2,7 +2,7 @@ package org.example.controllers;
 
 import lombok.extern.slf4j.Slf4j;
 import org.example.service.dto.FounderDto;
-import org.example.service.interfaces.FounderService;
+import org.example.service.impl.FounderServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
@@ -17,10 +17,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 public class FounderController {
 
     @Autowired
-    private FounderService founderService;
+    private FounderServiceImpl founderServiceImpl;
 
-    public FounderController(FounderService founderService) {
-        this.founderService = founderService;
+    public FounderController(FounderServiceImpl founderServiceImpl) {
+        this.founderServiceImpl = founderServiceImpl;
     }
 
     @GetMapping("/add")
@@ -47,7 +47,7 @@ public class FounderController {
             log.info("Response for Post Request founder-add:\tunable to add founder ".concat(founderModel.getFounderName()));
             return "redirect:/founders/add";
         }
-        founderService.addFounder(founderModel.getFounderName());
+        founderServiceImpl.addFounder(founderModel.getFounderName());
 
         log.info("Response for Post Request founder-add:\tfounder added successfully: ".concat(founderModel.getFounderName()));
         return "redirect:/founders/all";
@@ -56,7 +56,7 @@ public class FounderController {
     @GetMapping("/all")
     public String showAllCompanies(Model model) {
         log.info("Get Request:\tfounder-all page");
-        model.addAttribute("allFounders", founderService.findAllFounders());
+        model.addAttribute("allFounders", founderServiceImpl.findAllFounders());
 
         log.info("Response for Get Request founder-all:\treturning founder-all page");
         return "founder-all";
@@ -66,7 +66,7 @@ public class FounderController {
     public String founderDetails(@PathVariable("founder-name") String founderName, Model model) {
         log.info("Get Request:\tfounder-by-name page with founder name ".concat(founderName));
 
-        model.addAttribute("founderByName", founderService.findFounderByFounderName(founderName));
+        model.addAttribute("founderByName", founderServiceImpl.findFounderByFounderName(founderName));
 
         log.info("Response for Get Request founder-by-name:\treturning founder-by-name/".concat(founderName));
         return "founder-by-name";
@@ -75,7 +75,7 @@ public class FounderController {
     @GetMapping("/founder-delete/{founder-name}")
     public String deleteFounder(@PathVariable("founder-name") String founderName) {
         log.info("Get Request:\tdelete founder with name ".concat(founderName));
-        founderService.deleteFounder(founderName);
+        founderServiceImpl.deleteFounder(founderName);
 
         log.info("Response for Get Request delete founder:\tfounder deleted: ".concat(founderName));
         return "redirect:/founders/all";

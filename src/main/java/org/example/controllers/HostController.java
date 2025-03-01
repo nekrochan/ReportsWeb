@@ -2,7 +2,7 @@ package org.example.controllers;
 
 import lombok.extern.slf4j.Slf4j;
 import org.example.service.dto.HostDto;
-import org.example.service.interfaces.HostService;
+import org.example.service.impl.HostServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
@@ -17,10 +17,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 public class HostController {
 
     @Autowired
-    private HostService hostService;
+    private HostServiceImpl hostServiceImpl;
 
-    public HostController(HostService hostService) {
-        this.hostService = hostService;
+    public HostController(HostServiceImpl hostServiceImpl) {
+        this.hostServiceImpl = hostServiceImpl;
     }
 
     @GetMapping("/add")
@@ -47,7 +47,7 @@ public class HostController {
             log.info("Response for Post Request host-add:\tunable to add host ".concat(hostModel.getHostName()));
             return "redirect:/hosts/add";
         }
-        hostService.addHost(hostModel.getHostName());
+        hostServiceImpl.addHost(hostModel.getHostName());
 
         log.info("Response for Post Request host-add:\thost added successfully: ".concat(hostModel.getHostName()));
         return "redirect:/hosts/all";
@@ -56,7 +56,7 @@ public class HostController {
     @GetMapping("/all")
     public String showAllCompanies(Model model) {
         log.info("Get Request:\thost-all page");
-        model.addAttribute("allHosts", hostService.findAllHosts());
+        model.addAttribute("allHosts", hostServiceImpl.findAllHosts());
 
         log.info("Response for Get Request host-all:\treturning host-all page");
         return "host-all";
@@ -66,7 +66,7 @@ public class HostController {
     public String hostDetails(@PathVariable("host-name") String hostName, Model model) {
         log.info("Get Request:\thost-by-name page with host name ".concat(hostName));
 
-        model.addAttribute("hostByName", hostService.findHostByHostName(hostName));
+        model.addAttribute("hostByName", hostServiceImpl.findHostByHostName(hostName));
 
         log.info("Response for Get Request host-by-name:\treturning host-by-name/".concat(hostName));
         return "host-by-name";
@@ -75,7 +75,7 @@ public class HostController {
     @GetMapping("/host-delete/{host-name}")
     public String deleteHost(@PathVariable("host-name") String hostName) {
         log.info("Get Request:\tdelete host with name ".concat(hostName));
-        hostService.deleteHost(hostName);
+        hostServiceImpl.deleteHost(hostName);
 
         log.info("Response for Get Request delete host:\thost deleted: ".concat(hostName));
         return "redirect:/hosts/all";

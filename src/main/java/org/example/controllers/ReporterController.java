@@ -2,7 +2,7 @@ package org.example.controllers;
 
 import lombok.extern.slf4j.Slf4j;
 import org.example.service.dto.ReporterDto;
-import org.example.service.interfaces.ReporterService;
+import org.example.service.impl.ReporterServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
@@ -17,10 +17,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 public class ReporterController {
 
     @Autowired
-    private final ReporterService reporterService;
+    private final ReporterServiceImpl reporterServiceImpl;
 
-    public ReporterController(ReporterService reporterService) {
-        this.reporterService = reporterService;
+    public ReporterController(ReporterServiceImpl reporterServiceImpl) {
+        this.reporterServiceImpl = reporterServiceImpl;
     }
 
     @GetMapping("/add")
@@ -47,7 +47,7 @@ public class ReporterController {
             log.info("Response for Post Request reporter-add:\tunable to add reporter with name ".concat(reporterModel.getReporterName()));
             return "redirect:/reporters/add";
         }
-        reporterService.addReporter(reporterModel);
+        reporterServiceImpl.addReporter(reporterModel);
 
         log.info("Response for Post Request reporter-add:\treporter added successfully: ".concat(reporterModel.getReporterName()));
         return "redirect:/reporters/all";
@@ -56,7 +56,7 @@ public class ReporterController {
     @GetMapping("/all")
     public String showAllReporters(Model model) {
         log.info("Get Request:\treporter-all page");
-        model.addAttribute("allReporters", reporterService.findAllReporters());
+        model.addAttribute("allReporters", reporterServiceImpl.findAllReporters());
 
         log.info("Response for Get Request reporter-all:\treturning reporter-all page");
         return "reporter-all";
@@ -66,7 +66,7 @@ public class ReporterController {
     public String reporterByName(@PathVariable("reporter-name") String reporterName, Model model) {
         log.info("Get Request:\treporter-by-name page with reporter name ".concat(reporterName));
 
-        model.addAttribute("reporterByName", reporterService.findReporterByReporterName(reporterName));
+        model.addAttribute("reporterByName", reporterServiceImpl.findReporterByReporterName(reporterName));
 
         log.info("Response for Get Request reporter-by-name:\treturning reporter-by-name/".concat(reporterName));
         return "reporter-by-name";
@@ -75,7 +75,7 @@ public class ReporterController {
     @GetMapping("/reporter-delete/{reporter-by-name}")
     public String deleteReporter(@PathVariable("reporter-by-name") String reporterName) {
         log.info("Get Request:\tdelete reporter with name ".concat(reporterName));
-        reporterService.deleteReporter(reporterName);
+        reporterServiceImpl.deleteReporter(reporterName);
 
         log.info("Response for Get Request delete reporter:\treporter deleted: ".concat(reporterName));
         return "redirect:/reporters/all";

@@ -11,7 +11,7 @@ import java.util.List;
 public interface ConferenceService {
     void addConference(ConferenceDto conferenceDto);
     Conference findConferenceByConfName(String name);
-    List<ReportViewModel> findAllReportsFromConference(String conferenceName);  // List<ReportViewModel>
+    List<ReportViewModel> findAllReportsFromConference(String conferenceName);
     List<ReportDto> findAllReportsFromConfDto(String conferenceName);
     List<ConferenceViewModel> findAllConferences();
     Conference updateConference(String name, ConferenceDto conferenceDto);
