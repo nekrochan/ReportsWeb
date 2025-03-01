@@ -5,6 +5,7 @@ import org.example.service.dto.FounderDto;
 import org.example.service.impl.FounderServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import jakarta.validation.Valid;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -73,11 +74,19 @@ public class FounderController {
     }
 
     @GetMapping("/founder-delete/{founder-name}")
-    public String deleteFounder(@PathVariable("founder-name") String founderName) {
+    public String deleteFounder(@PathVariable("founder-name") String founderName, RedirectAttributes redirectAttributes) {
         log.info("Get Request:\tdelete founder with name ".concat(founderName));
-        founderServiceImpl.deleteFounder(founderName);
+        try {
+            founderServiceImpl.deleteFounder(founderName);
+            redirectAttributes.addFlashAttribute("successMessage", "Founder deleted successfully!");
+            log.info("Response for Get Request delete founder:\tfounder deleted: ".concat(founderName));
+        } catch (DataIntegrityViolationException e) {
+            redirectAttributes.addFlashAttribute("errorMessage",
+                    "Fail: deleting this founder is unavailable");
+            log.info("Response for Get Request delete founder:\tunable to delete founder: ".concat(founderName));
+        }
 
-        log.info("Response for Get Request delete founder:\tfounder deleted: ".concat(founderName));
+
         return "redirect:/founders/all";
     }
 }
