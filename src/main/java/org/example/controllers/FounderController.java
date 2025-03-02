@@ -80,13 +80,15 @@ public class FounderController {
             founderServiceImpl.deleteFounder(founderName);
             redirectAttributes.addFlashAttribute("successMessage", "Founder deleted successfully!");
             log.info("Response for Get Request delete founder:\tfounder deleted: ".concat(founderName));
+            return "redirect:/founders/all";
         } catch (DataIntegrityViolationException e) {
+            log.info("Response for Get Request delete founder:\tunable to delete founder: ".concat(founderName));
             redirectAttributes.addFlashAttribute("errorMessage",
                     "Fail: deleting this founder is unavailable");
-            log.info("Response for Get Request delete founder:\tunable to delete founder: ".concat(founderName));
+            redirectAttributes.addFlashAttribute("UnableToDelete", true);
         }
 
 
-        return "redirect:/founders/all";
+        return "redirect:/founders/founder-by-name/{founder-name}";
     }
 }
