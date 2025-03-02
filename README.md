@@ -49,7 +49,6 @@
 - age: `30`
 
 ## Describtion
-> ***ToDo:*** *fix docker opensearch, maybe healthcheck.sh is needed; pages ...-by-name look ugly*
 
 **Subject area:** Reports
 ### Explanation of Reports subject area
