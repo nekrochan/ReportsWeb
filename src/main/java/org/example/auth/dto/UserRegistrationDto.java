@@ -1,6 +1,7 @@
 package org.example.auth.dto;
 
 import jakarta.validation.constraints.*;
+import org.hibernate.validator.constraints.UniqueElements;
 
 public class UserRegistrationDto {
 
@@ -14,6 +15,7 @@ public class UserRegistrationDto {
     public UserRegistrationDto() {}
 
     @NotEmpty(message = "User name cannot be null or empty!")
+    @NotBlank(message = "Username field must be filled!")
     @Size(min = 5, max = 20)
     public String getUsername() {
         return username;
@@ -23,6 +25,7 @@ public class UserRegistrationDto {
     }
 
     @NotEmpty(message = "Full name cannot be null or empty!")
+    @NotBlank(message = "Full name field must be filled!")
     @Size(min = 5, max = 20)
     public String getFullname() {
         return fullname;
@@ -32,6 +35,7 @@ public class UserRegistrationDto {
     }
 
     @NotEmpty(message = "Email cannot be null or empty!")
+    @NotBlank(message = "Email field must be filled!")
     @Email
     public String getEmail() {
         return email;
@@ -50,6 +54,7 @@ public class UserRegistrationDto {
     }
 
     @NotEmpty(message = "Password cannot be null or empty!")
+    @NotBlank(message = "Password field must be filled!")
     @Size(min = 5, max = 20)
     public String getPassword() {
         return password;
@@ -59,6 +64,7 @@ public class UserRegistrationDto {
     }
 
     @NotEmpty(message = "Confirm Password cannot be null or empty!")
+    @NotBlank(message = "Confirm password field must be filled!")
     @Size(min = 5, max = 20)
     public String getConfirmPassword() {
         return confirmPassword;

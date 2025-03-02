@@ -5,6 +5,7 @@ import org.example.auth.models.entities.User;
 import org.example.auth.models.enums.UserRoles;
 import org.example.auth.repositories.UserRepository;
 import org.example.auth.repositories.UserRoleRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -19,9 +20,9 @@ public class AuthService {
 
     private UserRoleRepository userRoleRepository;
 
-
     private PasswordEncoder passwordEncoder;
 
+    @Autowired
     public AuthService(UserRepository userRepository, UserRoleRepository userRoleRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;

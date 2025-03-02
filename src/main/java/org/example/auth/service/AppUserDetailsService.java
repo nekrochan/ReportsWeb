@@ -1,6 +1,7 @@
 package org.example.auth.service;
 
 import org.example.auth.repositories.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -12,6 +13,7 @@ import java.util.stream.Collectors;
 public class AppUserDetailsService implements UserDetailsService {
     private UserRepository userRepository;
 
+    @Autowired
     public AppUserDetailsService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
