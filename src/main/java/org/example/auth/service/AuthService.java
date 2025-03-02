@@ -22,6 +22,18 @@ public class AuthService {
 
     private PasswordEncoder passwordEncoder;
 
+    //Вспомогательные классы, переделать нормально
+    public class UsernameAlreadyExistsException extends RuntimeException {
+        UsernameAlreadyExistsException() {
+            super("username.used");
+        }
+    }
+    public class EmailAlreadyExistsException extends RuntimeException {
+        EmailAlreadyExistsException() {
+            super("email.used");
+        }
+    }
+
     @Autowired
     public AuthService(UserRepository userRepository, UserRoleRepository userRoleRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
@@ -37,13 +49,13 @@ public class AuthService {
         Optional<User> byUsername = this.userRepository.findByUsername(registrationDTO.getUsername());
 
         if (byUsername.isPresent()) {
-            throw new RuntimeException("username.used");
+            throw new UsernameAlreadyExistsException();
         }
 
         Optional<User> byEmail = this.userRepository.findByEmail(registrationDTO.getEmail());
 
         if (byEmail.isPresent()) {
-            throw new RuntimeException("email.used");
+            throw new EmailAlreadyExistsException();
         }
 
         var userRole = userRoleRepository.

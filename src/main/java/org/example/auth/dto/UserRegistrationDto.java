@@ -1,7 +1,6 @@
 package org.example.auth.dto;
 
 import jakarta.validation.constraints.*;
-import org.hibernate.validator.constraints.UniqueElements;
 
 public class UserRegistrationDto {
 

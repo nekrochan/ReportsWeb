@@ -81,6 +81,10 @@
               message</small>
           </div>
 
+          <p class="text-danger" th:if="${badCredentials}">
+            Invalid username or email.
+          </p>
+
           <button type="submit" class="btn btn-secondary">Register</button>
         </form>
       </div>

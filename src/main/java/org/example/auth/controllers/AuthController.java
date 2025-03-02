@@ -50,7 +50,17 @@ public class AuthController {
             return "redirect:/users/register";
         }
 
-        this.authService.register(userRegistrationDto);
+        try {
+            this.authService.register(userRegistrationDto);
+        } catch (AuthService.UsernameAlreadyExistsException ex) {
+            bindingResult.rejectValue("username", "username.used", "This username already exists");
+            redirectAttributes.addFlashAttribute("badCredentials", true);
+            return "redirect:/users/register";
+        } catch (AuthService.EmailAlreadyExistsException ex) {
+            bindingResult.rejectValue("email", "email.used", "This email is already used");
+            redirectAttributes.addFlashAttribute("badCredentials", true);
+            return "redirect:/users/register";
+        }
 
         return "redirect:/users/login";
     }
