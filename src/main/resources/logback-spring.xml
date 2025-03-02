@@ -23,12 +23,6 @@
         <appender-ref ref="LOGSTASH"/>
     </logger>
 
-    <!-- Логирование авторизации  -->
-    <logger name="org.example.auth.controllers.AuthController" level="INFO">
-        <appender-ref ref="CONSOLE"/>
-        <appender-ref ref="LOGSTASH"/>
-    </logger>
-
     <root level="INFO">
         <appender-ref ref="CONSOLE"/>
     </root>
