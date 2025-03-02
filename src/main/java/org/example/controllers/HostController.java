@@ -80,7 +80,7 @@ public class HostController {
             hostServiceImpl.deleteHost(hostName);
             log.info("Response for Get Request delete host:\thost deleted: ".concat(hostName));
             return "redirect:/hosts/all";
-        } catch (DataIntegrityViolationException e) {
+        } catch (Exception e) {
             log.info("Response for Get Request delete host:\tunable to delete host: ".concat(hostName));
             redirectAttributes.addFlashAttribute("UnableToDelete", true);
         }
