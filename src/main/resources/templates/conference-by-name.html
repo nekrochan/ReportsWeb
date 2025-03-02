@@ -9,6 +9,9 @@
             <div class="col-md-2"></div>
             <div class="jumbotron text-center rounded col-md-8 align-self-center pt-5">
                 <h1 class="text-center text-dark mt-5">Conference Details</h1>
+                <p class="text-danger" th:if="${UnableToDelete}">
+                    Unable to delete this conference.
+                </p>
                 <div class='row mb-4 d-flex justify-content-around'>
                     <h4 th:text="'Conference Name: ' + ${conferenceByName.confName}"></h4>
                     <h4 th:text="'Year: ' + ${conferenceByName.year}"></h4>

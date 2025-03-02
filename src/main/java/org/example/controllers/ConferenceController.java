@@ -94,13 +94,19 @@ public class ConferenceController {
     }
 
     @GetMapping("/conference-delete/{conference-name}")
-    public String deleteConference(@PathVariable("conference-name") String conferenceName) {
+    public String deleteConference(@PathVariable("conference-name") String conferenceName, RedirectAttributes redirectAttributes) {
 
         log.info("Get Request:\tdelete conference with name ".concat(conferenceName));
-        conferenceServiceImpl.deleteConference(conferenceName);
+        try {
+            conferenceServiceImpl.deleteConference(conferenceName);
+            log.info("Response for Get Request delete conference:\tConference deleted: ".concat(conferenceName));
+            return "redirect:/conferences/all";
+        } catch (Exception e) {
+            log.info("Response for Get Request delete conference:\tUnable to delete conference: ".concat(conferenceName));
+            redirectAttributes.addFlashAttribute("UnableToDelete", true);
+        }
 
-        log.info("Response for Get Request delete conference:\tConference deleted: ".concat(conferenceName));
-        return "redirect:/conferences/all";
+        return "redirect:/conferences/conference-by-name/{conference-name}";
     }
-    
+
 }

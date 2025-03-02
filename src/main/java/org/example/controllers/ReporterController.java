@@ -73,11 +73,17 @@ public class ReporterController {
     }
 
     @GetMapping("/reporter-delete/{reporter-by-name}")
-    public String deleteReporter(@PathVariable("reporter-by-name") String reporterName) {
+    public String deleteReporter(@PathVariable("reporter-by-name") String reporterName, RedirectAttributes redirectAttributes) {
         log.info("Get Request:\tdelete reporter with name ".concat(reporterName));
-        reporterServiceImpl.deleteReporter(reporterName);
+        try {
+            reporterServiceImpl.deleteReporter(reporterName);
+            log.info("Response for Get Request delete reporter:\treporter deleted: ".concat(reporterName));
+            return "redirect:/reporters/all";
+        } catch (Exception e) {
+            log.info("Response for Get Request delete reporter:\tUnable to delete reporter: ".concat(reporterName));
+            redirectAttributes.addFlashAttribute("UnableToDelete", true);
+        }
 
-        log.info("Response for Get Request delete reporter:\treporter deleted: ".concat(reporterName));
-        return "redirect:/reporters/all";
+        return "redirect:/reporters/reporter-by-name/{reporter-Name}";
     }
 }
