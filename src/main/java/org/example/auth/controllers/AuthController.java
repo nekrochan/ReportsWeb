@@ -50,6 +50,12 @@ public class AuthController {
             return "redirect:/users/register";
         }
 
+        if (!userRegistrationDto.getPassword().equals(userRegistrationDto.getConfirmPassword())) {
+            redirectAttributes.addFlashAttribute("userRegistrationDto", userRegistrationDto);
+            redirectAttributes.addFlashAttribute("NonConfirmedPassword", true);
+            return "redirect:/users/register";
+        }
+
         try {
             this.authService.register(userRegistrationDto);
         } catch (AuthService.UsernameAlreadyExistsException ex) {

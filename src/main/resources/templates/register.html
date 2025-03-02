@@ -15,6 +15,15 @@
               th:method="post"
               th:object="${userRegistrationDto}"
               class="m-md-auto w-50 pb-3">
+
+          <p class="text-danger" th:if="${badCredentials}">
+            Invalid username or email.
+          </p>
+
+          <p class="text-danger" th:if="${NonConfirmedPassword}">
+            Passwords have no matches.
+          </p>
+
           <div class="mb-3">
             <label class="form-label" for="username">Username</label>
             <input th:field="*{username}"
@@ -80,10 +89,6 @@
                    class="text-danger">Error
               message</small>
           </div>
-
-          <p class="text-danger" th:if="${badCredentials}">
-            Invalid username or email.
-          </p>
 
           <button type="submit" class="btn btn-secondary">Register</button>
         </form>
