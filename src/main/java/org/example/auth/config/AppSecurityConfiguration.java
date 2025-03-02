@@ -39,8 +39,8 @@ public class AppSecurityConfiguration {
                                         .requestMatchers("/", "/users/login", "/users/register", "/users/login-error")
                                         .permitAll()
                                         .requestMatchers("/users/profile").authenticated()
-                                        .requestMatchers("/employees/add", "/employees/employee-delete/").hasRole(UserRoles.MODERATOR.name())
-                                        .requestMatchers("/companies/add","/companies/company-delete/","/employees/add", "/employees/employee-delete/").hasRole(UserRoles.ADMIN.name())
+                                        .requestMatchers("/reports/add", "/reporters/add").hasRole(UserRoles.MODERATOR.name())
+                                        .requestMatchers("/reports/add","/reporters/add","/conferences/add", "/founders/add", "/hosts/add").hasRole(UserRoles.ADMIN.name())
                                         .anyRequest().authenticated()
                 )
                 .formLogin(
