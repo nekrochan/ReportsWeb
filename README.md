@@ -2,30 +2,51 @@
 *Repository for Web App Development discipline*
 
 ## Инфа для запуска
-
-### Postgresql
+### Базы данных
+#### Postgresql
 - поднимается **_локально_**
 - порт: `5432`
 - имя базы: `ReportsWeb`
 - username: `postgres`
 - password: `admin`
 - 
-### OpenSearch
+#### OpenSearch
 - поднимается **_в докере_**
 - версия: `3.8`
 - порты: `9200` и `9600`
 - container_name: `opensearch-reportsweb`
 - порт: `4560`
 
-### Logstash
+#### Logstash
 - поднимается **_в докере_**
 - порт: `4560`
 - container_name: `logstash-reportsweb`
 
-### Kibana
+#### Kibana
 - поднимается **_в докере_**
 - container_name: `kibana-reportsweb`
 - порт: `5601`
+### Аккаунты по умолчанию
+#### Дефолтный пользователь:
+- username: `user`
+- password: `password`
+- email: `user@example.com`
+- fullname: `UserName UserSurname`
+- age: `22`
+
+#### Модератор:
+- username: `moderator`
+- password: `password`
+- email: `moderator@example.com`
+- fullname: `ModerName ModerSurname`
+- age: `24`
+
+#### Администратор:
+- username: `admin`
+- password: `password`
+- email: `admin@example.com`
+- fullname: `AdminName AdminSurname`
+- age: `30`
 
 ## Describtion
 > ***ToDo:*** *fix docker opensearch, maybe healthcheck.sh is needed; pages ...-by-name look ugly*
@@ -35,7 +56,7 @@
 - Report:
 	- id - not null, unique, string;
 	- theme - not null, string;
-	- value - string;
+	- volume - integer;
 	- reporterName - string;;
 	- conferenceName - string.
 
