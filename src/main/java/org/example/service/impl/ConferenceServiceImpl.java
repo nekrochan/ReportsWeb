@@ -70,7 +70,7 @@ public class ConferenceServiceImpl implements ConferenceService {
     }
 
     @Override
-    @Cacheable(value = "reports", key = "#conferenceName") // Кэшируем отчеты по имени конференции
+    @Cacheable(value = "reports", key = "#conferenceName") // Кэшируем доклады по имени конференции
     public List<ReportViewModel> findAllReportsFromConference(String conferenceName) {
         return this.conferenceRepository
                 .findConferenceByConfName(conferenceName)
@@ -81,7 +81,7 @@ public class ConferenceServiceImpl implements ConferenceService {
     }
 
     @Override
-    @Cacheable(value = "reportsDto", key = "#conferenceName") // Кэшируем DTO отчетов по имени конференции
+    @Cacheable(value = "reportsDto", key = "#conferenceName") // Кэшируем DTO докладов по имени конференции
     public List<ReportDto> findAllReportsFromConfDto(String conferenceName) {
         return this.conferenceRepository
                 .findConferenceByConfName(conferenceName)
