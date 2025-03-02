@@ -8,11 +8,23 @@
     </appender>
 
     <!-- Логирование SQL-запросов Hibernate -->
-    <logger name="org.hibernate.SQL" level="DEBUG">
+    <logger name="org.hibernate.SQL" level="INFO">
         <appender-ref ref="CONSOLE"/>
         <appender-ref ref="LOGSTASH"/>
     </logger>
     <logger name="org.hibernate.type.descriptor.sql.BasicBinder" level="TRACE">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="LOGSTASH"/>
+    </logger>
+
+    <!-- Логирование пользовательских запросов -->
+    <logger name="org.example.controllers" level="INFO">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="LOGSTASH"/>
+    </logger>
+
+    <!-- Логирование авторизации  -->
+    <logger name="org.example.auth.controllers.AuthController" level="INFO">
         <appender-ref ref="CONSOLE"/>
         <appender-ref ref="LOGSTASH"/>
     </logger>

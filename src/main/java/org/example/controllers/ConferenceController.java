@@ -5,8 +5,6 @@ import org.example.service.dto.ConferenceDto;
 import org.example.service.impl.ConferenceServiceImpl;
 import org.example.service.impl.FounderServiceImpl;
 import org.example.service.impl.HostServiceImpl;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
@@ -89,7 +87,6 @@ public class ConferenceController {
         log.info("Get Request:\tconference-by-name page with conference name ".concat(conferenceName));
 
         model.addAttribute("conferenceByName", conferenceServiceImpl.findConferenceByConfName(conferenceName));
-        //System.out.println("conferenceByName method called with name: " + conferenceName);
 
         log.info("Response for Get Request conference-all:\treturning conference-by-name/".concat(conferenceName));
 

@@ -27,7 +27,6 @@ public class ReportDto {
     public String getTheme() {
         return theme;
     }
-
     public void setTheme(String theme) {
         this.theme = theme;
     }
@@ -36,7 +35,6 @@ public class ReportDto {
     public int getVolume() {
         return volume;
     }
-
     public void setVolume(int volume) {
         this.volume = volume;
     }
@@ -46,7 +44,6 @@ public class ReportDto {
     public String getReporterName() {
         return reporterName;
     }
-
     public void setReporterName(String reporterName) {
         this.reporterName = reporterName;
     }
@@ -56,7 +53,6 @@ public class ReportDto {
     public String getConfName() {
         return confName;
     }
-
     public void setConfName(String confName) {
         this.confName = confName;
     }

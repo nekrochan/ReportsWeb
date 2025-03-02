@@ -25,7 +25,6 @@ public class ReporterDto {
     public String getReporterName() {
         return reporterName;
     }
-
     public void setReporterName(String reporterName) {
         this.reporterName = reporterName;
     }
@@ -33,7 +32,6 @@ public class ReporterDto {
     public String getCompetence() {
         return competence;
     }
-
     public void setCompetence(String competence) {
         this.competence = competence;
     }
@@ -41,7 +39,6 @@ public class ReporterDto {
     public String getOrganization() {
         return organization;
     }
-
     public void setOrganization(String organization) {
         this.organization = organization;
     }
