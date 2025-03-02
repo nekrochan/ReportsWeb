@@ -5,6 +5,7 @@ import org.example.service.dto.HostDto;
 import org.example.service.impl.HostServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import jakarta.validation.Valid;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -73,11 +74,17 @@ public class HostController {
     }
 
     @GetMapping("/host-delete/{host-name}")
-    public String deleteHost(@PathVariable("host-name") String hostName) {
+    public String deleteHost(@PathVariable("host-name") String hostName, RedirectAttributes redirectAttributes) {
         log.info("Get Request:\tdelete host with name ".concat(hostName));
-        hostServiceImpl.deleteHost(hostName);
+        try {
+            hostServiceImpl.deleteHost(hostName);
+            log.info("Response for Get Request delete host:\thost deleted: ".concat(hostName));
+            return "redirect:/hosts/all";
+        } catch (DataIntegrityViolationException e) {
+            log.info("Response for Get Request delete host:\tunable to delete host: ".concat(hostName));
+            redirectAttributes.addFlashAttribute("UnableToDelete", true);
+        }
 
-        log.info("Response for Get Request delete host:\thost deleted: ".concat(hostName));
-        return "redirect:/hosts/all";
+        return "redirect:/hosts/host-by-name/{host-name}";
     }
 }
